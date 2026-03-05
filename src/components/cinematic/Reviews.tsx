@@ -8,33 +8,38 @@ const REVIEWS = [
     {
         name: "Mariana Silva",
         role: "Tratamento Clínico",
-        text: "Excelente atendimento e muito cuidado durante todo o tratamento. O ambiente transmite muita paz e a equipe é impecável. Recomendo muito."
+        text: "Excelente atendimento e muito cuidado durante todo o tratamento. O ambiente transmite muita paz e a equipe é impecável. Recomendo muito.",
+        initial: "M"
     },
     {
         name: "Roberto Almeida",
         role: "Implante Dentário",
-        text: "Tinha pavor de dentista, mas a clínica me passou uma segurança absurda. O implante foi indolor e o suporte pelo WhatsApp depois foi fantástico."
+        text: "Tinha pavor de dentista, mas a clínica me passou uma segurança absurda. O implante foi indolor e o suporte pelo WhatsApp depois foi fantástico.",
+        initial: "R"
     },
     {
         name: "Juliana Mendes",
         role: "Estética Avançada",
-        text: "A transformação da minha autoestima foi incrível. O resultado ficou perfeito, super natural e alinhado ao meu rosto. Hoje consigo sorrir em fotos sem tentar me esconder."
+        text: "A transformação da minha autoestima foi incrível. O resultado ficou perfeito, super natural e alinhado ao meu rosto. Hoje consigo sorrir em fotos sem tentar me esconder.",
+        initial: "J"
     },
     {
         name: "Camila Santos",
         role: "Odontopediatria",
-        text: "O nível de atenção e humanização me impressionou muito. Levei meus filhos e o cuidado deles tirou todo o trauma infantil de dentista."
+        text: "O nível de atenção e humanização me impressionou muito. Levei meus filhos e o cuidado deles tirou todo o trauma infantil de dentista.",
+        initial: "C"
     }
 ];
 
 export const Reviews = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [direction, setDirection] = useState<'right' | 'left'>('right');
     const [isAnimating, setIsAnimating] = useState(false);
 
     // Auto-advance loop (10s active reading time)
     useEffect(() => {
-        if (isAnimating) return; // Prevent multiple loops when animating
+        if (isAnimating) return;
         const timer = setTimeout(() => {
             handleTransition('next');
         }, 10000);
@@ -54,114 +59,150 @@ export const Reviews = () => {
         return () => ctx.revert();
     }, []);
 
-    const handleTransition = (direction: 'next' | 'prev') => {
+    const handleTransition = (dir: 'next' | 'prev') => {
         if (isAnimating) return;
         setIsAnimating(true);
+        setDirection(dir === 'next' ? 'right' : 'left');
 
-        // CSS Animation class triggers via key changes. 
-        // We artificially enforce a delay to allow the outgoing element to fade/slide out
         setTimeout(() => {
-            if (direction === 'next') {
+            if (dir === 'next') {
                 setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
             } else {
                 setActiveIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
             }
             setTimeout(() => {
                 setIsAnimating(false);
-            }, 50); // Small buffer to ensure DOM has updated before next transition capability
-        }, 400); // 400ms is the duration of our "fade out" phase 
+            }, 50);
+        }, 300); // Animation duration match
     };
 
     const nextSlide = () => handleTransition('next');
     const prevSlide = () => handleTransition('prev');
 
     return (
-        <section id="avaliacoes" ref={containerRef} className="py-12 px-4 w-full max-w-7xl mx-auto md:px-12 lg:px-16">
-            <div className="bg-dark rounded-[3rem] w-full relative overflow-hidden px-4 md:px-12 py-10 md:py-12 shadow-2xl">
-                {/* Background Texture/Gradient */}
-                <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-accent/5 to-transparent opacity-50 pointer-events-none" />
+        <section id="avaliacoes" ref={containerRef} className="py-24 px-4 w-full max-w-7xl mx-auto md:px-12 lg:px-16 overflow-hidden">
+            <div className="bg-dark/95 border border-white/5 rounded-[2.5rem] w-full relative overflow-hidden px-6 md:px-16 py-16 md:py-20 shadow-2xl flex flex-col">
+                {/* Background Luxury Accent */}
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-radial from-[#FBBF24]/5 to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute -left-32 -bottom-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10">
-                    {/* Header Left Side */}
-                    <div className="lg:w-1/3 flex flex-col justify-center review-header px-2">
-                        <div className="flex flex-wrap items-center gap-4 mb-6">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-[1px] bg-accent" />
-                                <span className="font-mono-data text-xs text-accent uppercase tracking-widest font-semibold flex-shrink-0">
-                                    Prova Social
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2 bg-cream/5 border border-cream/10 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                                <span className="text-xs text-cream font-medium tracking-wide">5.0 (271 avaliações no Google)</span>
-                            </div>
+                {/* Header Section */}
+                <div className="flex flex-col lg:flex-row justify-between items-end gap-10 mb-16 relative z-10 review-header">
+                    <div className="lg:w-2/3 flex flex-col justify-center">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-[1px] bg-[#FBBF24]/50" />
+                            <span className="font-mono-data text-xs text-[#FBBF24]/90 uppercase tracking-[0.2em] font-medium flex-shrink-0">
+                                Excelência Comprovada
+                            </span>
                         </div>
 
-                        <h2 className="font-serif-drama text-4xl md:text-5xl lg:text-6xl text-cream mb-6 leading-none">
-                            O que nossos<br />pacientes dizem.
+                        <h2 className="font-serif-drama text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1]">
+                            A Arte de Transformar<br className="hidden md:block" /> Vidas e Sorrisos.
                         </h2>
-                        <p className="font-sans-outfit text-lg text-cream/70 mb-10">
-                            A maior prova do nosso compromisso é a transformação real na autoestima de quem confia no nosso trabalho.
-                        </p>
-
-                        {/* Navigation Controls (Desktop) */}
-                        <div className="hidden lg:flex items-center gap-4">
-                            <button onClick={prevSlide} className="w-12 h-12 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                            </button>
-                            <button onClick={nextSlide} className="w-12 h-12 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                            </button>
-                        </div>
                     </div>
 
-                    {/* Single Active Review Card Slider - Right Side */}
-                    <div className="lg:w-2/3 grid relative overflow-hidden items-center">
-                        {REVIEWS.map((review, index) => {
-                            const isActive = index === activeIndex;
-                            return (
-                                <div
-                                    key={index}
-                                    className={`[grid-area:1/1] w-full max-w-2xl mx-auto bg-gradient-to-br from-cream/[0.05] to-transparent border border-cream/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isActive ? 'opacity-100 scale-100 z-10 pointer-events-auto blur-0' : 'opacity-0 scale-95 z-0 pointer-events-none blur-sm'}`}
-                                >
-                                    <div className="flex justify-between items-start mb-2">
-                                        <div className="flex gap-1.5 text-accent">
-                                            {[1, 2, 3, 4, 5].map((star) => (
-                                                <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="drop-shadow-[0_2px_4px_rgba(34,211,238,0.3)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                                            ))}
-                                        </div>
-                                        <span className="font-serif-drama text-accent/20 text-6xl leading-none h-8 -mt-2 hidden sm:block">"</span>
-                                    </div>
-
-                                    <p className="font-serif-drama text-[1.65rem] md:text-[2rem] text-cream/95 italic leading-snug flex flex-col justify-center relative z-10 font-medium tracking-wide drop-shadow-sm min-h-[160px]">
-                                        "{review.text}"
-                                    </p>
-
-                                    <div className="pt-6 mt-4 flex items-center gap-5 border-t border-accent/10">
-                                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent/50 p-[2px] shadow-lg shadow-accent/20 shrink-0">
-                                            <div className="w-full h-full rounded-full bg-dark/90 flex items-center justify-center font-sans-bold text-cream text-2xl">
-                                                {review.name.charAt(0)}
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-col border-l-2 border-accent/30 pl-4 py-1">
-                                            <span className="font-sans-outfit font-bold text-lg text-cream tracking-wide">{review.name}</span>
-                                            <span className="font-mono-data text-[0.65rem] text-accent font-bold uppercase tracking-[0.2em] mt-1">{review.role}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                    {/* Navigation Controls (Mobile) */}
-                    <div className="flex lg:hidden items-center justify-center gap-6 mt-2 w-full">
-                        <button onClick={prevSlide} className="w-14 h-14 rounded-full border-2 border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-lg shadow-dark bg-dark/50 backdrop-blur-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                    {/* Navigation Controls */}
+                    <div className="flex items-center gap-4 shrink-0">
+                        <button
+                            onClick={prevSlide}
+                            disabled={isAnimating}
+                            className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-cream hover:bg-white/5 hover:border-[#FBBF24]/50 transition-all duration-300 disabled:opacity-50 group hover:shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+                            aria-label="Depoimento Anterior"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6" /></svg>
                         </button>
-                        <button onClick={nextSlide} className="w-14 h-14 rounded-full border-2 border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-lg shadow-dark bg-dark/50 backdrop-blur-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                        <button
+                            onClick={nextSlide}
+                            disabled={isAnimating}
+                            className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-cream hover:bg-white/5 hover:border-[#FBBF24]/50 transition-all duration-300 disabled:opacity-50 group hover:shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+                            aria-label="Próximo Depoimento"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6" /></svg>
                         </button>
                     </div>
                 </div>
+
+                {/* Carousel Container */}
+                <div className="relative w-full overflow-hidden flex-grow min-h-[300px] flex items-center">
+                    {REVIEWS.map((review, index) => {
+                        const isActive = index === activeIndex;
+
+                        // Handle transition classes based on direction
+                        let transformClass = 'translate-x-0 opacity-100 scale-100 relative z-10';
+                        if (!isActive) {
+                            transformClass = isAnimating
+                                ? (direction === 'right' ? '-translate-x-full opacity-0 scale-95 absolute inset-0 z-0' : 'translate-x-full opacity-0 scale-95 absolute inset-0 z-0')
+                                : 'opacity-0 scale-95 absolute inset-0 z-0 pointer-events-none hidden';
+                        }
+
+                        return (
+                            <div
+                                key={index}
+                                className={`w-full flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${transformClass} flex flex-col md:flex-row gap-8 md:gap-16 items-start`}
+                            >
+                                {/* Golden Quote Icon Container */}
+                                <div className="hidden md:flex flex-col items-start shrink-0 pt-2">
+                                    <span className="font-serif-drama text-[#FBBF24]/20 text-[8rem] leading-none select-none drop-shadow-sm">"</span>
+                                </div>
+
+                                {/* Content */}
+                                <div className="flex flex-col flex-grow relative">
+                                    <span className="font-serif-drama text-[#FBBF24]/20 text-6xl leading-none absolute -top-8 -left-4 md:hidden">"</span>
+
+                                    <p className="font-serif-drama text-[1.5rem] md:text-[2.2rem] text-cream/95 italic leading-snug font-medium tracking-wide drop-shadow-sm mb-10 min-h-[140px] md:min-h-[160px] relative z-10 w-full lg:w-[90%]">
+                                        {review.text}
+                                    </p>
+
+                                    {/* Author Info with Circular Avatar */}
+                                    <div className="flex items-center gap-5 mt-auto">
+                                        <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-br from-[#FBBF24]/60 to-[#FBBF24]/10 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                                            <div className="w-full h-full rounded-full bg-dark flex items-center justify-center border border-dark">
+                                                <span className="font-sans-bold text-cream text-xl drop-shadow-sm tracking-widest">{review.initial}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col justify-center">
+                                            <span className="font-sans-outfit font-bold text-lg md:text-xl text-cream tracking-wide">{review.name}</span>
+                                            <span className="font-mono-data text-[10px] sm:text-xs text-[#FBBF24] font-bold uppercase tracking-[0.2em] mt-1">{review.role}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Stars and Reviews count minimal badge at the bottom */}
+                <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm self-start sm:self-auto">
+                        <div className="flex gap-1">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <svg key={star} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                            ))}
+                        </div>
+                        <span className="text-xs text-cream/80 font-medium tracking-wide border-l border-white/20 pl-2 ml-1">5.0 Média de Pacientes</span>
+                    </div>
+
+                    {/* Simple Pagination Dots */}
+                    <div className="flex gap-2">
+                        {REVIEWS.map((_, idx) => (
+                            <button
+                                key={idx}
+                                aria-label={`Ir para avaliação ${idx + 1}`}
+                                onClick={() => {
+                                    if (isAnimating || activeIndex === idx) return;
+                                    setDirection(idx > activeIndex ? 'right' : 'left');
+                                    setIsAnimating(true);
+                                    setTimeout(() => {
+                                        setActiveIndex(idx);
+                                        setTimeout(() => setIsAnimating(false), 50);
+                                    }, 300);
+                                }}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === idx ? 'w-6 bg-[#FBBF24]' : 'w-1.5 bg-white/20 hover:bg-white/40'}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     );

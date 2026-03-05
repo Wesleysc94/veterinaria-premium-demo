@@ -54,7 +54,7 @@ export const Treatments = () => {
     }, []);
 
     return (
-        <section id="tratamentos" ref={containerRef} className="py-10 lg:py-16 px-8 md:px-16 w-full max-w-7xl mx-auto">
+        <section id="tratamentos" ref={containerRef} className="py-24 lg:py-32 px-8 md:px-16 w-full max-w-7xl mx-auto">
 
             {/* Header */}
             <div className="mb-12 max-w-3xl flex flex-col items-center mx-auto text-center">

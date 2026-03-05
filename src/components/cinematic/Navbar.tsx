@@ -88,7 +88,7 @@ const Navbar = () => {
 
       <button
         onClick={() => handleNavClick('contato')}
-        className="group relative overflow-hidden bg-accent text-white px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0 shadow-[0_0_15px_rgba(34,211,238,0.4)]"
+        className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-white px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0 shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
       >
         <span className="relative z-10 flex items-center gap-2 whitespace-nowrap drop-shadow-md">
           <span className="hidden sm:inline">Agendar Avaliação</span>

@@ -115,7 +115,7 @@ export const Protocol = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative w-full bg-background pt-24 pb-32">
+        <section ref={containerRef} className="relative w-full bg-background pt-32 pb-40">
             {/* Header outside the pinned area */}
             <div className="w-full max-w-7xl mx-auto px-8 md:px-16 mb-24 relative z-10">
                 <h2 className="font-serif-drama text-5xl md:text-6xl text-primary">Arquivo Fixo.</h2>
