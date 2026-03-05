@@ -56,6 +56,7 @@ export default {
         "green-dark": "hsl(var(--green-dark))",
         "green-medium": "hsl(var(--green-medium))",
         cream: "hsl(var(--cream))",
+        dark: "hsl(var(--dark))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -85,11 +86,16 @@ export default {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "breathe": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.05)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s ease-out forwards",
+        "breathe": "breathe 20s infinite alternate ease-in-out",
       },
     },
   },
