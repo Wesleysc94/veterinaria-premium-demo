@@ -68,8 +68,6 @@ const TreatmentDetails = () => {
     const data = TREATMENT_DATA[id as keyof typeof TREATMENT_DATA];
 
     useEffect(() => {
-        window.scrollTo(0, 0); // Reset scroll on page load
-
         if (data) {
             const ctx = gsap.context(() => {
                 gsap.fromTo('.anim-up',
