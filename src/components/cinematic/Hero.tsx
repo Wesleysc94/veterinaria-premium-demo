@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import heroBg from '../../assets/hero-bg.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +56,7 @@ export const Hero = () => {
                     ref={bgRef}
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none scale-110"
                     style={{
-                        backgroundImage: `url(${heroBg})`,
+                        backgroundImage: "url('/hero_premium_16x9.png')",
                         animation: 'breathe 20s infinite alternate ease-in-out'
                     }}
                 />

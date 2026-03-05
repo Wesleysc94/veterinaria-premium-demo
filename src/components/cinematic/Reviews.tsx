@@ -117,35 +117,40 @@ export const Reviews = () => {
 
                     {/* Single Active Review Card Slider - Right Side */}
                     <div className="lg:w-2/3 relative min-h-[300px] flex items-center overflow-hidden">
-                        <div
-                            key={activeIndex}
-                            className={`w-full max-w-2xl mx-auto bg-gradient-to-br from-cream/[0.05] to-transparent border border-cream/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700 h-full ${isAnimating ? 'opacity-0 translate-x-12 scale-[0.98] blur-sm' : 'opacity-100 translate-x-0 scale-100 blur-0 animate-in fade-in slide-in-from-right-16'}`}
-                        >
-                            <div className="flex justify-between items-start mb-2">
-                                <div className="flex gap-1.5 text-accent">
-                                    {[1, 2, 3, 4, 5].map((star) => (
-                                        <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="drop-shadow-[0_2px_4px_rgba(34,211,238,0.3)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                                    ))}
-                                </div>
-                                <span className="font-serif-drama text-accent/20 text-6xl leading-none h-8 -mt-2 hidden sm:block">"</span>
-                            </div>
+                        {REVIEWS.map((review, index) => {
+                            const isActive = index === activeIndex;
+                            return (
+                                <div
+                                    key={index}
+                                    className={`absolute inset-0 w-full max-w-2xl mx-auto bg-gradient-to-br from-cream/[0.05] to-transparent border border-cream/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 flex flex-col shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isActive ? 'opacity-100 scale-100 z-10 pointer-events-auto blur-0' : 'opacity-0 scale-95 z-0 pointer-events-none blur-sm'}`}
+                                >
+                                    <div className="flex justify-between items-start mb-2">
+                                        <div className="flex gap-1.5 text-accent">
+                                            {[1, 2, 3, 4, 5].map((star) => (
+                                                <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="drop-shadow-[0_2px_4px_rgba(34,211,238,0.3)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                                            ))}
+                                        </div>
+                                        <span className="font-serif-drama text-accent/20 text-6xl leading-none h-8 -mt-2 hidden sm:block">"</span>
+                                    </div>
 
-                            <p className="font-serif-drama text-3xl md:text-[2rem] text-cream/95 italic leading-snug min-h-[160px] md:min-h-[140px] flex items-center relative z-10 font-medium tracking-wide drop-shadow-sm">
-                                "{REVIEWS[activeIndex].text}"
-                            </p>
+                                    <p className="font-serif-drama text-3xl md:text-[2rem] text-cream/95 italic leading-snug min-h-[160px] md:min-h-[140px] flex items-center relative z-10 font-medium tracking-wide drop-shadow-sm">
+                                        "{review.text}"
+                                    </p>
 
-                            <div className="mt-auto pt-8 flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent/50 p-[2px] shadow-lg shadow-accent/20">
-                                    <div className="w-full h-full rounded-full bg-dark/90 flex items-center justify-center font-sans-bold text-cream text-2xl">
-                                        {REVIEWS[activeIndex].name.charAt(0)}
+                                    <div className="mt-auto pt-8 flex items-center gap-5">
+                                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent/50 p-[2px] shadow-lg shadow-accent/20">
+                                            <div className="w-full h-full rounded-full bg-dark/90 flex items-center justify-center font-sans-bold text-cream text-2xl">
+                                                {review.name.charAt(0)}
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col border-l-2 border-accent/30 pl-4 py-1">
+                                            <span className="font-sans-outfit font-bold text-lg text-cream tracking-wide">{review.name}</span>
+                                            <span className="font-mono-data text-[0.65rem] text-accent font-bold uppercase tracking-[0.2em] mt-1">{review.role}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col border-l-2 border-accent/30 pl-4 py-1">
-                                    <span className="font-sans-outfit font-bold text-lg text-cream tracking-wide">{REVIEWS[activeIndex].name}</span>
-                                    <span className="font-mono-data text-[0.65rem] text-accent font-bold uppercase tracking-[0.2em] mt-1">{REVIEWS[activeIndex].role}</span>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                     {/* Navigation Controls (Mobile) */}
                     <div className="flex lg:hidden items-center justify-center gap-6 mt-2 w-full">

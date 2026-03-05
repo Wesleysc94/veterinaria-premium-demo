@@ -90,7 +90,7 @@ export const Treatments = () => {
                     title="Estética para uma autoestima inabalável"
                     description="Transforme a harmonia do seu rosto com lentes ultrafinas e naturais. Sorria sem medo com resultados fotográficos de altíssimo padrão."
                     image="/orthodontics.png"
-                    link="/tratamentos/estetica"
+                    link="/tratamentos/ortodontia"
                 />
 
                 <TreatmentCard
