@@ -41,7 +41,7 @@ export const Features = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 px-8 md:px-16 w-full max-w-7xl mx-auto">
+        <section ref={containerRef} className="py-16 lg:py-24 px-8 md:px-16 w-full max-w-7xl mx-auto">
 
             {/* Header */}
             <div className="mb-20 max-w-3xl">

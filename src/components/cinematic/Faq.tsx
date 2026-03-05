@@ -83,7 +83,7 @@ export const Faq = () => {
     ];
 
     return (
-        <section id="faq" ref={containerRef} className="py-32 px-8 md:px-16 w-full max-w-4xl mx-auto">
+        <section id="faq" ref={containerRef} className="py-16 lg:py-24 px-8 md:px-16 w-full max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row gap-16">
 
                 {/* Header Side */}
