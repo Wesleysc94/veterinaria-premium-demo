@@ -109,8 +109,8 @@ export const Reviews = () => {
                             Não confie apenas na nossa palavra. Veja o que nossos pacientes dizem sobre a experiência Souffi.
                         </p>
 
-                        {/* Navigation Controls */}
-                        <div className="flex items-center gap-4">
+                        {/* Navigation Controls (Desktop) */}
+                        <div className="hidden lg:flex items-center gap-4">
                             <button onClick={prevSlide} className="w-12 h-12 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
                             </button>
@@ -151,6 +151,15 @@ export const Reviews = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    {/* Navigation Controls (Mobile) */}
+                    <div className="flex lg:hidden items-center justify-center gap-6 mt-2 w-full">
+                        <button onClick={prevSlide} className="w-14 h-14 rounded-full border-2 border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-lg shadow-dark bg-dark/50 backdrop-blur-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                        </button>
+                        <button onClick={nextSlide} className="w-14 h-14 rounded-full border-2 border-cream/20 flex items-center justify-center text-cream hover:bg-cream hover:text-dark transition-colors shadow-lg shadow-dark bg-dark/50 backdrop-blur-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
                     </div>
                 </div>
             </div>

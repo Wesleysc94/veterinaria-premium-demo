@@ -48,7 +48,7 @@ export const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center text-center px-4 md:px-16 overflow-hidden pt-28 pb-40 md:py-0"
+            className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center text-center px-4 md:px-16 overflow-hidden pt-28 pb-20 md:py-0"
         >
             {/* Background Image with Parallax & Soft Vignette Concept */}
             <div className="absolute inset-0 z-0 bg-primary/20 overflow-hidden">
@@ -113,11 +113,11 @@ export const Hero = () => {
             {/* Scroll Indicator */}
             <div className="hero-stagger absolute bottom-10 left-0 w-full z-10 flex justify-center pointer-events-none">
                 <div
-                    className="flex flex-col items-center gap-2 pointer-events-auto cursor-pointer group bg-dark/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 hover:bg-dark/60 transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+                    className="flex flex-col items-center gap-2 pointer-events-auto cursor-pointer group bg-dark/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 hover:bg-dark/60 transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,0,0,0.3)] animate-pulse"
                     onClick={() => document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                     <span className="font-mono-data text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-cream font-bold text-center whitespace-nowrap">Conheça a Souffi</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down text-accent group-hover:translate-y-1 transition-transform"><path d="m6 9 6 6 6-6" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down text-accent animate-bounce"><path d="m6 9 6 6 6-6" /></svg>
                 </div>
             </div>
         </section>
