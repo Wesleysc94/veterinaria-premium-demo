@@ -13,11 +13,12 @@ const TreatmentCard = ({ title, description, image, delay, link }: { title: stri
                 style={{ backgroundImage: `url(${image})` }}
             />
             {/* Glassmorphism Solid Base & Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-80 backdrop-blur-[2px] transition-all duration-500 group-hover:backdrop-blur-0 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-dark/80 backdrop-blur-[2px] opacity-60 transition-opacity duration-700 group-hover:opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-90" />
 
-            <div className="absolute inset-0 p-8 flex flex-col justify-end text-cream translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
-                <h3 className="font-sans-bold text-2xl mb-2 text-cream drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{title}</h3>
-                <p className="font-sans-outfit text-cream/90 text-sm mb-6 drop-shadow-md">
+            <div className="absolute inset-0 p-8 flex flex-col justify-end text-cream translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+                <h3 className="font-sans-bold text-2xl mb-2 text-white drop-shadow-md">{title}</h3>
+                <p className="font-sans-outfit text-white/80 text-sm mb-6 drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                     {description}
                 </p>
                 <button className="flex items-center gap-2 text-accent font-sans-bold text-sm uppercase tracking-wider relative overflow-hidden group/btn w-fit">

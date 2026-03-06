@@ -30,19 +30,19 @@ export const Contact = () => {
     return (
         <section id="contato" ref={containerRef} className="py-10 lg:py-16 px-8 md:px-16 w-full max-w-7xl mx-auto">
 
-            <div className="bg-dark text-cream rounded-[3rem] p-10 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl">
+            <div className="bg-card text-card-foreground rounded-[3rem] p-10 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl border border-border/50">
                 {/* Background Texture/Pattern */}
-                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
                 <div className="relative z-10 flex flex-col lg:flex-row gap-16 justify-between">
 
                     {/* Info Side */}
                     <div className="lg:w-1/2 flex flex-col gap-8">
                         <div>
-                            <h2 className="contact-anim font-serif-drama text-4xl md:text-6xl text-cream mb-4">
+                            <h2 className="contact-anim font-serif-drama text-4xl md:text-6xl text-primary mb-4">
                                 Volte a Sorrir.
                             </h2>
-                            <p className="contact-anim font-sans-outfit text-cream/70 text-lg">
+                            <p className="contact-anim font-sans-outfit text-foreground/80 text-lg">
                                 Estamos prontos para receber você e sua família. Agende sua avaliação e descubra como a odontologia pode ser acolhedora.
                             </p>
                         </div>
