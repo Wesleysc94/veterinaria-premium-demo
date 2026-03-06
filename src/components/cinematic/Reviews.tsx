@@ -138,30 +138,33 @@ export const Reviews = () => {
                         return (
                             <div
                                 key={index}
-                                className={`w-full flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${transformClass} flex flex-col md:flex-row gap-8 md:gap-16 items-start`}
+                                className={`w-full flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${transformClass} flex flex-col md:flex-row gap-6 md:gap-16 items-start`}
                             >
-                                {/* Golden Quote Icon Container */}
+                                {/* Golden Quote Icon Container (Desktop) */}
                                 <div className="hidden md:flex flex-col items-start shrink-0 pt-2">
                                     <span className="font-serif-drama text-[#FBBF24]/20 text-[8rem] leading-none select-none drop-shadow-sm">"</span>
                                 </div>
 
                                 {/* Content */}
-                                <div className="flex flex-col flex-grow relative">
-                                    <span className="font-serif-drama text-[#FBBF24]/20 text-6xl leading-none absolute -top-8 -left-4 md:hidden">"</span>
+                                <div className="flex flex-col flex-grow relative w-full">
+                                    {/* Mobile Quote Icon */}
+                                    <div className="md:hidden mb-4 relative z-0">
+                                        <span className="font-serif-drama text-[#FBBF24]/20 text-[5rem] leading-none select-none block h-10 -ml-1">"</span>
+                                    </div>
 
-                                    <p className="font-serif-drama text-[1.5rem] md:text-[2.2rem] text-cream/95 italic leading-snug font-medium tracking-wide drop-shadow-sm mb-10 min-h-[140px] md:min-h-[160px] relative z-10 w-full lg:w-[90%]">
+                                    <p className="font-serif-drama text-[1.25rem] sm:text-[1.5rem] md:text-[2.2rem] text-cream/95 italic leading-normal md:leading-snug font-medium tracking-wide drop-shadow-sm mb-8 md:mb-10 min-h-[120px] sm:min-h-[140px] md:min-h-[160px] relative z-10 w-full lg:w-[90%]">
                                         {review.text}
                                     </p>
 
                                     {/* Author Info with Circular Avatar */}
-                                    <div className="flex items-center gap-5 mt-auto">
-                                        <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-br from-[#FBBF24]/60 to-[#FBBF24]/10 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                                    <div className="flex items-center gap-4 sm:gap-5 mt-auto">
+                                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[2px] bg-gradient-to-br from-[#FBBF24]/60 to-[#FBBF24]/10 shadow-[0_0_15px_rgba(251,191,36,0.2)] shrink-0">
                                             <div className="w-full h-full rounded-full bg-dark flex items-center justify-center border border-dark">
-                                                <span className="font-sans-bold text-cream text-xl drop-shadow-sm tracking-widest">{review.initial}</span>
+                                                <span className="font-sans-bold text-cream text-lg sm:text-xl drop-shadow-sm tracking-widest">{review.initial}</span>
                                             </div>
                                         </div>
                                         <div className="flex flex-col justify-center">
-                                            <span className="font-sans-outfit font-bold text-lg md:text-xl text-cream tracking-wide">{review.name}</span>
+                                            <span className="font-sans-outfit font-bold text-base sm:text-lg md:text-xl text-cream tracking-wide">{review.name}</span>
                                             <span className="font-mono-data text-[10px] sm:text-xs text-[#FBBF24] font-bold uppercase tracking-[0.2em] mt-1">{review.role}</span>
                                         </div>
                                     </div>
