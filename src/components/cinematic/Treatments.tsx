@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TreatmentCard = ({ title, description, image, delay, link }: { title: string, description: string, image: string, delay: number, link: string }) => {
     return (
-        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden bg-primary/20 shadow-xl group cursor-pointer border border-border/10">
+        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden bg-primary/20 shadow-xl group cursor-pointer border border-border/10 [transform:translateZ(0)]">
             <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-110 opacity-60 mix-blend-overlay"
                 style={{ backgroundImage: `url(${image})` }}
