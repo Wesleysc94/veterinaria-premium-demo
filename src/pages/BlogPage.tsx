@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 // Conteúdo expandido simulado para cada blog post
 const articleContent: Record<string, string[]> = {
-  "sinais-sutis-pet": [
+  "quando-levar-ao-veterinario": [
     "Nossos pets nem sempre expressam desconforto da maneira que esperamos. Diferente dos humanos, cães e gatos frequentemente mascaram sinais de dor e mal-estar como um instinto natural de autopreservação.",
     "Fique atento a alterações sutis como diminuição na ingestão de água, leve claudicação ao levantar, mudanças na postura ao deitar ou redução no interesse por brincadeiras. Esses sinais podem indicar condições que, se identificadas precocemente, têm prognóstico significativamente melhor.",
     "Na Aura Vet, recomendamos consultas de rotina semestrais para pets adultos e trimestrais para pets seniores. Um exame clínico completo pode identificar alterações que passam despercebidas no dia a dia.",
@@ -172,8 +172,8 @@ export default function BlogPage() {
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all ${selectedCategory === cat
-                    ? "bg-accent text-white"
-                    : "bg-primary/5 text-primary/60 hover:bg-primary/10"
+                  ? "bg-accent text-white"
+                  : "bg-primary/5 text-primary/60 hover:bg-primary/10"
                   }`}
               >
                 {cat}
