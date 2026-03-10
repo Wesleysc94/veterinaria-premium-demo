@@ -133,17 +133,18 @@ export default function ContactPage() {
               </a>
             </Reveal>
 
-            <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
-              <iframe
-                title="Mapa da clinica"
-                src={clinic.mapEmbed}
-                className="h-[320px] w-full rounded-[1.6rem] border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </Reveal>
           </div>
         </div>
+
+        <Reveal delay={0.12} className="mx-auto mt-6 max-w-6xl card-surface overflow-hidden p-4">
+          <iframe
+            title="Mapa da clinica"
+            src={clinic.mapEmbed}
+            className="h-[360px] w-full rounded-[1.6rem] border-0 lg:h-[420px]"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </Reveal>
       </section>
     </div>
   );
