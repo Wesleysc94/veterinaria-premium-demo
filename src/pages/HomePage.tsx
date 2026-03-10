@@ -216,7 +216,7 @@ export default function HomePage() {
                     <ShieldCheck className="mt-1 h-6 w-6 text-accent shrink-0" />
                     <div>
                       <p className="text-xl font-bold text-primary tracking-tight">{item.title}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-primary/70">{item.text}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-primary/80">{item.text}</p>
                     </div>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white tracking-tight">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/70">{item.text}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/85">{item.text}</p>
                     </div>
                   </div>
                 </div>
@@ -513,13 +513,13 @@ export default function HomePage() {
       <section className="px-6 py-14 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.94fr,1.06fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/80">
               Contato local
             </p>
             <h2 className="mt-5 font-display text-4xl leading-[0.95] text-primary sm:text-5xl">
               Endereco forte, mapa visivel e canais prontos para gerar agendamento.
             </h2>
-            <div className="mt-6 space-y-4 text-sm leading-7 text-primary/70">
+            <div className="mt-6 space-y-4 text-sm leading-7 text-primary/85">
               <p className="flex items-start gap-3">
                 <MapPin className="mt-1 h-4 w-4 text-accent" />
                 {clinic.address}

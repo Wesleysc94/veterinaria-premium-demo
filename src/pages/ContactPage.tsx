@@ -23,7 +23,7 @@ export default function ContactPage() {
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+        <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-accent">
               Formulario de atendimento
@@ -117,7 +117,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} className="card-surface p-7 text-primary-foreground border-primary/20 bg-primary">
+            <Reveal delay={0.1} className="rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-[0_36px_120px_-60px_rgba(27,42,48,0.5)]">
               <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 Canal de urgencia
               </p>

@@ -104,17 +104,20 @@ export const clinic = {
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
-    hero: "/assets/hero.png",
+    hero:
+      "https://images.unsplash.com/photo-1576091160550-217359f48f8c?q=80&w=2000&auto=format&fit=crop",
     consultation:
       "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2000&auto=format&fit=crop",
     emergency:
-      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=2000&auto=format&fit=crop",
-    specialist: "/assets/about/environment.png",
+      "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=2000&auto=format&fit=crop",
+    specialist:
+      "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=2000&auto=format&fit=crop",
     diagnostics:
       "/assets/services/diagnostics.png",
-    environment: "/assets/about/environment.png",
-    editorial:
+    environment:
       "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2000&auto=format&fit=crop",
+    editorial:
+      "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2000&auto=format&fit=crop",
     species:
       "https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2000&auto=format&fit=crop",
     team: [
@@ -296,7 +299,7 @@ export const services: Service[] = [
       "Exame físico completo e avaliação clínica",
       "Indicação de plano terapêutico ou exames complementares",
     ],
-    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576091160550-217359f48f8c?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "vacinacao-preventiva",
@@ -317,7 +320,7 @@ export const services: Service[] = [
       "Aplicação cuidadosa com técnica de manejo amigável",
       "Atualização da carteira e agendamento de reforços",
     ],
-    image: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "exames-laboratoriais",
@@ -457,7 +460,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Informações essenciais sobre os reforços anuais e como a imunização protege toda a sua família.",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1504203700686-0be7e4361e33?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "sinais-de-alerta-caes-gatos",
@@ -475,7 +478,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Prepare-se para o primeiro encontro com o veterinário e garanta um início de vida saudável para seu novo pet.",
     readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1508675801600-7f6d1a7c2a90?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1591769225440-811ad7d62ca2?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "check-up-pet-senior",
@@ -484,7 +487,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Como exames regulares podem antecipar patologias e garantir uma velhice confortável e ativa.",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1508675801600-7f6d1a7c2a90?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "saude-bucal-pets",
