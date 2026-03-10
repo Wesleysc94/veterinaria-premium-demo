@@ -27,8 +27,127 @@ import {
 } from "@/components/ui/accordion";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
-import { useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const DiagnosticShuffler = ({ items }: { items: string[] }) => {
+  const [activeItems, setActiveItems] = useState(items);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveItems((prev) => {
+        const next = [...prev];
+        const last = next.pop();
+        if (last) next.unshift(last);
+        return next;
+      });
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative h-[200px] w-full perspective-1000">
+      {activeItems.slice(0, 3).map((item, i) => (
+        <motion.div
+          key={item}
+          layout
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{
+            opacity: 1 - i * 0.25,
+            y: i * 20,
+            scale: 1 - i * 0.05,
+            zIndex: 10 - i,
+          }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="absolute inset-x-0 top-0 rounded-[1.5rem] border border-primary/10 bg-card p-6 shadow-xl"
+        >
+          <p className="text-sm font-bold text-primary">{item}</p>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+const TelemetryTypewriter = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState("");
+  const fullText = text;
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) i = 0;
+    }, 100);
+    return () => clearInterval(interval);
+  }, [fullText]);
+
+  return (
+    <div className="space-y-4 rounded-[1.5rem] border border-primary/5 bg-primary/5 p-6 font-mono text-[11px]">
+      <div className="flex items-center gap-2">
+        <div className="h-2 w-2 animate-ping rounded-full bg-accent" />
+        <span className="uppercase text-primary/50">Live Telemetry Feed</span>
+      </div>
+      <p className="text-primary/80 leading-relaxed">
+        {displayText}
+        <span className="ml-1 inline-block h-4 w-1 animate-pulse bg-accent" />
+      </p>
+    </div>
+  );
+};
+
+const ProtocolScheduler = () => {
+  const [activeDay, setActiveDay] = useState(2); // Wednesday
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+      tl.to(cursorRef.current, { x: 80, y: 40, duration: 1, ease: "power2.inOut" })
+        .to(cursorRef.current, { scale: 0.8, duration: 0.1 })
+        .call(() => setActiveDay(Math.floor(Math.random() * 7)))
+        .to(cursorRef.current, { scale: 1, duration: 0.1 })
+        .to(cursorRef.current, { x: 180, y: 150, duration: 1, ease: "power2.inOut" })
+        .to(cursorRef.current, { opacity: 0, duration: 0.5 })
+        .set(cursorRef.current, { x: 0, y: 0, opacity: 1 });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative rounded-[2rem] border border-primary/10 bg-card p-6 overflow-hidden">
+      <div className="grid grid-cols-7 gap-2">
+        {["S", "M", "T", "W", "T", "F", "S"].map((day, i) => (
+          <div
+            key={i}
+            className={`flex h-10 w-10 items-center justify-center rounded-xl text-[10px] font-bold transition-colors ${activeDay === i ? "bg-accent text-white" : "border border-primary/5 text-primary/40"
+              }`}
+          >
+            {day}
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 flex justify-end">
+        <div className="rounded-full bg-primary/5 px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-primary/60">
+          Save Protocol
+        </div>
+      </div>
+      <motion.div
+        ref={cursorRef}
+        className="pointer-events-none absolute left-0 top-0 h-4 w-4 text-accent"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 2l12 11.23-6.73 1.35 4.3 6.9-2.2 1.36-4.38-6.9L7 20z" />
+        </svg>
+      </motion.div>
+    </div>
+  );
+};
 
 const featuredServices = services.slice(0, 6);
 const featuredTeam = team.slice(0, 3);
@@ -54,8 +173,8 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
             {/* Left Column: Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative z-10 space-y-10"
             >
@@ -69,20 +188,23 @@ export default function HomePage() {
                   <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
                   {clinic.badge}
                 </motion.span>
-                <h1 className="font-display text-6xl leading-[0.9] tracking-tight text-primary sm:text-8xl xl:text-9xl">
-                  Medicina <br />
-                  veterinária <br />
-                  <span className="italic text-accent">de precisão.</span>
-                </h1>
-                <p className="max-w-xl text-xl leading-relaxed text-primary/80 sm:text-2xl">
+                <div className="space-y-4">
+                  <h1 className="font-display text-7xl font-bold leading-[0.85] tracking-tighter text-primary sm:text-8xl xl:text-9xl">
+                    Medicina <br />
+                    veterinária
+                  </h1>
+                  <p className="font-display text-8xl italic text-accent leading-none -mt-4 xl:text-[11rem]">
+                    de precisão.
+                  </p>
+                </div>
+                <p className="max-w-xl text-xl leading-relaxed text-primary/80 sm:text-2xl pt-4">
                   Onde a tecnologia avançada encontra um cuidado profundamente humano para o seu pet.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-5">
-                <Link to="/contato" className="premium-button h-16 px-12 text-lg">
-                  <CalendarClock className="h-6 w-6" />
-                  Agendar Avaliação
+              <div className="flex flex-wrap gap-5 pt-4">
+                <Link to="/contato" className="premium-button">
+                  <span>Agendar Avaliação</span>
                 </Link>
                 <Link to="/servicos" className="premium-button-secondary h-16 px-12 text-lg">
                   Nossas Especialidades
@@ -125,154 +247,126 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 sm:px-8 lg:px-12">
+      <section className="px-6 py-32 sm:px-8 lg:px-12 bg-primary/[0.01]">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
-              eyebrow="CORPO CLÍNICO"
-              title="A tranquilidade de saber que seu pet está em boas mãos."
-              description="Nossa equipe multidisciplinar é formada pelos melhores especialistas, focados em oferecer um diagnóstico preciso e um tratamento acolhedor."
+              eyebrow="ARTEFATOS FUNCIONAIS"
+              title="A precisão digital a serviço da vida."
+              description="Nossa tecnologia não é apenas estética. Ela é o motor que impulsiona cada diagnóstico e tratamento na Aura Vet."
             />
           </Reveal>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredServices.map((service, index) => (
-              <Reveal
-                key={service.slug}
-                delay={index * 0.1}
-                className="card-surface group overflow-hidden p-0"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  <div className="absolute top-6 left-6">
-                    <span className="rounded-full bg-background/80 backdrop-blur-md px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
-                      {service.category}
-                    </span>
-                  </div>
-                  <div className="absolute top-6 right-6 h-10 w-10 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center text-accent">
-                    <Stethoscope className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="p-8">
-                  <h3 className="font-display text-4xl leading-none text-primary">
-                    {service.name}
-                  </h3>
-                  <p className="text-sm text-primary/75 line-clamp-2 leading-relaxed">
-                    {service.excerpt}
-                  </p>
-                  <Link
-                    to={`/servicos/${service.slug}`}
-                    className="mt-8 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-primary transition group-hover:text-accent"
-                  >
-                    Saiba mais
-                    <ArrowUpRight className="h-5 w-5" />
-                  </Link>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="card-surface p-10 space-y-8">
+              <div className="space-y-3">
+                <h3 className="font-display text-4xl leading-tight text-primary">Diagnostic Shuffler</h3>
+                <p className="text-sm text-primary/60 leading-relaxed">
+                  Algoritmos avançados que processam múltiplas hipóteses diagnósticas em tempo real.
+                </p>
+              </div>
+              <DiagnosticShuffler items={["Análise de Hematologia", "Processamento de Imagem", "Triagem Neurológica", "Monitoramento Cardíaco"]} />
+            </Reveal>
+
+            <Reveal delay={0.1} className="card-surface p-10 space-y-8">
+              <div className="space-y-3">
+                <h3 className="font-display text-4xl leading-tight text-primary">Telemetry Typewriter</h3>
+                <p className="text-sm text-primary/60 leading-relaxed">
+                  Feed de dados biométricos contínuos, garantindo vigilância total sobre o estado do paciente.
+                </p>
+              </div>
+              <TelemetryTypewriter text="SYSTEM STATUS: OPTIMAL... HEART RATE: 82 BPM... OXYGEN SATURATION: 98%... VITALS MONITORING ACTIVE..." />
+            </Reveal>
+
+            <Reveal delay={0.2} className="card-surface p-10 space-y-8">
+              <div className="space-y-3">
+                <h3 className="font-display text-4xl leading-tight text-primary">Protocol Scheduler</h3>
+                <p className="text-sm text-primary/60 leading-relaxed">
+                  Planejamento estratégico de cuidados que se adapta à evolução diária do seu pet.
+                </p>
+              </div>
+              <ProtocolScheduler />
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 sm:px-8 lg:px-12 bg-primary/[0.02]">
-        <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.9fr,1.1fr] lg:items-center">
-          <motion.div style={{ y: y2 }} className="card-surface overflow-hidden p-6">
-            <div className="relative overflow-hidden rounded-[3rem]">
-              <img
-                src={clinic.media.specialist}
-                alt="Medicina Especializada"
-                className="h-[600px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 rounded-[2rem] border border-white/20 theme-adaptive-surface p-6 backdrop-blur-xl">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">Especialidades</p>
-                <p className="mt-3 font-display text-4xl leading-tight text-primary">Cuidado Completo</p>
-                <p className="mt-2 text-sm text-primary/80 leading-relaxed">
-                  Cardiologia, Dermatologia, Ortopedia e Medicina Felina integradas.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+      <section className="relative px-6 py-40 sm:px-8 lg:px-12 bg-dark text-white overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <img
+            src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=2070&auto=format&fit=crop"
+            alt="Parallax Texture"
+            className="h-full w-full object-cover grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/80 to-dark" />
+        </div>
 
-          <Reveal delay={0.2} className="space-y-10">
-            <SectionIntro
-              eyebrow="POR QUE AURA VET"
-              title="A união perfeita entre ciência e empatia."
-              description="Entendemos que cada pet é um membro da família. Por isso, nossa abordagem é integral e personalizada."
-            />
+        <div className="relative z-10 mx-auto max-w-5xl text-center space-y-16">
+          <Reveal>
+            <p className="text-sm font-bold uppercase tracking-[0.5em] text-accent">Nossa Filosofia</p>
+          </Reveal>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {clinic.trustPillars.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-[2rem] border border-primary/10 theme-adaptive-surface p-6 shadow-xl"
-                >
-                  <div className="flex gap-4">
-                    <ShieldCheck className="mt-1 h-6 w-6 text-accent shrink-0" />
-                    <div>
-                      <p className="text-xl font-bold text-primary tracking-tight">{item.title}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-primary/80">{item.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="space-y-12">
+            <Reveal delay={0.1}>
+              <p className="text-2xl font-medium text-white/50 sm:text-3xl">
+                A maioria das clínicas foca em tratar doenças de forma isolada.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <h2 className="font-display text-6xl leading-[1.1] sm:text-8xl xl:text-9xl">
+                Nós focamos na <br />
+                <span className="italic text-accent">longevidade sistêmica.</span>
+              </h2>
+            </Reveal>
+          </div>
 
-            <Link to="/sobre" className="premium-button">
-              Conheça Nossa História
-            </Link>
+          <Reveal delay={0.3}>
+            <div className="mx-auto h-24 w-[1px] bg-gradient-to-b from-accent to-transparent" />
           </Reveal>
         </div>
       </section>
 
-      <section className="px-6 py-24 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.05fr,0.95fr] lg:items-center">
-          <Reveal className="space-y-10">
-            <SectionIntro
-              eyebrow="JORNADA DO PACIENTE"
-              title="A experiência Aura Vet começa antes mesmo da consulta."
-              description="Desenhamos um fluxo de atendimento que prioriza a clareza para o tutor e o máximo conforto para o pet."
-            />
-            <div className="space-y-6">
-              {clinic.visitSteps.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="flex gap-6 rounded-[2.5rem] border border-primary/10 theme-adaptive-surface p-6 shadow-lg"
-                >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white font-bold text-lg">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-2xl font-bold text-primary tracking-tight">{item.title}</h3>
-                    <p className="mt-2 text-base leading-relaxed text-primary/70">{item.text}</p>
-                  </div>
+      <section className="relative">
+        <div className="sticky top-0 h-screen overflow-hidden bg-background">
+          <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-12">
+            <div className="grid w-full max-w-6xl gap-16 lg:grid-cols-2 lg:items-center">
+              <div className="space-y-8">
+                <p className="text-sm font-bold uppercase tracking-[0.5em] text-accent">O Protocolo</p>
+                <h2 className="font-display text-6xl leading-tight text-primary sm:text-7xl">
+                  Fluxo de <span className="italic">excelência.</span>
+                </h2>
+                <div className="space-y-6">
+                  {clinic.visitSteps.map((step, i) => (
+                    <Reveal key={step.title} delay={i * 0.1}>
+                      <div className="flex gap-6 items-start">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/20 font-mono text-sm text-primary/40">
+                          0{i + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-2xl font-bold text-primary">{step.title}</h3>
+                          <p className="mt-2 text-primary/60">{step.text}</p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </div>
 
-          <Reveal delay={0.2} className="card-surface overflow-hidden p-6">
-            <div className="relative overflow-hidden rounded-[3rem]">
-              <img
-                src={clinic.media.species}
-                alt="Nossos Pacientes"
-                className="h-[600px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 rounded-[2rem] border border-white/20 theme-adaptive-surface p-6 backdrop-blur-xl">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">PACIENTES</p>
-                <p className="mt-3 font-display text-4xl leading-tight text-primary">
-                  Atendimento especializado para cães, gatos e pets seniores.
-                </p>
+              <div className="relative aspect-square">
+                <div className="absolute inset-0 rounded-[3rem] border border-primary/10 bg-primary/5 flex items-center justify-center overflow-hidden">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="h-2/3 w-2/3 border-2 border-dashed border-accent/20 rounded-full flex items-center justify-center"
+                  >
+                    <div className="h-1/2 w-1/2 border-2 border-accent rounded-full animate-pulse" />
+                  </motion.div>
+                </div>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
+        <div className="h-[200vh]" /> {/* Scroll space for sticky effect */}
       </section>
 
       <section className="px-6 py-24 sm:px-8 lg:px-12 bg-primary/[0.01]">

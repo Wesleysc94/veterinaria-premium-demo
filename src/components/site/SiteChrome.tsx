@@ -174,17 +174,14 @@ export function SiteChrome() {
       <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.28),transparent_70%)]" />
       <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.18),transparent_72%)]" />
 
-      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border theme-adaptive-surface px-5 py-3 shadow-[0_20px_90px_-50px_rgba(39,51,46,0.36)] backdrop-blur-xl transition hover:shadow-[0_18px_80px_-40px_rgba(39,51,46,0.4)]">
+      <header className="fixed inset-x-0 top-8 z-50 px-4 sm:px-8">
+        <div className="mx-auto flex max-w-4xl items-center justify-between rounded-full border border-primary/10 bg-background/60 px-6 py-2 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] backdrop-blur-3xl transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_18px_50px_-18px_rgba(47,93,115,0.6)]">
-              <Stethoscope className="h-5 w-5" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
+              <Stethoscope className="h-4 w-4" />
             </div>
-            <div>
-              <p className="font-display text-3xl leading-none text-primary">{clinic.shortName}</p>
-              <p className="text-[11px] uppercase tracking-[0.24em] text-primary/70">
-                Clinica veterinaria premium
-              </p>
+            <div className="hidden sm:block">
+              <p className="font-display text-2xl leading-none text-primary">{clinic.shortName}</p>
             </div>
           </Link>
 
@@ -194,23 +191,19 @@ export function SiteChrome() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 xl:flex">
-            <Link to="/emergencia" className="premium-button-secondary button-shimmer">
-              Emergencia
+          <div className="flex items-center gap-3">
+            <Link to="/contato" className="premium-button !py-3 !px-6 text-[11px]">
+              <span>Agendar</span>
             </Link>
-            <Link to="/contato" className="premium-button button-shimmer">
-              Agendar consulta
-            </Link>
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/10 bg-primary/5 text-primary xl:hidden"
+              onClick={() => setMenuOpen((value) => !value)}
+              aria-label="Abrir menu"
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
-
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 theme-adaptive-surface text-primary xl:hidden"
-            onClick={() => setMenuOpen((value) => !value)}
-            aria-label="Abrir menu"
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
 
         {menuOpen && (
