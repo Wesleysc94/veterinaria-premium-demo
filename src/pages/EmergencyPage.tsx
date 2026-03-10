@@ -18,13 +18,13 @@ export default function EmergencyPage() {
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr,1fr] lg:items-start">
           <Reveal className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
                 src={clinic.media.emergency}
                 alt="Fluxo de emergencia veterinaria"
-                className="h-[520px] w-full object-cover object-center"
+                className="h-[420px] w-full object-cover object-center md:h-[520px]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,42,48,0.12),rgba(22,33,29,0.54))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
@@ -39,6 +39,7 @@ export default function EmergencyPage() {
               eyebrow="Sinais de alerta"
               title="Respiracao alterada, trauma, convulsao ou sangramento pedem orientacao imediata."
               description="Esta pagina existe para diminuir ambiguidade. O tutor encontra uma lista clara de sinais e entende que existe um canal preparado para dar a primeira orientacao."
+              tone="default"
             />
 
             <div className="space-y-4">
@@ -99,25 +100,25 @@ export default function EmergencyPage() {
       </section>
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
+        <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-background/55">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/65">
                 Contato imediato
               </p>
-              <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl">
+              <h2 className="mt-4 font-display text-4xl leading-[0.95] text-white sm:text-5xl">
                 Quando houver duvida sobre gravidade, a melhor proxima acao precisa estar evidente.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/82">
                 O CTA final combina design premium e urgencia funcional para ajudar o tutor a agir sem perder confianca.
               </p>
             </div>
             <div className="space-y-4">
-              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button light justify-center">
+              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button on-panel justify-center">
                 <Phone className="h-4 w-4" />
                 {clinic.emergencyPhone}
               </a>
-              <Link to="/contato" className="premium-button-secondary dark justify-center">
+              <Link to="/contato" className="premium-button-secondary on-panel justify-center">
                 <Siren className="h-4 w-4" />
                 Falar com a clinica
               </Link>

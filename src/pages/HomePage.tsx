@@ -558,7 +558,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-6 py-24 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[4rem] border border-primary/10 bg-primary px-10 py-16 text-primary-foreground shadow-[0_60px_150px_-60px_rgba(27,42,48,0.45)] sm:px-16 md:py-20 overflow-hidden relative">
+        <Reveal className="brand-panel mx-auto max-w-6xl rounded-[4rem] border border-white/15 px-10 py-16 shadow-[0_60px_150px_-60px_rgba(27,42,48,0.45)] sm:px-16 md:py-20 overflow-hidden relative">
           <div className="ambient-orb inset-0 opacity-20 pointer-events-none" />
           <div className="grid gap-12 lg:grid-cols-[1.2fr,0.8fr] lg:items-center relative z-10">
             <div className="space-y-6">
@@ -573,10 +573,10 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col gap-5">
-              <Link to="/contato" className="premium-button light h-16 text-lg justify-center shadow-none hover:shadow-xl">
+              <Link to="/contato" className="premium-button on-panel h-16 text-lg justify-center shadow-none hover:shadow-xl">
                 Agendar Agora
               </Link>
-              <Link to="/emergencia" className="premium-button-secondary on-primary h-16 text-lg justify-center shadow-none">
+              <Link to="/emergencia" className="premium-button-secondary on-panel h-16 text-lg justify-center shadow-none">
                 Ver Central de Urgência
               </Link>
             </div>

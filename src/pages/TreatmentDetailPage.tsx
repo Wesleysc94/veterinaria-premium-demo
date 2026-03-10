@@ -121,28 +121,28 @@ export default function TreatmentDetailPage() {
       </section>
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
+        <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-background/55">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/65">
                 Agendamento
               </p>
-              <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl">
+              <h2 className="mt-4 font-display text-4xl leading-[0.95] text-white sm:text-5xl">
                 Agende uma consulta e receba uma conduta clara para este atendimento.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/82">
                 Contato rapido, orientacao objetiva e acompanhamento pensado para gerar seguranca ao tutor.
               </p>
             </div>
             <div className="space-y-4">
-              <Link to="/contato" className="premium-button light justify-center">
+              <Link to="/contato" className="premium-button on-panel justify-center">
                 Quero agendar
               </Link>
               <a
                 href={clinic.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="premium-button-secondary dark justify-center"
+                className="premium-button-secondary on-panel justify-center"
               >
                 Falar pelo WhatsApp
                 <ArrowUpRight className="h-4 w-4" />

@@ -117,7 +117,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} className="rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-[0_36px_120px_-60px_rgba(27,42,48,0.5)]">
+            <Reveal delay={0.1} className="brand-panel rounded-[2rem] border border-white/15 p-7 shadow-[0_36px_120px_-60px_rgba(27,42,48,0.5)]">
               <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 Canal de urgencia
               </p>
@@ -127,7 +127,7 @@ export default function ContactPage() {
               <p className="mt-4 text-sm leading-relaxed opacity-80">
                 O site reforca o telefone, o WhatsApp e o fluxo de triagem para momentos em que a rapidez de resposta importa tanto quanto a confianca na equipe.
               </p>
-              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button light mt-6 justify-center">
+              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button on-panel mt-6 justify-center">
                 <Siren className="h-4 w-4" />
                 Ligar para triagem
               </a>

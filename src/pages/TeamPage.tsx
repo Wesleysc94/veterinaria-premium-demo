@@ -94,7 +94,7 @@ export default function TeamPage() {
       </section>
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-primary-foreground shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
+        <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">

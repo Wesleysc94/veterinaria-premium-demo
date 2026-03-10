@@ -295,6 +295,37 @@
     background-color: hsl(var(--primary-foreground) / 0.2);
   }
 
+  .brand-panel {
+    background-color: #2f5d73;
+    color: #f4f1eb;
+  }
+
+  .brand-panel-muted {
+    background-color: #325f75;
+    color: #f4f1eb;
+  }
+
+  .premium-button.on-panel {
+    background-color: #f4f1eb;
+    color: #27332e;
+    box-shadow: 0 20px 50px -15px rgba(15, 32, 39, 0.32);
+  }
+
+  .premium-button.on-panel:hover {
+    box-shadow: 0 24px 56px -12px rgba(15, 32, 39, 0.36);
+  }
+
+  .premium-button-secondary.on-panel {
+    border-color: rgba(244, 241, 235, 0.28);
+    background-color: rgba(244, 241, 235, 0.12);
+    color: #f4f1eb;
+  }
+
+  .premium-button-secondary.on-panel:hover {
+    background-color: rgba(244, 241, 235, 0.2);
+    border-color: rgba(244, 241, 235, 0.5);
+  }
+
   .input-surface {
     width: 100%;
     border-radius: 1.4rem;
