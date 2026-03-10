@@ -22,7 +22,7 @@ export function PageHero({
     <section className="relative overflow-hidden px-6 pb-14 pt-32 sm:px-8 lg:px-12">
       <div className="ambient-orb left-[-6rem] top-20 h-56 w-56 bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.24),transparent_68%)]" />
       <div className="ambient-orb right-[-4rem] top-12 h-72 w-72 bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.24),transparent_70%)]" />
-      <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/60 bg-white/80 px-7 py-10 shadow-[0_30px_120px_-55px_rgba(39,51,46,0.28)] backdrop-blur md:px-12 md:py-14">
+      <div className="mx-auto max-w-6xl rounded-[2rem] border theme-adaptive-surface px-7 py-10 shadow-[0_30px_120px_-55px_rgba(39,51,46,0.28)] backdrop-blur md:px-12 md:py-14">
         <Reveal className="max-w-4xl space-y-6">
           <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-background px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/70">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />

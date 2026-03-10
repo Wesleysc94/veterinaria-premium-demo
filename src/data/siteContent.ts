@@ -103,26 +103,26 @@ export const clinic = {
   ] satisfies NavItem[],
   media: {
     hero:
-      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2670&auto=format&fit=crop", // Modern clean pet clinic
+      "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=2670&auto=format&fit=crop", // Professional vet with dog in high-end clinic
     consultation:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2668&auto=format&fit=crop", // Vet with pet
+      "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2574&auto=format&fit=crop", // Modern vet consultation
     emergency:
-      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2689&auto=format&fit=crop", // Medical equipment/Care
+      "https://images.unsplash.com/photo-1516733725897-1aa3138b3874?q=80&w=2671&auto=format&fit=crop", // Emergency care/Equip
     specialist:
-      "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=2670&auto=format&fit=crop", // Specialist vet
+      "https://images.unsplash.com/photo-1596229202577-4c070243be4c?q=80&w=2670&auto=format&fit=crop", // Specialized treatment
     diagnostics:
-      "https://images.unsplash.com/photo-1579154235602-3c2c2446a1e6?q=80&w=2670&auto=format&fit=crop", // Laboratory
+      "https://images.unsplash.com/photo-1579154236595-c99939e6a002?q=80&w=2670&auto=format&fit=crop", // Lab diagnostics
     environment:
-      "https://images.unsplash.com/photo-1606101273044-86dc79393c5c?q=80&w=2670&auto=format&fit=crop", // Clean lobby
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop", // Luxury reception area
     editorial:
-      "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2669&auto=format&fit=crop", // Happy pet outside
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop", // Emotional vet-pet bond
     species:
-      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop", // Calm cat
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop", // Premium cat portrait
     team: [
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2574&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2670&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2574&auto=format&fit=crop",
     ],
   },
   stats: [

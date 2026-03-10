@@ -259,22 +259,14 @@
     animation: orb-drift 11s ease-in-out infinite;
   }
 
+  .card-surface:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 42px 140px -60px rgba(39, 51, 46, 0.4);
+  }
+
   .interactive-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 42px 120px -60px rgba(39, 51, 46, 0.36);
-  }
-
-  .button-shimmer::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.28) 46%, transparent 72%);
-    transform: translateX(-140%);
-    transition: transform 0.7s ease;
-  }
-
-  .button-shimmer:hover::after {
-    transform: translateX(140%);
   }
 }
 
@@ -287,18 +279,18 @@ body {
 }
 
 [data-theme="luxury"] .card-surface {
-  @apply border-white/15 bg-white/10;
-  box-shadow: 0 38px 120px -64px rgba(0, 0, 0, 0.9);
+  @apply border-white/10 bg-white/5;
+  box-shadow: 0 38px 120px -64px rgba(0, 0, 0, 0.8);
 }
 
 [data-theme="luxury"] .glass-panel {
-  @apply border-white/15 bg-white/5;
-  box-shadow: 0 30px 100px -60px rgba(0, 0, 0, 0.95);
+  @apply border-white/10 bg-white/5;
+  box-shadow: 0 30px 100px -60px rgba(0, 0, 0, 0.85);
 }
 
 [data-theme="luxury"] .glass-popover {
   background-color: rgba(22, 33, 29, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 30px 80px -48px rgba(0, 0, 0, 0.8);
 }
 
@@ -316,29 +308,11 @@ body {
 }
 
 [data-theme="luxury"] .premium-button-secondary {
-  @apply border-white/15 bg-white/10 text-primary hover:bg-white/15;
+  @apply border-white/10 bg-white/5 text-primary hover:bg-white/10;
 }
 
 [data-theme="luxury"] .input-surface {
-  @apply border-white/15 bg-white/10 text-primary placeholder:text-primary/60;
-}
-
-.card-surface::before,
-.glass-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.28) 48%, transparent 78%);
-  transform: translateX(-140%);
-  transition: transform 0.9s ease, opacity 0.4s ease;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.card-surface:hover::before,
-.glass-panel:hover::before {
-  opacity: 1;
-  transform: translateX(140%);
+  @apply border-white/10 bg-white/5 text-primary placeholder:text-primary/60;
 }
 
 .card-surface img,

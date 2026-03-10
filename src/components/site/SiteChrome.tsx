@@ -113,14 +113,12 @@ function StickyActions() {
         href={clinic.whatsapp}
         target="_blank"
         rel="noreferrer"
-        whileHover={{ y: -4 }}
-        className="group fixed bottom-28 right-5 z-40 hidden items-center gap-2 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-3 text-sm font-semibold text-primary shadow-[0_18px_50px_-24px_rgba(39,51,46,0.28)] backdrop-blur-xl sm:flex"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-28 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_18px_50px_-24px_rgba(37,211,102,0.6)]"
+        aria-label="Conversar no WhatsApp"
       >
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
-          <Phone className="h-4 w-4" />
-        </span>
-        WhatsApp
-        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 text-primary/40" />
+        <Phone className="h-6 w-6" />
       </motion.a>
 
       <div className="fixed bottom-3 left-4 right-4 z-50 sm:left-1/2 sm:right-auto sm:w-[min(1060px,calc(100%-2rem))] sm:-translate-x-1/2">
