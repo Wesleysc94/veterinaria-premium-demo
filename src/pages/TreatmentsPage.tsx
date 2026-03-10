@@ -68,7 +68,7 @@ export default function TreatmentsPage() {
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Como funciona o cuidado preventivo
             </p>
             <div className="mt-6 space-y-5">

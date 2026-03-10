@@ -63,7 +63,7 @@ export default function EmergencyPage() {
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr,1fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Como funciona a triagem
             </p>
             <div className="mt-6 space-y-5">
@@ -79,7 +79,7 @@ export default function EmergencyPage() {
           </Reveal>
 
           <Reveal delay={0.08} className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               O que esta pagina resolve
             </p>
             <div className="mt-6 space-y-5">

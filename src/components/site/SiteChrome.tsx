@@ -62,7 +62,7 @@ function Footer() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/58">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/70">
             Navegacao
           </p>
           <div className="grid gap-3">
@@ -79,7 +79,7 @@ function Footer() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/58">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/70">
             Contato rapido
           </p>
           <div className="space-y-3 text-sm text-primary/70">
@@ -135,7 +135,7 @@ function StickyActions() {
         <div className="rounded-[1.9rem] border border-primary/10 theme-adaptive-surface px-4 py-3 shadow-[0_20px_80px_-40px_rgba(39,51,46,0.38)] backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
                 Atendimento e urgencia
               </p>
               <p className="text-sm text-primary/70">

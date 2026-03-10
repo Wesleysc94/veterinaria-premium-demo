@@ -12,7 +12,7 @@ export default function TreatmentDetailPage() {
   if (!service) {
     return (
       <div className="px-6 pb-24 pt-36 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-white/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(39,51,46,0.32)]">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 theme-adaptive-surface p-8 text-center shadow-[0_30px_120px_-60px_rgba(39,51,46,0.32)]">
           <h1 className="font-display text-5xl text-primary">Servico nao encontrado</h1>
           <p className="mt-4 text-base leading-8 text-primary/70">
             O servico solicitado nao esta cadastrado nesta demo veterinaria.
@@ -42,7 +42,7 @@ export default function TreatmentDetailPage() {
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-center">
             <Reveal className="space-y-6">
-              <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
+              <span className="inline-flex items-center gap-3 rounded-full theme-adaptive-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 {service.category}
               </span>
@@ -53,10 +53,10 @@ export default function TreatmentDetailPage() {
                 {service.excerpt}
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-primary/60">
-                <span className="rounded-full bg-white/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(39,51,46,0.35)]">
+                <span className="rounded-full theme-adaptive-surface px-4 py-2 shadow-[0_18px_50px_-36px_rgba(39,51,46,0.35)]">
                   {service.availability}
                 </span>
-                <span className="rounded-full bg-white/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(39,51,46,0.35)]">
+                <span className="rounded-full theme-adaptive-surface px-4 py-2 shadow-[0_18px_50px_-36px_rgba(39,51,46,0.35)]">
                   {service.idealFor}
                 </span>
               </div>
@@ -83,7 +83,7 @@ export default function TreatmentDetailPage() {
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.95fr,1.05fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Beneficios
             </p>
             <div className="mt-6 space-y-4">
@@ -97,7 +97,7 @@ export default function TreatmentDetailPage() {
           </Reveal>
 
           <Reveal delay={0.08} className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Quando procurar
             </p>
             <h2 className="mt-5 font-display text-4xl leading-none text-primary">

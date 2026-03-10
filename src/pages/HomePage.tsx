@@ -162,7 +162,7 @@ export default function HomePage() {
                   <h3 className="font-display text-4xl leading-none text-primary">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-white/90 line-clamp-2 leading-relaxed">
+                  <p className="text-sm text-primary/75 line-clamp-2 leading-relaxed">
                     {service.excerpt}
                   </p>
                   <Link
@@ -288,7 +288,7 @@ export default function HomePage() {
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {clinic.species.map((item, index) => (
               <Reveal key={item.name} delay={index * 0.1} className="card-surface p-8">
-                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-primary/50">
+                <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-primary/70">
                   {item.label}
                 </p>
                 <h3 className="mt-6 font-display text-3xl leading-none text-primary">
@@ -512,7 +512,7 @@ export default function HomePage() {
       <section className="px-6 py-14 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.94fr,1.06fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Contato local
             </p>
             <h2 className="mt-5 font-display text-4xl leading-[0.95] text-primary sm:text-5xl">

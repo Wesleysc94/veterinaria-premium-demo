@@ -35,7 +35,7 @@ export default function AboutPage() {
           <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/assets/about/exterior.png"
+                src="/assets/about/environment.png"
                 alt="Fachada premium da Aura Vet"
                 className="h-[560px] w-full object-cover object-center"
               />
@@ -88,7 +88,7 @@ export default function AboutPage() {
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Diferenciais da estrutura
             </p>
             <div className="mt-6 space-y-4">
@@ -104,7 +104,7 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.08} className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
               Posicionamento da marca
             </p>
             <h2 className="mt-5 font-display text-4xl leading-none text-primary">

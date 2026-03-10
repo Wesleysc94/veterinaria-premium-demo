@@ -59,7 +59,7 @@ export default function TeamPage() {
                 <ShieldCheck className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
                   Cultura clinica
                 </p>
                 <h2 className="mt-3 font-display text-4xl leading-none text-primary">
@@ -78,7 +78,7 @@ export default function TeamPage() {
                 <HeartHandshake className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
                   Humanizacao
                 </p>
                 <h2 className="mt-3 font-display text-4xl leading-none text-primary">
