@@ -31,8 +31,8 @@ function HeaderLink({ href, label }: { href: string; label: string }) {
       to={href}
       className={({ isActive }) =>
         cn(
-          "rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/70 transition-all duration-300 hover:bg-white/70 hover:text-primary",
-          isActive && "bg-white text-primary shadow-[0_12px_40px_-24px_rgba(39,51,46,0.42)]",
+          "rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/70 transition-all duration-300 hover:bg-primary/5 hover:text-primary",
+          isActive && "nav-active-item",
         )
       }
     >
@@ -46,7 +46,7 @@ function Footer() {
     <footer className="mt-20 border-t border-primary/10 px-6 pb-32 pt-12 sm:px-8 lg:px-12">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr,0.7fr,0.95fr]">
         <div className="space-y-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
             <ShieldPlus className="h-3.5 w-3.5 text-accent" />
             {clinic.badge}
           </span>
@@ -114,17 +114,17 @@ function StickyActions() {
         target="_blank"
         rel="noreferrer"
         whileHover={{ y: -4 }}
-        className="group fixed bottom-28 right-5 z-40 hidden items-center gap-2 rounded-full border border-white/70 bg-white/90 px-4 py-3 text-sm font-semibold text-primary shadow-[0_18px_50px_-24px_rgba(39,51,46,0.28)] backdrop-blur-xl sm:flex"
+        className="group fixed bottom-28 right-5 z-40 hidden items-center gap-2 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-3 text-sm font-semibold text-primary shadow-[0_18px_50px_-24px_rgba(39,51,46,0.28)] backdrop-blur-xl sm:flex"
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
           <Phone className="h-4 w-4" />
         </span>
         WhatsApp
-        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 text-primary/40" />
       </motion.a>
 
       <div className="fixed bottom-3 left-4 right-4 z-50 sm:left-1/2 sm:right-auto sm:w-[min(1060px,calc(100%-2rem))] sm:-translate-x-1/2">
-        <div className="rounded-[1.9rem] border border-white/70 bg-background/95 px-4 py-3 shadow-[0_20px_80px_-40px_rgba(39,51,46,0.38)] backdrop-blur-2xl">
+        <div className="rounded-[1.9rem] border border-primary/10 theme-adaptive-surface px-4 py-3 shadow-[0_20px_80px_-40px_rgba(39,51,46,0.38)] backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
@@ -167,9 +167,9 @@ export function SiteChrome() {
       <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.18),transparent_72%)]" />
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border theme-adaptive-bg px-5 py-3 shadow-[0_20px_90px_-50px_rgba(39,51,46,0.36)] backdrop-blur-xl transition hover:shadow-[0_20px_90px_-40px_rgba(39,51,46,0.45)]">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border theme-adaptive-surface px-5 py-3 shadow-[0_20px_90px_-50px_rgba(39,51,46,0.36)] backdrop-blur-xl transition hover:shadow-[0_18px_80px_-40px_rgba(39,51,46,0.4)]">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-background shadow-[0_18px_50px_-18px_rgba(47,93,115,0.82)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_18px_50px_-18px_rgba(47,93,115,0.6)]">
               <Stethoscope className="h-5 w-5" />
             </div>
             <div>
@@ -197,7 +197,7 @@ export function SiteChrome() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-background text-primary xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 theme-adaptive-surface text-primary xl:hidden"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label="Abrir menu"
           >
@@ -206,7 +206,7 @@ export function SiteChrome() {
         </div>
 
         {menuOpen && (
-          <div className="mx-auto mt-3 max-w-6xl rounded-[1.75rem] border border-white/70 bg-white/90 p-4 shadow-[0_20px_90px_-48px_rgba(39,51,46,0.4)] backdrop-blur-xl xl:hidden">
+          <div className="mx-auto mt-3 max-w-6xl rounded-[1.75rem] border border-primary/10 theme-adaptive-surface p-4 shadow-[0_30px_100px_-50px_rgba(0,0,0,0.5)] backdrop-blur-2xl xl:hidden">
             <div className="grid gap-2">
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
@@ -225,7 +225,14 @@ export function SiteChrome() {
       </header>
 
       <AnimatePresence mode="wait">
-        <motion.main key={location.pathname} {...pageTransition} className="pb-32 sm:pb-24">
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: "anticipate" }}
+          className="pb-32 sm:pb-24"
+        >
           <Outlet />
         </motion.main>
       </AnimatePresence>

@@ -34,181 +34,100 @@ const latestPosts = blogPosts.slice(0, 3);
 export default function HomePage() {
   return (
     <div className="pb-10">
-      <section className="relative overflow-hidden px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pt-36">
-        <div className="ambient-orb left-[-3rem] top-20 h-64 w-64 bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.34),transparent_68%)]" />
-        <div className="ambient-orb right-[2%] top-[16%] h-80 w-80 bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.28),transparent_70%)]" />
-        <div className="mx-auto grid max-w-6xl gap-14 xl:grid-cols-[0.92fr,1.08fr] xl:items-center">
-          <Reveal className="space-y-8">
-            <motion.span
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(39,51,46,0.32)] backdrop-blur"
-            >
-              <Sparkles className="h-3.5 w-3.5 text-accent" />
-              {clinic.badge}
-            </motion.span>
+      <section className="relative min-h-[90vh] overflow-hidden px-4 pt-32 sm:px-8 sm:pt-40">
+        <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.2),transparent_70%)]" />
+        <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.15),transparent_72%)]" />
 
-            <div className="space-y-6">
-              <h1 className="font-display text-5xl leading-[0.9] text-primary sm:text-6xl lg:text-8xl">
-                Seu pet merece cuidado veterinario de nivel premium.
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-primary/75">
-                {clinic.tagline} Uma infraestrutura projetada para inspirar seguranca clinica,
-                reduzir a ansiedade do seu pet e acolher sua familia em todos os momentos.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link to="/contato" className="premium-button button-shimmer justify-center">
-                Agendar atendimento
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href={clinic.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="premium-button-secondary button-shimmer justify-center"
-              >
-                <MessageCircleMore className="h-4 w-4" />
-                WhatsApp da clinica
-              </a>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {clinic.stats.map((item, index) => (
-                <Reveal
-                  key={item.label}
-                  delay={0.08 * index}
-                  className="card-surface interactive-card rounded-[1.75rem] p-5"
-                >
-                  <p className="text-2xl font-semibold text-primary">{item.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-primary/70">{item.label}</p>
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-[1.05fr,0.95fr]">
-              <motion.div whileHover={{ y: -5 }} className="glass-panel rounded-[1.8rem] p-5">
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-primary">
-                    <CalendarClock className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.3em] text-primary/60">
-                      Primeira visita
-                    </p>
-                    <p className="mt-2 text-sm leading-7 text-primary/70">
-                      Triagem gentil, consulta organizada e plano de cuidado claro para o tutor sair seguro.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div whileHover={{ y: -5 }} className="glass-panel rounded-[1.8rem] p-5">
-                <p className="text-[11px] uppercase tracking-[0.3em] text-primary/60">
-                  Urgencia orientada
-                </p>
-                <div className="mt-3 flex items-center justify-between gap-4">
-                  <p className="text-sm leading-7 text-primary/70">
-                    Contato visivel para sinais de alerta, encaixe e direcionamento rapido.
-                  </p>
-                  <Siren className="h-4 w-4 shrink-0 text-accent" />
-                </div>
-              </motion.div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15} className="relative z-10 w-full flex flex-col gap-4">
-            {/* Main Hero Image Panel */}
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Left Column: Text Content */}
             <motion.div
-              whileHover={{ y: -4 }}
-              className="relative h-[480px] w-full overflow-hidden rounded-[2.1rem] border theme-adaptive-bg shadow-2xl"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative z-10 space-y-8"
             >
-              <motion.div
-                animate={{ scale: [1, 1.03, 1] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0"
-              >
+              <div className="space-y-4">
+                <motion.span
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.3em] text-accent"
+                >
+                  <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                  {clinic.badge}
+                </motion.span>
+                <h1 className="font-display text-5xl leading-[1.1] tracking-tight text-primary sm:text-7xl xl:text-8xl">
+                  Cuidado <span className="italic text-accent">humano</span> <br />
+                  para vidas <br />
+                  extraordinarias.
+                </h1>
+                <p className="max-w-xl text-lg leading-relaxed text-primary/70 sm:text-xl">
+                  {clinic.tagline}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link to="/contato" className="premium-button button-shimmer h-14 px-10 text-base whitespace-nowrap">
+                  <CalendarClock className="mr-2 h-5 w-5" />
+                  Agendar Consulta
+                </Link>
+                <Link to="/servicos" className="premium-button-secondary h-14 px-10 text-base whitespace-nowrap">
+                  Ver Especialidades
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 pt-4">
+                {clinic.stats.map((stat, i) => (
+                  <div key={i} className="space-y-1">
+                    <p className="font-display text-3xl text-primary">{stat.value}</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/50 leading-tight">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Column: Premium Image Stack */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border border-primary/10 bg-primary/5 shadow-2xl lg:aspect-square">
                 <img
                   src={clinic.media.hero}
-                  alt="Veterinaria acolhendo tutor e pet em ambiente premium"
-                  className="h-full w-full object-cover object-center"
+                  alt="Modern premium veterinary care"
+                  className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                 />
-              </motion.div>
-              {/* Subtle gradient to ensure text readability if we put something over it, though we'll keep it minimal */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-white/80">
-                  Padrao internacional
-                </p>
-                <p className="mt-2 font-display text-3xl leading-[1.1] text-white sm:text-4xl md:pr-6">
-                  Mais do que uma clinica, um centro de cuidado completo.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Sub-cards Bento Grid */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col justify-between rounded-[1.7rem] p-6 shadow-xl">
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.32em] text-primary/70">
-                    Pronto atendimento
-                  </p>
-                  <p className="mt-3 font-display text-2xl leading-[1.05] text-primary">
-                    A clinica preparada para o que seu pet precisar.
-                  </p>
-                </div>
-                <div className="mt-6 flex">
-                  <Link to="/emergencia" className="premium-button text-xs">
-                    Central de Urgencia
-                  </Link>
-                </div>
-              </motion.div>
-
-              <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col justify-center rounded-[1.7rem] p-6 shadow-xl">
-                <div className="flex items-center gap-5">
-                  <div className="shrink-0 overflow-hidden rounded-full border-2 border-primary/10">
-                    <img
-                      src={clinic.media.consultation}
-                      alt="Consulta veterinaria"
-                      className="h-20 w-20 object-cover object-center"
-                    />
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute bottom-8 left-8 right-8 rounded-3xl border border-white/10 theme-adaptive-surface p-6 backdrop-blur-2xl"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/20 text-accent">
+                      <ShieldCheck className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-primary">Estrutura Certificada</p>
+                      <p className="text-xs text-primary/60">Ambiente acolhedor e equipamentos de ponta</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-primary/70">
-                      Atendimento premium
-                    </p>
-                    <p className="mt-2 text-sm font-semibold leading-relaxed text-primary">
-                      Consulta clara, humana e orientacao sem pressa.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+                </motion.div>
+              </div>
 
-            {/* Quick Info Bar */}
-            <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col sm:flex-row items-center justify-between rounded-[1.7rem] p-5 shadow-xl gap-4">
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <p className="text-sm font-medium text-primary line-clamp-1">{clinic.location}</p>
-              </div>
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <p className="text-sm font-medium text-primary truncate sm:max-w-max max-w-[120px]">{clinic.phone}</p>
-              </div>
-              <div className="hidden items-center gap-3 w-full lg:flex lg:w-auto">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Clock3 className="h-4 w-4" />
-                </div>
-                <p className="text-sm font-medium text-primary truncate md:max-w-max max-w-[150px]">{clinic.hours[0]}</p>
-              </div>
+              {/* Decorative background element */}
+              <div className="absolute -right-8 -top-8 -z-10 h-64 w-64 rounded-full bg-accent/5 blur-3xl opacity-50" />
+              <div className="absolute -bottom-12 -left-12 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl opacity-50" />
             </motion.div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

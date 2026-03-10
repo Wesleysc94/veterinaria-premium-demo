@@ -103,26 +103,26 @@ export const clinic = {
   ] satisfies NavItem[],
   media: {
     hero:
-      "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2670&auto=format&fit=crop", // Clean modern clinic pet
+      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2670&auto=format&fit=crop", // Modern clean pet clinic
     consultation:
-      "https://images.unsplash.com/photo-1596229202577-4c070243be4c?q=80&w=2670&auto=format&fit=crop", // Vet examining
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2668&auto=format&fit=crop", // Vet with pet
     emergency:
-      "https://images.unsplash.com/photo-1628009368231-7bb7cbcb8127?q=80&w=2670&auto=format&fit=crop", // Intensive care
+      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2689&auto=format&fit=crop", // Medical equipment/Care
     specialist:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop", // Golden retriver clinic
+      "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=2670&auto=format&fit=crop", // Specialist vet
     diagnostics:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2669&auto=format&fit=crop", // Lab/Dogs
+      "https://images.unsplash.com/photo-1579154235602-3c2c2446a1e6?q=80&w=2670&auto=format&fit=crop", // Laboratory
     environment:
-      "https://images.unsplash.com/photo-1516734212186-a967f81a1772?q=80&w=2671&auto=format&fit=crop", // Clean clinic space
+      "https://images.unsplash.com/photo-1606101273044-86dc79393c5c?q=80&w=2670&auto=format&fit=crop", // Clean lobby
     editorial:
-      "https://images.unsplash.com/photo-1582560475093-ba66accbc424?q=80&w=2640&auto=format&fit=crop", // Dog outside
+      "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2669&auto=format&fit=crop", // Happy pet outside
     species:
-      "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=2574&auto=format&fit=crop", // Relaxed pet
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop", // Calm cat
     team: [
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2574&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=2652&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
     ],
   },
   stats: [
