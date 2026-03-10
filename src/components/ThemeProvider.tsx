@@ -25,7 +25,7 @@ export function ThemeProvider({
     ...props
 }: ThemeProviderProps) {
     const [theme, setTheme] = useState<Theme>(
-        () => (localStorage.getItem('AuroraVet-theme') as Theme) || defaultTheme
+        () => (localStorage.getItem('AuraVet-theme') as Theme) || defaultTheme
     );
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export function ThemeProvider({
     const value = {
         theme,
         setTheme: (theme: Theme) => {
-            localStorage.setItem('AuroraVet-theme', theme);
+            localStorage.setItem('AuraVet-theme', theme);
             setTheme(theme);
         },
     };
