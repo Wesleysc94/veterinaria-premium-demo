@@ -104,22 +104,19 @@ export const clinic = {
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
-    hero:
-      "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop",
+    hero: "/assets/hero.png",
     consultation:
-      "https://images.unsplash.com/photo-1576091160550-217359f48f8c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2000&auto=format&fit=crop",
     emergency:
-      "https://images.unsplash.com/photo-1588776814546-1ffce47267a5?q=80&w=2670&auto=format&fit=crop",
-    specialist:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=2000&auto=format&fit=crop",
+    specialist: "/assets/about/environment.png",
     diagnostics:
       "/assets/services/diagnostics.png",
-    environment:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop",
+    environment: "/assets/about/environment.png",
     editorial:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2000&auto=format&fit=crop",
     species:
-      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2000&auto=format&fit=crop",
     team: [
       "/assets/team/helena.png",
       "/assets/team/nicolas.png",
@@ -299,7 +296,7 @@ export const services: Service[] = [
       "Exame físico completo e avaliação clínica",
       "Indicação de plano terapêutico ou exames complementares",
     ],
-    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "vacinacao-preventiva",
@@ -320,7 +317,7 @@ export const services: Service[] = [
       "Aplicação cuidadosa com técnica de manejo amigável",
       "Atualização da carteira e agendamento de reforços",
     ],
-    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "exames-laboratoriais",
@@ -341,7 +338,7 @@ export const services: Service[] = [
       "Processamento imediato das amostras",
       "Interpretação detalhada conjunta com o clínico",
     ],
-    image: "https://images.unsplash.com/photo-1582719202047-76d3432ee323?q=80&w=2670&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "diagnostico-por-imagem",
@@ -404,7 +401,7 @@ export const services: Service[] = [
       "Acompanhamento constante de sinais vitais e resposta à medicação",
       "Visitas programadas para acompanhamento dos tutores",
     ],
-    image: "https://images.unsplash.com/photo-1591946614720-90a587da4a36?q=80&w=2670&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2000&auto=format&fit=crop",
   },
 ];
 
@@ -451,7 +448,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Aprenda a identificar mudanças no comportamento e no corpo do seu amigo que podem indicar a necessidade de avaliação.",
     readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "calendario-de-vacinacao",
@@ -460,7 +457,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Informações essenciais sobre os reforços anuais e como a imunização protege toda a sua família.",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1504203700686-0be7e4361e33?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "sinais-de-alerta-caes-gatos",
@@ -469,7 +466,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Um guia rápido para tutores identificarem situações críticas que exigem atendimento imediato.",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1584213160416-2fd1987541e2?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "primeira-consulta-do-filhote",
@@ -478,7 +475,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Prepare-se para o primeiro encontro com o veterinário e garanta um início de vida saudável para seu novo pet.",
     readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1591769225440-811ad7d62ca2?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1508675801600-7f6d1a7c2a90?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "check-up-pet-senior",
@@ -487,7 +484,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Como exames regulares podem antecipar patologias e garantir uma velhice confortável e ativa.",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=2000&auto=format&fit=crop",
   },
   {
     slug: "saude-bucal-pets",
@@ -496,6 +493,6 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Entenda como problemas dentários podem afetar órgãos vitais e como prevenir doenças graves.",
     readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2000&auto=format&fit=crop",
   },
 ];

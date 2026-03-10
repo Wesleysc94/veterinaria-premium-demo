@@ -368,6 +368,7 @@ export default function HomePage() {
               eyebrow="CENTRAL DE URGÊNCIA"
               title="Agilidade e perícia quando cada segundo conta."
               description="Nosso fluxo de emergência foi desenhado para reduzir a incerteza e garantir que seu pet receba o suporte necessário sem demoras."
+              tone="inverse"
             />
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -557,7 +558,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-6 py-24 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[4rem] border border-primary/10 bg-primary px-10 py-16 theme-adaptive-surface text-primary-foreground shadow-[0_60px_150px_-60px_rgba(27,42,48,0.45)] sm:px-16 md:py-20 overflow-hidden relative">
+        <Reveal className="mx-auto max-w-6xl rounded-[4rem] border border-primary/10 bg-primary px-10 py-16 text-primary-foreground shadow-[0_60px_150px_-60px_rgba(27,42,48,0.45)] sm:px-16 md:py-20 overflow-hidden relative">
           <div className="ambient-orb inset-0 opacity-20 pointer-events-none" />
           <div className="grid gap-12 lg:grid-cols-[1.2fr,0.8fr] lg:items-center relative z-10">
             <div className="space-y-6">
@@ -575,7 +576,7 @@ export default function HomePage() {
               <Link to="/contato" className="premium-button light h-16 text-lg justify-center shadow-none hover:shadow-xl">
                 Agendar Agora
               </Link>
-              <Link to="/emergencia" className="premium-button-secondary dark h-16 text-lg justify-center border-white/20 text-white shadow-none">
+              <Link to="/emergencia" className="premium-button-secondary on-primary h-16 text-lg justify-center shadow-none">
                 Ver Central de Urgência
               </Link>
             </div>

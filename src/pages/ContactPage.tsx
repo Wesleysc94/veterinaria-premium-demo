@@ -117,7 +117,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} className="card-surface p-7 theme-adaptive-surface text-primary-foreground border-primary/20 bg-primary">
+            <Reveal delay={0.1} className="card-surface p-7 text-primary-foreground border-primary/20 bg-primary">
               <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 Canal de urgencia
               </p>

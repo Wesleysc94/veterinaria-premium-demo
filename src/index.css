@@ -285,6 +285,16 @@
     @apply border-white/20 bg-white/5 text-white hover:bg-white/10;
   }
 
+  .premium-button-secondary.on-primary {
+    border-color: hsl(var(--primary-foreground) / 0.35);
+    background-color: hsl(var(--primary-foreground) / 0.12);
+    color: hsl(var(--primary-foreground));
+  }
+
+  .premium-button-secondary.on-primary:hover {
+    background-color: hsl(var(--primary-foreground) / 0.2);
+  }
+
   .input-surface {
     width: 100%;
     border-radius: 1.4rem;

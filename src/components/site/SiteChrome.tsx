@@ -181,8 +181,8 @@ export function SiteChrome() {
               <Stethoscope className="h-5 w-5" />
             </div>
             <div>
-              <p className="font-display text-2xl leading-none text-primary">{clinic.shortName}</p>
-              <p className="text-[10px] uppercase tracking-[0.32em] text-primary/60">
+              <p className="font-display text-3xl leading-none text-primary">{clinic.shortName}</p>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-primary/70">
                 Clinica veterinaria premium
               </p>
             </div>
