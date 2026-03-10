@@ -40,33 +40,33 @@
   }
 
   [data-theme="luxury"] {
-    --background: 158 20% 11%;
-    --foreground: 40 29% 94%;
+    --background: 158 20% 8%;
+    --foreground: 40 29% 96%;
 
-    --primary: 40 29% 94%;
-    --primary-foreground: 158 20% 11%;
+    --primary: 40 29% 96%;
+    --primary-foreground: 158 20% 8%;
 
-    --accent: 141 13% 61%;
-    --accent-foreground: 158 20% 11%;
+    --accent: 141 18% 70%;
+    --accent-foreground: 158 20% 8%;
 
-    --cream: 30 27% 81%;
-    --dark: 197 28% 15%;
+    --cream: 30 27% 85%;
+    --dark: 197 28% 12%;
 
-    --card: 197 28% 15%;
-    --card-foreground: 40 29% 94%;
+    --card: 197 28% 12%;
+    --card-foreground: 40 29% 96%;
 
-    --popover: 197 28% 15%;
-    --popover-foreground: 40 29% 94%;
+    --popover: 197 28% 12%;
+    --popover-foreground: 40 29% 96%;
 
-    --secondary: 155 13% 18%;
-    --secondary-foreground: 40 29% 94%;
+    --secondary: 155 13% 20%;
+    --secondary-foreground: 40 29% 96%;
 
-    --muted: 150 8% 24%;
-    --muted-foreground: 30 27% 81%;
+    --muted: 150 8% 28%;
+    --muted-foreground: 30 27% 88%;
 
-    --border: 182 12% 49%;
-    --input: 150 8% 24%;
-    --ring: 141 13% 61%;
+    --border: 182 12% 55%;
+    --input: 150 8% 28%;
+    --ring: 141 18% 70%;
   }
 }
 
@@ -126,15 +126,15 @@
   }
 
   .card-surface {
-    @apply relative rounded-[2rem] border border-white/70 bg-white/70 shadow-[0_36px_120px_-58px_rgba(39,51,46,0.28)] backdrop-blur-xl transition-[transform,box-shadow,border-color,background-color] duration-500 will-change-transform;
+    @apply relative rounded-[2rem] border border-white/70 bg-white/70 shadow-[0_36px_120px_-58px_rgba(39, 51, 46, 0.28)] backdrop-blur-xl transition-[transform, box-shadow, border-color, background-color] duration-500 will-change-transform;
   }
 
   .glass-panel {
-    @apply relative overflow-hidden rounded-[1.8rem] border border-white/60 bg-white/60 shadow-[0_26px_90px_-52px_rgba(39,51,46,0.25)] backdrop-blur-xl transition duration-500;
+    @apply relative overflow-hidden rounded-[1.8rem] border border-white/60 bg-white/60 shadow-[0_26px_90px_-52px_rgba(39, 51, 46, 0.25)] backdrop-blur-xl transition duration-500;
   }
 
   .premium-button {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_22px_60px_-28px_rgba(47,93,115,0.6)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_72px_-28px_rgba(47,93,115,0.76)];
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_22px_60px_-28px_rgba(47, 93, 115, 0.6)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_72px_-28px_rgba(47, 93, 115, 0.76)];
   }
 
   .premium-button.light {
@@ -142,7 +142,7 @@
   }
 
   .premium-button-secondary {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/10 bg-white/80 px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_18px_50px_-34px_rgba(39,51,46,0.28)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/10 bg-white/80 px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_18px_50px_-34px_rgba(39, 51, 46, 0.28)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white;
   }
 
   .premium-button-secondary.dark {
@@ -186,11 +186,11 @@ body {
 }
 
 [data-theme="luxury"] .card-surface {
-  @apply border-white/10 bg-white/5 shadow-[0_38px_120px_-64px_rgba(0,0,0,0.85)];
+  @apply border-white/15 bg-white/10 shadow-[0_38px_120px_-64px_rgba(0, 0, 0, 0.9)];
 }
 
 [data-theme="luxury"] .glass-panel {
-  @apply border-white/10 bg-white/5 shadow-[0_30px_100px_-60px_rgba(0,0,0,0.92)];
+  @apply border-white/15 bg-white/10 shadow-[0_30px_100px_-60px_rgba(0, 0, 0, 0.95)];
 }
 
 [data-theme="luxury"] .premium-button {
@@ -202,11 +202,11 @@ body {
 }
 
 [data-theme="luxury"] .premium-button-secondary {
-  @apply border-white/10 bg-white/5 text-primary hover:bg-white/10;
+  @apply border-white/15 bg-white/10 text-primary hover:bg-white/15;
 }
 
 [data-theme="luxury"] .input-surface {
-  @apply border-white/10 bg-white/5 text-primary placeholder:text-primary/40;
+  @apply border-white/15 bg-white/10 text-primary placeholder:text-primary/60;
 }
 
 .card-surface::before,
@@ -238,9 +238,12 @@ body {
 }
 
 @keyframes orb-drift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(0, -16px, 0) scale(1.05);
   }

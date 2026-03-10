@@ -123,8 +123,8 @@ function StickyActions() {
         <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </motion.a>
 
-      <div className="fixed bottom-3 left-4 right-4 z-30 sm:left-1/2 sm:right-auto sm:w-[min(1060px,calc(100%-2rem))] sm:-translate-x-1/2">
-        <div className="rounded-[1.9rem] border border-white/70 bg-background/90 px-4 py-3 shadow-[0_20px_80px_-40px_rgba(39,51,46,0.38)] backdrop-blur-2xl">
+      <div className="fixed bottom-3 left-4 right-4 z-50 sm:left-1/2 sm:right-auto sm:w-[min(1060px,calc(100%-2rem))] sm:-translate-x-1/2">
+        <div className="rounded-[1.9rem] border border-white/70 bg-background/95 px-4 py-3 shadow-[0_20px_80px_-40px_rgba(39,51,46,0.38)] backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
@@ -225,7 +225,7 @@ export function SiteChrome() {
       </header>
 
       <AnimatePresence mode="wait">
-        <motion.main key={location.pathname} {...pageTransition}>
+        <motion.main key={location.pathname} {...pageTransition} className="pb-32 sm:pb-24">
           <Outlet />
         </motion.main>
       </AnimatePresence>

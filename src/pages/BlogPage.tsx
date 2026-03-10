@@ -61,13 +61,13 @@ export default function BlogPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {remainingPosts.map((post, index) => (
               <Reveal key={post.slug} delay={index * 0.05} className="card-surface p-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/50">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/80">
                   {post.category}
                 </p>
                 <h3 className="mt-4 font-display text-3xl leading-none text-primary">
                   {post.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-primary/70">{post.excerpt}</p>
+                <p className="mt-4 text-sm leading-7 text-primary/90">{post.excerpt}</p>
                 <p className="mt-5 text-xs uppercase tracking-[0.24em] text-primary/40">
                   {post.readTime}
                 </p>
