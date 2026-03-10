@@ -19,7 +19,7 @@ export default function AboutPage() {
           <Reveal className="space-y-7">
             <SectionIntro
               eyebrow="Nossa historia"
-              title="A Atelier Aurora Vet nasceu para unir cuidado veterinario serio e experiencia acolhedora."
+              title="A Aura Vet nasceu para unir cuidado veterinario serio e experiencia acolhedora."
               description="O conceito da marca parte de uma dor real do mercado: muitos tutores encontram clinicas frias demais ou comunicacao bonita demais, mas pouca clareza clinica. A proposta aqui e equilibrar os dois lados."
             />
             <div className="space-y-4 text-base leading-8 text-primary/70">

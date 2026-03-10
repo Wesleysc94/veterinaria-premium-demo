@@ -112,7 +112,7 @@ export default function ContactPage() {
                 </p>
                 <a href={clinic.instagram} className="flex items-center gap-3 hover:text-primary">
                   <Instagram className="h-4 w-4 text-accent" />
-                  @atelierauroravet
+                  @auravet
                 </a>
               </div>
             </Reveal>
