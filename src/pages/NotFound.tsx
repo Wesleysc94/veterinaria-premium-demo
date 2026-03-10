@@ -10,7 +10,7 @@ const NotFound = () => {
 
   return (
     <div className="px-6 pb-28 pt-36 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-white/80 p-10 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
+      <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-white/80 p-10 text-center shadow-[0_30px_120px_-60px_rgba(39,51,46,0.32)]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/50">
           404
         </p>
@@ -18,7 +18,7 @@ const NotFound = () => {
           Esta pagina nao foi encontrada.
         </h1>
         <p className="mt-5 text-base leading-8 text-primary/70">
-          O endereco solicitado nao existe nesta demo premium de estetica.
+          O endereco solicitado nao existe nesta demo premium para clinica veterinaria.
         </p>
         <Link to="/" className="premium-button mt-8 inline-flex">
           Voltar para o inicio

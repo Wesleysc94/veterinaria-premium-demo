@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === "clinic" ? "luxury" : "clinic")}
-      className="fixed bottom-24 left-5 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-primary/10 bg-background/90 text-primary shadow-[0_20px_55px_-30px_rgba(90,70,58,0.65)] backdrop-blur-xl transition duration-300 hover:-translate-y-1"
+      className="fixed bottom-28 left-5 z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-primary/10 bg-background/90 text-primary shadow-[0_20px_55px_-30px_rgba(39,51,46,0.48)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:flex"
       aria-label="Alternar tema"
     >
       {theme === "clinic" ? (

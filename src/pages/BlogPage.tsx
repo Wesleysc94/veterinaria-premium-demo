@@ -1,4 +1,4 @@
-import { clinic, blogPosts } from "@/data/siteContent";
+import { blogPosts, clinic } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
@@ -11,8 +11,8 @@ export default function BlogPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Conteudo"
-        title="Um blog com cara de marca viva, estrategica e pronta para SEO local."
-        description="A area editorial reforca autoridade, ajuda campanhas de trafego e amplia a percepcao de cuidado. Os temas e a estilizacao foram pensados para clinicas premium de estetica facial."
+        title="Um blog que reforca cuidado preventivo, autoridade local e confianca para o tutor."
+        description="A area editorial da demo mostra como a clinica pode educar o publico, apoiar SEO local e manter o mesmo padrao premium da experiencia institucional."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
@@ -36,13 +36,13 @@ export default function BlogPage() {
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
                 src={clinic.media.editorial}
-                alt="Ambiente editorial da clinica"
-                className="h-[360px] w-full object-cover object-[center_32%]"
+                alt="Conteudo educativo para tutores"
+                className="h-[360px] w-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.06),rgba(62,52,46,0.38))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,42,48,0.06),rgba(27,42,48,0.38))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/75">Editorial premium</p>
-                <p className="mt-3 font-display text-4xl leading-none">Conteudo que educa sem perder desejo.</p>
+                <p className="mt-3 font-display text-4xl leading-none">Conteudo que educa e ajuda a converter com seguranca.</p>
               </div>
             </div>
           </Reveal>
@@ -54,8 +54,8 @@ export default function BlogPage() {
           <Reveal>
             <SectionIntro
               eyebrow="Mais temas"
-              title="Pautas certas para aquecer leads e fortalecer posicionamento."
-              description="O grid abaixo mostra como a area de conteudo pode crescer de forma consistente sem comprometer o tom sofisticado da marca."
+              title="Pautas pensadas para rotina, urgencia, vacinacao e check-up."
+              description="O grid abaixo mostra como o blog pode crescer sem perder coesao de marca, servindo tanto para busca organica quanto para nutricao de leads locais."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

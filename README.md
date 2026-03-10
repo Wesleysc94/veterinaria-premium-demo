@@ -1,6 +1,6 @@
-# Maison Aura
+# Atelier Aurora Vet
 
-Demo premium em React + Vite para clinica ficticia de estetica facial avancada, pensada para portfolio comercial no nicho de harmonizacao facial, rejuvenescimento e med spa.
+Demo premium em React + Vite para clinica veterinaria ficticia de alto padrao, criada como portfolio para apresentar atendimento geral, urgencia, check-up, vacinacao, especialidades e contato local com UX mobile-first.
 
 ## Stack
 
@@ -23,6 +23,11 @@ npm run dev
 npm run build
 ```
 
+## Validacao
+
+- `npm run build`
+- `npm run lint` (sem erros; apenas avisos preexistentes de fast refresh em componentes utilitarios)
+
 ## Observacao
 
-Os textos, marca e contatos sao demonstrativos. A tentativa de gerar assets por IA ficou bloqueada por `OPENAI_API_KEY` invalida, entao a demo usa fallback visual local para manter a navegacao funcional e apresentavel.
+Marca, contatos, textos e imagens sao demonstrativos para fins de portfolio e prospeccao comercial.

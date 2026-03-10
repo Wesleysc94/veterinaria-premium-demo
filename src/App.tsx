@@ -13,9 +13,10 @@ import { SiteChrome } from "./components/site/SiteChrome";
 import AboutPage from "./pages/AboutPage";
 import TreatmentsPage from "./pages/TreatmentsPage";
 import TreatmentDetailPage from "./pages/TreatmentDetailPage";
-import ResultsPage from "./pages/ResultsPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
+import TeamPage from "./pages/TeamPage";
+import EmergencyPage from "./pages/EmergencyPage";
 
 const queryClient = new QueryClient();
 
@@ -40,9 +41,10 @@ const AnimatedRoutes = () => {
         <Route element={<PageTransition><SiteChrome /></PageTransition>}>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
-          <Route path="/tratamentos" element={<TreatmentsPage />} />
-          <Route path="/tratamentos/:slug" element={<TreatmentDetailPage />} />
-          <Route path="/resultados" element={<ResultsPage />} />
+          <Route path="/servicos" element={<TreatmentsPage />} />
+          <Route path="/servicos/:slug" element={<TreatmentDetailPage />} />
+          <Route path="/equipe" element={<TeamPage />} />
+          <Route path="/emergencia" element={<EmergencyPage />} />
           <Route path="/conteudo" element={<BlogPage />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
