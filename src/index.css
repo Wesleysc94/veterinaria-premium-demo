@@ -177,6 +177,7 @@
     font-weight: 600;
     color: hsl(var(--primary-foreground));
     box-shadow: 0 22px 60px -28px rgba(47, 93, 115, 0.6);
+    white-space: nowrap;
     transition-duration: 300ms;
   }
 
@@ -204,6 +205,7 @@
     color: hsl(var(--primary));
     box-shadow: 0 18px 50px -34px rgba(39, 51, 46, 0.28);
     backdrop-filter: blur(4px);
+    white-space: nowrap;
     transition-duration: 300ms;
   }
 

@@ -118,124 +118,96 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.15} className="relative z-10 w-full">
+          <Reveal delay={0.15} className="relative z-10 w-full flex flex-col gap-4">
+            {/* Main Hero Image Panel */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-6 top-8 z-20 hidden w-64 rounded-[1.5rem] glass-popover p-5 xl:block"
+              whileHover={{ y: -4 }}
+              className="relative h-[480px] w-full overflow-hidden rounded-[2.1rem] border theme-adaptive-bg shadow-2xl"
             >
-              <p className="text-[10px] uppercase tracking-[0.28em] text-primary/60">
-                Padrao internacional
-              </p>
-              <p className="mt-3 font-display text-[1.8rem] leading-[1.05] text-primary">
-                Mais do que uma clinica, um centro de cuidado completo.
-              </p>
+              <motion.div
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={clinic.media.hero}
+                  alt="Veterinaria acolhendo tutor e pet em ambiente premium"
+                  className="h-full w-full object-cover object-center"
+                />
+              </motion.div>
+              {/* Subtle gradient to ensure text readability if we put something over it, though we'll keep it minimal */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-white/80">
+                  Padrao internacional
+                </p>
+                <p className="mt-2 font-display text-3xl leading-[1.1] text-white sm:text-4xl md:pr-6">
+                  Mais do que uma clinica, um centro de cuidado completo.
+                </p>
+              </div>
             </motion.div>
 
-            <div className="card-surface interactive-card overflow-hidden p-4 sm:p-5">
-              <div className="grid gap-4">
-                <div className="relative min-h-[640px] overflow-hidden rounded-[2.1rem] border border-white/50 bg-[linear-gradient(140deg,rgba(255,255,255,0.48),rgba(255,255,255,0.1))]">
-                  <motion.div
-                    animate={{ scale: [1, 1.025, 1], y: [0, -8, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <img
-                      src={clinic.media.hero}
-                      alt="Veterinaria acolhendo tutor e pet em ambiente premium"
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(250,251,248,0.08),rgba(27,42,48,0.3)_52%,rgba(22,33,29,0.58))]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(174,191,168,0.3),transparent_20%),radial-gradient(circle_at_18%_15%,rgba(250,251,248,0.22),transparent_20%),radial-gradient(circle_at_62%_75%,rgba(39,51,46,0.24),transparent_28%)]" />
+            {/* Sub-cards Bento Grid */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col justify-between rounded-[1.7rem] p-6 shadow-xl">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.32em] text-primary/70">
+                    Pronto atendimento
+                  </p>
+                  <p className="mt-3 font-display text-2xl leading-[1.05] text-primary">
+                    A clinica preparada para o que seu pet precisar.
+                  </p>
+                </div>
+                <div className="mt-6 flex">
+                  <Link to="/emergencia" className="premium-button text-xs">
+                    Central de Urgencia
+                  </Link>
+                </div>
+              </motion.div>
 
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute right-4 top-4 hidden w-[18rem] rounded-[1.55rem] glass-popover p-4 sm:block"
-                  >
-                    <div className="overflow-hidden rounded-[1.2rem] border border-white/10 dark:border-white/5">
-                      <img
-                        src={clinic.media.consultation}
-                        alt="Consulta veterinaria com pet e tutor"
-                        className="h-28 w-full object-cover object-center"
-                      />
-                    </div>
-                    <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-primary/70">
+              <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col justify-center rounded-[1.7rem] p-6 shadow-xl">
+                <div className="flex items-center gap-5">
+                  <div className="shrink-0 overflow-hidden rounded-full border-2 border-primary/10">
+                    <img
+                      src={clinic.media.consultation}
+                      alt="Consulta veterinaria"
+                      className="h-20 w-20 object-cover object-center"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-primary/70">
                       Atendimento premium
                     </p>
-                    <p className="mt-2 text-base font-semibold leading-7 text-primary">
-                      Consulta clara, toque humano e orientacao sem pressa.
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-primary">
+                      Consulta clara, humana e orientacao sem pressa.
                     </p>
-                  </motion.div>
-
-                  <div className="absolute bottom-0 left-0 right-0 max-w-full p-4 sm:p-5">
-                    <motion.div
-                      whileHover={{ y: -4 }}
-                      className="w-full rounded-[1.7rem] glass-panel p-6 shadow-2xl"
-                    >
-                      <p className="text-[11px] uppercase tracking-[0.32em] text-primary/70">
-                        Pronto atendimento
-                      </p>
-                      <div className="mt-3 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                        <p className="font-display text-3xl leading-[0.95] text-primary sm:text-4xl md:pr-6">
-                          A clinica preparada para o que seu pet precisar, a qualquer hora.
-                        </p>
-                        <Link
-                          to="/emergencia"
-                          className="premium-button shrink-0"
-                        >
-                          Central de Urgencia
-                        </Link>
-                      </div>
-                    </motion.div>
                   </div>
                 </div>
-
-                <div className="grid gap-4 xl:grid-cols-2">
-                  <motion.div whileHover={{ y: -5 }} className="glass-panel rounded-[1.7rem] p-6">
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-primary/60">
-                      Servicos mais buscados
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {["Consultas", "Vacinacao", "Check-up", "Exames", "Odontologia", "Emergencia"].map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full bg-background px-3 py-2 text-xs font-medium text-primary/70 shadow-[0_18px_30px_-24px_rgba(39,51,46,0.35)]"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="mt-4 text-sm leading-7 text-primary/60">
-                      Uma home desenhada para mostrar amplitude clinica sem perder legibilidade ou refinamento.
-                    </p>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="rounded-[1.7rem] border border-white/60 bg-primary p-6 text-background shadow-[0_28px_70px_-46px_rgba(47,93,115,0.85)]"
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-background/60">
-                      Local e confiavel
-                    </p>
-                    <div className="mt-5 space-y-4">
-                      <div className="flex gap-3">
-                        <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                        <p className="text-sm leading-6 text-background/80">{clinic.location}</p>
-                      </div>
-                      <div className="flex gap-3">
-                        <Phone className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                        <p className="text-sm leading-6 text-background/80">{clinic.phone}</p>
-                      </div>
-                      <div className="flex gap-3">
-                        <Clock3 className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                        <p className="text-sm leading-6 text-background/80">{clinic.hours[0]}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
+              </motion.div>
             </div>
+
+            {/* Quick Info Bar */}
+            <motion.div whileHover={{ y: -4 }} className="glass-panel flex flex-col sm:flex-row items-center justify-between rounded-[1.7rem] p-5 shadow-xl gap-4">
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <p className="text-sm font-medium text-primary line-clamp-1">{clinic.location}</p>
+              </div>
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <p className="text-sm font-medium text-primary truncate sm:max-w-max max-w-[120px]">{clinic.phone}</p>
+              </div>
+              <div className="hidden items-center gap-3 w-full lg:flex lg:w-auto">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Clock3 className="h-4 w-4" />
+                </div>
+                <p className="text-sm font-medium text-primary truncate md:max-w-max max-w-[150px]">{clinic.hours[0]}</p>
+              </div>
+            </motion.div>
           </Reveal>
         </div>
       </section>
@@ -682,6 +654,6 @@ export default function HomePage() {
           </div>
         </Reveal>
       </section>
-    </div>
+    </div >
   );
 }
