@@ -290,7 +290,7 @@ export const services: Service[] = [
       "Exame físico completo e avaliação clínica",
       "Indicação de plano terapêutico ou exames complementares",
     ],
-    image: "/assets/stock/consultation.jpg",
+    image: "/assets/generated/service-consultation.png",
   },
   {
     slug: "vacinacao-preventiva",
@@ -311,7 +311,7 @@ export const services: Service[] = [
       "Aplicação cuidadosa com técnica de manejo amigável",
       "Atualização da carteira e agendamento de reforços",
     ],
-    image: "/assets/stock/consultation.jpg",
+    image: "/assets/generated/service-vaccination.png",
   },
   {
     slug: "exames-laboratoriais",
@@ -353,7 +353,7 @@ export const services: Service[] = [
       "Realização do exame com laudagem especializada",
       "Discussão dos achados com o médico responsável",
     ],
-    image: "/assets/services/diagnostics.png",
+    image: "/assets/generated/services.png",
   },
   {
     slug: "centro-cirurgico",
@@ -374,7 +374,7 @@ export const services: Service[] = [
       "Procedimento cirúrgico com técnica avançada",
       "Pós-operatório imediato com monitorização",
     ],
-    image: "/assets/services/surgery.png",
+    image: "/assets/generated/emergency.png",
   },
   {
     slug: "internacao-assistida",
@@ -395,7 +395,7 @@ export const services: Service[] = [
       "Acompanhamento constante de sinais vitais e resposta à medicação",
       "Visitas programadas para acompanhamento dos tutores",
     ],
-    image: "/assets/stock/service-internacao.jpg",
+    image: "/assets/generated/services.png",
   },
 ];
 
@@ -406,7 +406,7 @@ export const team: TeamMember[] = [
     specialty: "Clínica Médica e Medicina Preventiva",
     education: "MV pela USP, Pós-graduada em Clínica de Pequenos Animais.",
     bio: "Lidera os protocolos da Aura Vet garantindo excelência técnica e acolhimento em cada etapa do atendimento.",
-    image: "/assets/team/helena.png",
+    image: "/assets/generated/team-helena.png",
   },
   {
     name: "Dr. Nicolas Prado",
@@ -414,7 +414,7 @@ export const team: TeamMember[] = [
     specialty: "Medicina Intensiva e Triagem Ágil",
     education: "MV pela UNESP com especialização em Terapia Intensiva.",
     bio: "Especialista em situações críticas, atua com precisão e serenidade em casos de alta complexidade.",
-    image: "/assets/team/nicolas.png",
+    image: "/assets/generated/team-rafael.png",
   },
   {
     name: "Dra. Camila Leite",
@@ -422,7 +422,7 @@ export const team: TeamMember[] = [
     specialty: "Cirurgia de Tecidos Moles e Odontologia",
     education: "Pós-graduada em Cirurgia e Anestesiologia Veterinária.",
     bio: "Responsável pelo centro cirúrgico, une técnica refinada a um rigoroso protocolo de segurança anestésica.",
-    image: "/assets/team/camila.png",
+    image: "/assets/generated/team-camila.png",
   },
   {
     name: "Dra. Sofia Amaral",
@@ -430,7 +430,7 @@ export const team: TeamMember[] = [
     specialty: "Medicina Felina e Geriatria",
     education: "Especialista em Medicina Felina e Gerontologia Animal.",
     bio: "Focada em manejo low-stress, garante o bem-estar de gatos e pets seniores com protocolos exclusivos.",
-    image: "/assets/team/sofia.png",
+    image: "/assets/generated/team-camila.png",
   },
 ];
 
@@ -442,7 +442,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Aprenda a identificar mudanças no comportamento e no corpo do seu amigo que podem indicar a necessidade de avaliação.",
     readTime: "4 min",
-    image: "/assets/stock/blog-rotina.jpg",
+    image: "/assets/generated/service-consultation.png",
   },
   {
     slug: "calendario-de-vacinacao",
@@ -451,7 +451,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Informações essenciais sobre os reforços anuais e como a imunização protege toda a sua família.",
     readTime: "5 min",
-    image: "/assets/stock/blog-prevencao.jpg",
+    image: "/assets/generated/blog-vaccination.png",
   },
   {
     slug: "sinais-de-alerta-caes-gatos",
@@ -460,7 +460,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Um guia rápido para tutores identificarem situações críticas que exigem atendimento imediato.",
     readTime: "5 min",
-    image: "/assets/stock/blog-urgencia.jpg",
+    image: "/assets/generated/emergency.png",
   },
   {
     slug: "primeira-consulta-do-filhote",
@@ -469,7 +469,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Prepare-se para o primeiro encontro com o veterinário e garanta um início de vida saudável para seu novo pet.",
     readTime: "4 min",
-    image: "/assets/team/helena.png",
+    image: "/assets/generated/blog-filhote.png",
   },
   {
     slug: "check-up-pet-senior",
@@ -478,7 +478,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Como exames regulares podem antecipar patologias e garantir uma velhice confortável e ativa.",
     readTime: "6 min",
-    image: "/assets/team/sofia.png",
+    image: "/assets/generated/blog-senior.png",
   },
   {
     slug: "saude-bucal-pets",
@@ -487,6 +487,6 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Entenda como problemas dentários podem afetar órgãos vitais e como prevenir doenças graves.",
     readTime: "4 min",
-    image: "/assets/stock/blog-oral.jpg",
+    image: "/assets/generated/services.png",
   },
 ];
