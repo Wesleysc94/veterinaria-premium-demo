@@ -98,32 +98,31 @@ export const clinic = {
     { label: "Sobre", href: "/sobre" },
     { label: "Servicos", href: "/servicos" },
     { label: "Equipe", href: "/equipe" },
-    { label: "Emergencia", href: "/emergencia" },
     { label: "Conteudo", href: "/conteudo" },
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
     hero:
-      "https://images.pexels.com/photos/6235233/pexels-photo-6235233.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+      "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2670&auto=format&fit=crop", // Clean modern clinic pet
     consultation:
-      "https://images.pexels.com/photos/6234625/pexels-photo-6234625.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1200",
+      "https://images.unsplash.com/photo-1596229202577-4c070243be4c?q=80&w=2670&auto=format&fit=crop", // Vet examining
     emergency:
-      "https://images.pexels.com/photos/6235107/pexels-photo-6235107.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+      "https://images.unsplash.com/photo-1628009368231-7bb7cbcb8127?q=80&w=2670&auto=format&fit=crop", // Intensive care
     specialist:
-      "https://images.pexels.com/photos/6568501/pexels-photo-6568501.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1100",
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop", // Golden retriver clinic
     diagnostics:
-      "https://images.pexels.com/photos/7470752/pexels-photo-7470752.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1200",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2669&auto=format&fit=crop", // Lab/Dogs
     environment:
-      "https://images.pexels.com/photos/6234622/pexels-photo-6234622.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1200",
+      "https://images.unsplash.com/photo-1516734212186-a967f81a1772?q=80&w=2671&auto=format&fit=crop", // Clean clinic space
     editorial:
-      "https://images.pexels.com/photos/6816859/pexels-photo-6816859.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1600",
+      "https://images.unsplash.com/photo-1582560475093-ba66accbc424?q=80&w=2640&auto=format&fit=crop", // Dog outside
     species:
-      "https://images.pexels.com/photos/6235668/pexels-photo-6235668.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1200",
+      "https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=2574&auto=format&fit=crop", // Relaxed pet
     team: [
-      "https://images.pexels.com/photos/6235108/pexels-photo-6235108.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
-      "https://images.pexels.com/photos/7469213/pexels-photo-7469213.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
-      "https://images.pexels.com/photos/6234626/pexels-photo-6234626.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
-      "https://images.pexels.com/photos/6568958/pexels-photo-6568958.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2670&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=2652&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2670&auto=format&fit=crop",
     ],
   },
   stats: [

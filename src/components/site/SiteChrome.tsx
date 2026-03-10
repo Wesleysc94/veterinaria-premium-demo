@@ -167,7 +167,7 @@ export function SiteChrome() {
       <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.18),transparent_72%)]" />
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/70 bg-white/80 px-5 py-3 shadow-[0_20px_90px_-50px_rgba(39,51,46,0.36)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border theme-adaptive-bg px-5 py-3 shadow-[0_20px_90px_-50px_rgba(39,51,46,0.36)] backdrop-blur-xl transition hover:shadow-[0_20px_90px_-40px_rgba(39,51,46,0.45)]">
           <Link to="/" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-background shadow-[0_18px_50px_-18px_rgba(47,93,115,0.82)]">
               <Stethoscope className="h-5 w-5" />

@@ -50,12 +50,11 @@ export default function HomePage() {
 
             <div className="space-y-6">
               <h1 className="font-display text-5xl leading-[0.9] text-primary sm:text-6xl lg:text-8xl">
-                Seu pet merece cuidado veterinario com calma, criterio e presenca premium.
+                Seu pet merece cuidado veterinario de nivel premium.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-primary/75">
-                {clinic.tagline} A proposta desta demo e unir seguranca clinica,
-                acolhimento para tutores, urgencia visivel e uma identidade de
-                marca sofisticada o bastante para encantar no primeiro scroll.
+                {clinic.tagline} Uma infraestrutura projetada para inspirar seguranca clinica,
+                reduzir a ansiedade do seu pet e acolher sua familia em todos os momentos.
               </p>
             </div>
 
@@ -119,17 +118,17 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.15} className="relative">
+          <Reveal delay={0.15} className="relative z-10 w-full">
             <motion.div
-              animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-10 top-14 z-10 hidden w-56 rounded-[1.5rem] border border-white/65 bg-white/80 p-4 shadow-[0_30px_80px_-48px_rgba(39,51,46,0.38)] backdrop-blur xl:block"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-6 top-8 z-20 hidden w-64 rounded-[1.5rem] glass-popover p-5 xl:block"
             >
               <p className="text-[10px] uppercase tracking-[0.28em] text-primary/60">
-                Percepcao imediata
+                Padrao internacional
               </p>
-              <p className="mt-3 font-display text-3xl leading-none text-primary">
-                Seguranca medica com acolhimento real para a familia.
+              <p className="mt-3 font-display text-[1.8rem] leading-[1.05] text-primary">
+                Mais do que uma clinica, um centro de cuidado completo.
               </p>
             </motion.div>
 
@@ -152,46 +151,44 @@ export default function HomePage() {
 
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="absolute right-4 top-4 hidden max-w-[17rem] rounded-[1.55rem] border border-white/35 bg-white/[0.16] p-4 text-white backdrop-blur-md sm:block"
+                    className="absolute right-4 top-4 hidden w-[18rem] rounded-[1.55rem] glass-popover p-4 sm:block"
                   >
-                    <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
+                    <div className="overflow-hidden rounded-[1.2rem] border border-white/10 dark:border-white/5">
                       <img
                         src={clinic.media.consultation}
                         alt="Consulta veterinaria com pet e tutor"
                         className="h-28 w-full object-cover object-center"
                       />
                     </div>
-                    <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-white/70">
+                    <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-primary/70">
                       Atendimento premium
                     </p>
-                    <p className="mt-2 text-base font-semibold leading-7">
+                    <p className="mt-2 text-base font-semibold leading-7 text-primary">
                       Consulta clara, toque humano e orientacao sem pressa.
                     </p>
                   </motion.div>
 
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute bottom-5 left-5 right-5 max-w-[25rem] rounded-[1.7rem] border border-white/30 bg-black/[0.18] p-6 text-white backdrop-blur-md"
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/70">
-                      Hero premium
-                    </p>
-                    <p className="mt-3 font-display text-4xl leading-[0.92] sm:text-[3.25rem]">
-                      A clinica que comunica: aqui seu pet esta seguro.
-                    </p>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute bottom-5 right-5 hidden rounded-[1.4rem] border border-white/30 bg-white/20 px-4 py-3 text-white backdrop-blur-md sm:block"
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/70">
-                      Contato rapido
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-white/90">
-                      WhatsApp, telefone e emergencia sempre a um toque.
-                    </p>
-                  </motion.div>
+                  <div className="absolute bottom-0 left-0 right-0 max-w-full p-4 sm:p-5">
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      className="w-full rounded-[1.7rem] glass-panel p-6 shadow-2xl"
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.32em] text-primary/70">
+                        Pronto atendimento
+                      </p>
+                      <div className="mt-3 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                        <p className="font-display text-3xl leading-[0.95] text-primary sm:text-4xl md:pr-6">
+                          A clinica preparada para o que seu pet precisar, a qualquer hora.
+                        </p>
+                        <Link
+                          to="/emergencia"
+                          className="premium-button shrink-0"
+                        >
+                          Central de Urgencia
+                        </Link>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
 
                 <div className="grid gap-4 xl:grid-cols-2">
