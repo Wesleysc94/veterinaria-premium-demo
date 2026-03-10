@@ -71,7 +71,7 @@ export type EmergencySignal = {
 
 export const clinic = {
   name: "Aura Vet",
-  shortName: "Aurora Vet",
+  shortName: "Aura Vet",
   badge: "Demo premium para clinica veterinaria, hospital e pet care brand · atualizado agora",
   tagline:
     "Cuidado veterinario com excelencia, acolhimento e confianca para cada fase da vida do seu pet.",
@@ -82,8 +82,8 @@ export const clinic = {
   emergencyPhone: "(11) 98877-2145",
   whatsapp:
     "https://wa.me/5511988772145?text=Ola%2C%20quero%20agendar%20um%20atendimento%20na%20Aura%20Vet.",
-  instagram: "https://instagram.com/atelierauroravet",
-  email: "contato@atelierauroravet.com.br",
+  instagram: "https://instagram.com/auravet",
+  email: "contato@auravet.com.br",
   address: "Rua Guarara, 312, Jardim Paulista, Sao Paulo - SP",
   mapEmbed:
     "https://www.google.com/maps?q=Rua%20Guarara%20312%20Jardim%20Paulista%20Sao%20Paulo&z=15&output=embed",
