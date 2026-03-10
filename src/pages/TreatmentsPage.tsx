@@ -80,9 +80,9 @@ export default function TreatmentsPage() {
           <Reveal delay={0.08} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/media/esthetic-hero.png"
+                src={clinic.media.consultation}
                 alt="Consulta personalizada de estetica facial"
-                className="h-[420px] w-full object-cover"
+                className="h-[420px] w-full object-cover object-[center_28%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.4))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">

@@ -1,4 +1,4 @@
-import { blogPosts } from "@/data/siteContent";
+import { clinic, blogPosts } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
@@ -35,9 +35,9 @@ export default function BlogPage() {
           <Reveal delay={0.08} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/media/esthetic-clinic.png"
+                src={clinic.media.editorial}
                 alt="Ambiente editorial da clinica"
-                className="h-[360px] w-full object-cover"
+                className="h-[360px] w-full object-cover object-[center_32%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.06),rgba(62,52,46,0.38))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">

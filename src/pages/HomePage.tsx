@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
+  ArrowRight,
   ArrowUpRight,
+  CalendarClock,
   CheckCircle2,
   ChevronRight,
   Instagram,
+  MessageCircleMore,
+  MoveRight,
   ShieldCheck,
   Sparkles,
   Star,
@@ -16,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { BeforeAfterCaseCard } from "@/components/site/BeforeAfterCaseCard";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
 
@@ -26,34 +32,42 @@ export default function HomePage() {
   return (
     <div className="pb-10">
       <section className="relative overflow-hidden px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pt-36">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr,0.95fr] lg:items-center">
+        <div className="ambient-orb left-[-3rem] top-20 h-64 w-64 bg-[radial-gradient(circle_at_center,rgba(218,168,189,0.34),transparent_68%)]" />
+        <div className="ambient-orb right-[2%] top-[16%] h-80 w-80 bg-[radial-gradient(circle_at_center,rgba(231,203,176,0.28),transparent_70%)]" />
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.96fr,1.04fr] lg:items-center">
           <Reveal className="space-y-8">
-            <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(90,70,58,0.5)] backdrop-blur">
+            <motion.span
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/75 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(102,67,82,0.4)] backdrop-blur"
+            >
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               {clinic.badge}
-            </span>
+            </motion.span>
 
             <div className="space-y-6">
               <h1 className="font-display text-5xl leading-[0.9] text-primary sm:text-6xl lg:text-8xl">
-                Rejuvenescimento autoral com luxo leve e resultado natural.
+                Estetica facial com toque couture, tecnologia suave e resultados que parecem seus.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-primary/75">
-                Uma demo pensada para clinicas de estetica facial de alto padrao:
-                atmosfera boutique, copy refinada, arquitetura de conversao e uma
-                experiencia visual criada para impressionar nos primeiros segundos.
+                Uma experiencia boutique para quem deseja rejuvenescimento natural,
+                harmonia facial e uma jornada de cuidado elegante. O foco em
+                agendamento existe, mas entra com discricao, clareza e alto valor percebido.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/contato" className="premium-button justify-center">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link to="/contato" className="premium-button button-shimmer justify-center">
                 Agendar avaliacao
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <a
                 href={clinic.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="premium-button-secondary justify-center"
+                className="premium-button-secondary button-shimmer justify-center"
               >
+                <MessageCircleMore className="h-4 w-4" />
                 WhatsApp direto
               </a>
             </div>
@@ -63,65 +77,166 @@ export default function HomePage() {
                 <Reveal
                   key={item.label}
                   delay={0.08 * index}
-                  className="rounded-[1.75rem] border border-white/70 bg-white/70 p-5 shadow-[0_24px_70px_-46px_rgba(90,70,58,0.75)] backdrop-blur"
+                  className="card-surface interactive-card rounded-[1.75rem] p-5"
                 >
                   <p className="text-2xl font-semibold text-primary">{item.value}</p>
                   <p className="mt-2 text-sm leading-6 text-primary/70">{item.label}</p>
                 </Reveal>
               ))}
             </div>
-          </Reveal>
 
-          <Reveal delay={0.15} className="relative">
-            <div className="absolute -left-6 top-10 h-32 w-32 rounded-full bg-accent/10 blur-3xl" />
-            <div className="card-surface overflow-hidden p-4 sm:p-5">
-              <div className="grid gap-4">
-                <div className="relative overflow-hidden rounded-[1.8rem] border border-white/55 bg-[linear-gradient(145deg,rgba(255,255,255,0.42),rgba(255,255,255,0.16))]">
-                  <img
-                    src="/media/esthetic-hero.png"
-                    alt="Mulher em consulta de estetica premium"
-                    className="h-full min-h-[440px] w-full object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.42))]" />
-                  <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/30 bg-black/20 p-4 text-white backdrop-blur-md">
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/70">
-                      Assinatura de marca
+            <div className="grid gap-4 sm:grid-cols-[1.05fr,0.95fr]">
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.35 }}
+                className="glass-panel rounded-[1.8rem] p-5"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent">
+                    <CalendarClock className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-primary/55">
+                      Agenda privada
                     </p>
-                    <p className="mt-2 font-display text-3xl leading-none">
-                      Beauty editorial com confianca clinica.
+                    <p className="mt-2 text-sm leading-7 text-primary/70">
+                      Avaliacoes com horario marcado, escuta calma e plano facial definido em etapas.
                     </p>
                   </div>
                 </div>
+              </motion.div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[1.6rem] border border-white/70 bg-background/90 p-5">
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-primary/60">
-                      Percepcao imediata
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.35 }}
+                className="glass-panel rounded-[1.8rem] p-5"
+              >
+                <p className="text-[11px] uppercase tracking-[0.3em] text-primary/55">
+                  Primeiro contato
+                </p>
+                <div className="mt-3 flex items-center justify-between gap-4">
+                  <p className="text-sm leading-7 text-primary/70">
+                    Atendimento discreto pelo WhatsApp e encaminhamento claro para consulta.
+                  </p>
+                  <MoveRight className="h-4 w-4 shrink-0 text-accent" />
+                </div>
+              </motion.div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15} className="relative">
+            <motion.div
+              animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-10 top-14 z-10 hidden w-52 rounded-[1.5rem] border border-white/65 bg-white/80 p-4 shadow-[0_30px_80px_-48px_rgba(95,54,78,0.45)] backdrop-blur xl:block"
+            >
+              <p className="text-[10px] uppercase tracking-[0.28em] text-primary/50">
+                Assinatura Maison Aura
+              </p>
+              <p className="mt-3 font-display text-3xl leading-none text-primary">
+                Naturalidade com acabamento precioso.
+              </p>
+            </motion.div>
+
+            <div className="card-surface interactive-card overflow-hidden p-4 sm:p-5">
+              <div className="grid gap-4">
+                <div className="relative min-h-[640px] overflow-hidden rounded-[2.1rem] border border-white/50 bg-[linear-gradient(140deg,rgba(255,255,255,0.48),rgba(255,255,255,0.1))]">
+                  <motion.div
+                    animate={{ scale: [1, 1.025, 1], y: [0, -8, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <img
+                      src={clinic.media.hero}
+                      alt="Retrato editorial para clinica premium de estetica facial"
+                      className="h-full w-full object-cover object-[center_22%]"
+                    />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,248,250,0.06),rgba(88,49,67,0.26)_54%,rgba(64,34,49,0.58))]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(247,224,231,0.36),transparent_20%),radial-gradient(circle_at_18%_15%,rgba(232,205,182,0.25),transparent_20%),radial-gradient(circle_at_62%_75%,rgba(104,60,79,0.24),transparent_28%)]" />
+
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="absolute right-4 top-4 hidden max-w-[17rem] rounded-[1.55rem] border border-white/35 bg-white/[0.16] p-4 text-white backdrop-blur-md sm:block"
+                  >
+                    <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
+                      <img
+                        src={clinic.media.consultation}
+                        alt="Consulta e ritual de cuidado Maison Aura"
+                        className="h-28 w-full object-cover object-[center_28%]"
+                      />
+                    </div>
+                    <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-white/70">
+                      Experience note
                     </p>
-                    <div className="mt-4 flex items-center gap-3">
-                      <div className="flex -space-x-3">
-                        {[0, 1, 2].map((item) => (
-                          <img
-                            key={item}
-                            src="/media/esthetic-model.png"
-                            alt=""
-                            className="h-11 w-11 rounded-full border-2 border-background object-cover"
+                    <p className="mt-2 text-base font-semibold leading-7">
+                      Consulta autoral, leitura facial cuidadosa e indicacao sem pressa.
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="absolute bottom-5 left-5 right-5 max-w-[24rem] rounded-[1.7rem] border border-white/30 bg-black/[0.18] p-6 text-white backdrop-blur-md"
+                  >
+                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/70">
+                      Hero premium
+                    </p>
+                    <p className="mt-3 font-display text-4xl leading-[0.92] sm:text-[3.25rem]">
+                      Feminilidade elegante, glow preciso e rejuvenescimento sem excesso.
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="absolute bottom-5 right-5 hidden rounded-[1.4rem] border border-white/30 bg-white/20 px-4 py-3 text-white backdrop-blur-md sm:block"
+                  >
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/70">
+                      Agendamento
+                    </p>
+                      <p className="mt-2 text-sm leading-6 text-white/90">
+                      Consulta estrategica com plano facial autoral.
+                    </p>
+                  </motion.div>
+                </div>
+
+                <div className="grid gap-4 xl:grid-cols-2">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="glass-panel rounded-[1.7rem] p-6"
+                  >
+                    <p className="text-[11px] uppercase tracking-[0.32em] text-primary/60">
+                      Percepcao de marca
+                    </p>
+                    <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
+                      <div className="grid grid-cols-4 gap-2 sm:w-[10.5rem]">
+                        {[
+                          "from-[#f9eef1] to-[#efd7df]",
+                          "from-[#ecd8cf] to-[#d6b39e]",
+                          "from-[#d7b4c1] to-[#b9869a]",
+                          "from-[#6a4254] to-[#3f2631]",
+                        ].map((tone) => (
+                          <div
+                            key={tone}
+                            className={`h-14 rounded-[1rem] bg-gradient-to-br ${tone} shadow-[0_18px_34px_-24px_rgba(101,63,80,0.6)]`}
                           />
                         ))}
                       </div>
-                      <div>
+                      <div className="max-w-sm">
                         <p className="text-lg font-semibold text-primary">
-                          Naturalidade sofisticada
+                          Luxo feminino discreto, com assinatura editorial.
                         </p>
-                        <p className="text-sm text-primary/60">
-                          Protocolos premium com narrativa de marca.
+                        <p className="mt-2 text-sm leading-7 text-primary/60">
+                          Blush petal, champagne quente e ameixa suave para parecer premium, delicado e adulto ao mesmo tempo.
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="rounded-[1.6rem] border border-white/70 bg-primary p-5 text-background shadow-[0_28px_70px_-46px_rgba(62,52,46,1)]">
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-background/55">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="rounded-[1.7rem] border border-white/60 bg-primary p-6 text-background shadow-[0_28px_70px_-46px_rgba(85,49,67,0.9)]"
+                  >
+                    <p className="text-[11px] uppercase tracking-[0.32em] text-background/60">
                       Jornada de avaliacao
                     </p>
                     <div className="mt-5 space-y-4">
@@ -139,7 +254,7 @@ export default function HomePage() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -202,9 +317,9 @@ export default function HomePage() {
           <Reveal className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/media/esthetic-specialist.png"
+                src={clinic.media.specialist}
                 alt="Especialista em estetica facial premium"
-                className="h-[520px] w-full object-cover"
+                className="h-[520px] w-full object-cover object-[center_20%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.02),rgba(62,52,46,0.35))]" />
               <div className="absolute bottom-5 left-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-4 text-white backdrop-blur-md">
@@ -290,44 +405,14 @@ export default function HomePage() {
             />
           </Reveal>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {clinic.beforeAfter.map((item, index) => (
               <Reveal
                 key={item.title}
                 delay={index * 0.06}
-                className="card-surface overflow-hidden p-4"
+                className="h-full"
               >
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="relative overflow-hidden rounded-[1.5rem]">
-                    <img
-                      src="/media/esthetic-model.png"
-                      alt={`Antes do protocolo ${item.title}`}
-                      className="h-64 w-full object-cover object-center saturate-[0.7] sepia-[0.12] brightness-[0.88]"
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-black/40 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white">
-                      Antes
-                    </span>
-                  </div>
-                  <div className="relative overflow-hidden rounded-[1.5rem]">
-                    <img
-                      src="/media/esthetic-model.png"
-                      alt={`Depois do protocolo ${item.title}`}
-                      className="h-64 w-full object-cover object-center brightness-[1.02] contrast-[1.03]"
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/75 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-primary">
-                      Depois
-                    </span>
-                  </div>
-                </div>
-                <div className="px-2 pb-2 pt-5">
-                  <h3 className="font-display text-3xl leading-none text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-primary/70">{item.focus}</p>
-                  <p className="mt-4 text-xs uppercase tracking-[0.24em] text-primary/40">
-                    {item.note}
-                  </p>
-                </div>
+                <BeforeAfterCaseCard item={item} />
               </Reveal>
             ))}
           </div>
@@ -364,9 +449,9 @@ export default function HomePage() {
           <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/media/esthetic-clinic.png"
+                src={clinic.media.environment}
                 alt="Ambiente da clinica premium de estetica"
-                className="h-[520px] w-full object-cover"
+                className="h-[520px] w-full object-cover object-[center_46%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.45))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
@@ -391,7 +476,7 @@ export default function HomePage() {
               description="A area de depoimentos ajuda a reduzir objecoes sem soar comercial demais. O foco aqui esta em confianca, naturalidade e experiencia."
             />
           </Reveal>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {clinic.testimonials.map((testimonial, index) => (
               <Reveal
                 key={testimonial.name}

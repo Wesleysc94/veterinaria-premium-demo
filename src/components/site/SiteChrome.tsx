@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  CalendarClock,
   ChevronRight,
   Clock3,
   Instagram,
@@ -104,39 +105,46 @@ function Footer() {
 function StickyActions() {
   return (
     <>
-      <a
+      <motion.a
         href={clinic.whatsapp}
         target="_blank"
         rel="noreferrer"
-        className="group fixed bottom-24 right-5 z-40 flex items-center gap-3 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_-18px_rgba(37,211,102,0.9)] transition-transform duration-300 hover:-translate-y-1"
+        whileHover={{ y: -4 }}
+        className="group fixed bottom-24 right-5 z-40 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-4 py-3 text-sm font-semibold text-primary shadow-[0_18px_50px_-24px_rgba(111,72,90,0.38)] backdrop-blur-xl"
       >
-        WhatsApp
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
+          <Phone className="h-4 w-4" />
+        </span>
+        Falar
         <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-      </a>
+      </motion.a>
 
-      <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-primary/10 bg-background/95 px-4 py-3 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="fixed bottom-3 left-4 right-4 z-30 sm:left-1/2 sm:right-auto sm:w-[min(960px,calc(100%-2rem))] sm:-translate-x-1/2">
+        <div className="rounded-[1.9rem] border border-white/70 bg-background/90 px-4 py-3 shadow-[0_20px_80px_-40px_rgba(111,72,90,0.42)] backdrop-blur-2xl">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/60">
-              Agendamento premium
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
+              Agendamento discreto
             </p>
             <p className="text-sm text-primary/70">
-              Avaliacao estrategica com plano facial autoral e atendimento com horario marcado.
+              Consulta estrategica com horario reservado, orientacao clara e contato facilitado.
             </p>
           </div>
           <div className="flex gap-3">
-            <Link to="/contato" className="premium-button flex-1 justify-center sm:flex-none">
+            <Link to="/contato" className="premium-button button-shimmer flex-1 justify-center sm:flex-none">
+              <CalendarClock className="h-4 w-4" />
               Agendar avaliacao
             </Link>
             <a
               href={clinic.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="premium-button-secondary flex-1 justify-center sm:flex-none"
+              className="premium-button-secondary button-shimmer flex-1 justify-center sm:flex-none"
             >
               Falar no WhatsApp
             </a>
           </div>
+        </div>
         </div>
       </div>
     </>
@@ -154,11 +162,11 @@ export function SiteChrome() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-primary">
-      <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(216,194,183,0.24),transparent_70%)]" />
-      <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(198,167,123,0.16),transparent_72%)]" />
+      <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(220,174,192,0.28),transparent_70%)]" />
+      <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(228,198,177,0.18),transparent_72%)]" />
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/70 bg-white/80 px-5 py-3 shadow-[0_20px_90px_-50px_rgba(90,70,58,0.5)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/70 bg-white/80 px-5 py-3 shadow-[0_20px_90px_-50px_rgba(111,72,90,0.42)] backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-background shadow-[0_18px_50px_-18px_rgba(62,52,46,0.8)]">
               <Sparkles className="h-5 w-5" />
@@ -178,7 +186,7 @@ export function SiteChrome() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link to="/contato" className="premium-button">
+            <Link to="/contato" className="premium-button button-shimmer">
               Agendar consulta
             </Link>
           </div>
@@ -199,7 +207,7 @@ export function SiteChrome() {
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
               ))}
-              <Link to="/contato" className="premium-button mt-2 justify-center">
+              <Link to="/contato" className="premium-button button-shimmer mt-2 justify-center">
                 Agendar consulta
               </Link>
             </div>

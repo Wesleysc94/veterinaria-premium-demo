@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AlertCircle } from "lucide-react";
 
 import { clinic } from "@/data/siteContent";
+import { BeforeAfterCaseCard } from "@/components/site/BeforeAfterCaseCard";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
@@ -24,36 +25,10 @@ export default function ResultsPage() {
               description="Os blocos abaixo usam composicao simetrica, labels discretas e uma legenda de protocolo para parecerem parte de uma operacao premium real."
             />
           </Reveal>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {clinic.beforeAfter.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05} className="card-surface overflow-hidden p-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="relative overflow-hidden rounded-[1.5rem]">
-                    <img
-                      src="/media/esthetic-model.png"
-                      alt={`Antes do caso ${item.title}`}
-                      className="h-72 w-full object-cover saturate-[0.72] sepia-[0.1] brightness-[0.9]"
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-black/40 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white">
-                      Antes
-                    </span>
-                  </div>
-                  <div className="relative overflow-hidden rounded-[1.5rem]">
-                    <img
-                      src="/media/esthetic-model.png"
-                      alt={`Depois do caso ${item.title}`}
-                      className="h-72 w-full object-cover brightness-[1.04] contrast-[1.04]"
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-primary">
-                      Depois
-                    </span>
-                  </div>
-                </div>
-                <div className="px-2 pb-2 pt-5">
-                  <h3 className="font-display text-3xl leading-none text-primary">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-primary/70">{item.focus}</p>
-                  <p className="mt-4 text-xs uppercase tracking-[0.24em] text-primary/40">{item.note}</p>
-                </div>
+              <Reveal key={item.title} delay={index * 0.05} className="h-full">
+                <BeforeAfterCaseCard item={item} />
               </Reveal>
             ))}
           </div>

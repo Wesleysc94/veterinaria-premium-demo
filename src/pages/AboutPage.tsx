@@ -35,9 +35,9 @@ export default function AboutPage() {
           <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src="/media/esthetic-specialist.png"
+                src={clinic.media.specialist}
                 alt="Retrato da especialista Maison Aura"
-                className="h-[560px] w-full object-cover"
+                className="h-[560px] w-full object-cover object-[center_18%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.05),rgba(62,52,46,0.42))]" />
               <div className="absolute bottom-6 left-6 right-6 rounded-[1.6rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
@@ -105,7 +105,7 @@ export default function AboutPage() {
               O branding equilibra feminilidade adulta, calor, limpeza e profundidade. O site foi desenhado para evitar tanto o visual medico frio quanto o excesso de romantizacao comum em clinicas genericas do segmento.
             </p>
             <div className="mt-8 space-y-3 text-sm leading-7 text-primary/70">
-              <p>Paleta clara em ivory, cream, taupe e champagne.</p>
+              <p>Paleta clara em petal blush, ivory quente, champagne nude e ameixa suave.</p>
               <p>Serif editorial nos titulos e sans precisa nos textos.</p>
               <p>Microinteracoes suaves, hover premium e narrativa orientada a agendamento.</p>
             </div>

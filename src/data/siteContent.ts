@@ -23,6 +23,15 @@ export type BlogPost = {
   readTime: string;
 };
 
+export type BeforeAfterCase = {
+  title: string;
+  focus: string;
+  note: string;
+  variant: "midface" | "lips" | "skin";
+  beforeLabel: string;
+  afterLabel: string;
+};
+
 export const clinic = {
   name: "Maison Aura",
   badge: "Demo de portfolio para clinica premium de estetica",
@@ -48,6 +57,26 @@ export const clinic = {
     { label: "Conteudo", href: "/conteudo" },
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
+  media: {
+    hero:
+      "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+    specialist:
+      "https://images.pexels.com/photos/6620985/pexels-photo-6620985.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+    consultation:
+      "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+    environment:
+      "https://images.pexels.com/photos/6663574/pexels-photo-6663574.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
+    editorial:
+      "https://images.pexels.com/photos/7755653/pexels-photo-7755653.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1600",
+    results: {
+      midface:
+        "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+      lips:
+        "https://images.pexels.com/photos/3373740/pexels-photo-3373740.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+      skin:
+        "https://images.pexels.com/photos/7755653/pexels-photo-7755653.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+    },
+  },
   stats: [
     { value: "11 anos", label: "de atuacao em estetica facial avancada" },
     { value: "94%", label: "das pacientes chegam por indicacao e recorrencia" },
@@ -144,21 +173,30 @@ export const clinic = {
   ],
   beforeAfter: [
     {
-      title: "Refinamento do terco medio",
-      focus: "Suavizacao de cansaco, reposicionamento sutil e mais luminosidade facial.",
-      note: "Plano com bioestimulador e skinbooster em etapas.",
+      title: "Suavizacao do terco medio",
+      focus: "Perda de suporte e cansaco facial tratados com leve reposicionamento e luminosidade melhor distribuida.",
+      note: "Bioestimulador e skinbooster em plano progressivo.",
+      variant: "midface",
+      beforeLabel: "Sulco marcado e menor sustentacao",
+      afterLabel: "Contorno suave e aparencia descansada",
     },
     {
-      title: "Contorno labial elegante",
-      focus: "Definicao delicada com hidratacao, proporcao e naturalidade.",
-      note: "Preenchimento planejado para preservar mobilidade e expressao.",
+      title: "Definicao labial sutil",
+      focus: "Mais contorno, hidratacao e proporcao sem rigidez, mantendo mobilidade e leitura natural do sorriso.",
+      note: "Preenchimento hidratante com desenho delicado.",
+      variant: "lips",
+      beforeLabel: "Contorno menos nitido e ressecamento",
+      afterLabel: "Borda limpa e volume elegante",
     },
     {
-      title: "Qualidade de pele premium",
-      focus: "Mais vico, textura uniforme e aparencia descansada em close.",
-      note: "Combinacao de limpeza premium, tecnologias e protocolo injetavel leve.",
+      title: "Glow com textura refinada",
+      focus: "Textura irregular, opacidade e poros aparentes tratados com estrategia para glow controlado e acabamento de pele cara.",
+      note: "Peeling inteligente, skinbooster e protocolo de consultorio.",
+      variant: "skin",
+      beforeLabel: "Opacidade e relevo irregular",
+      afterLabel: "Luminosidade fina e textura uniforme",
     },
-  ],
+  ] satisfies BeforeAfterCase[],
 };
 
 export const treatments: Treatment[] = [
