@@ -22,7 +22,7 @@ export default function AboutPage() {
               title="A Aura Vet nasceu para unir cuidado veterinario serio e experiencia acolhedora."
               description="O conceito da marca parte de uma dor real do mercado: muitos tutores encontram clinicas frias demais ou comunicacao bonita demais, mas pouca clareza clinica. A proposta aqui e equilibrar os dois lados."
             />
-            <div className="space-y-4 text-base leading-8 text-primary/70">
+            <div className="space-y-4 text-base leading-8 text-primary/80">
               <p>
                 Desde o primeiro contato, a experiencia foi desenhada para fazer o tutor sentir que existe metodo, atencao e previsibilidade. A identidade premium reforca limpeza, calma e organizacao sem cair no visual hospitalar rigido.
               </p>
@@ -35,15 +35,15 @@ export default function AboutPage() {
           <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
-                src={clinic.media.environment}
-                alt="Ambiente premium da clinica veterinaria"
+                src="/assets/about/exterior.png"
+                alt="Fachada premium da Aura Vet"
                 className="h-[560px] w-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,42,48,0.05),rgba(27,42,48,0.42))]" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-[1.6rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/70">Estrutura premium</p>
-                <h2 className="mt-3 font-display text-4xl">Clinica organizada, acolhedora e localmente forte.</h2>
-                <p className="mt-3 text-sm leading-7 text-white/80">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,42,48,0.1),rgba(27,42,48,0.5))]" />
+              <div className="absolute bottom-6 left-6 right-6 rounded-[1.6rem] border border-white/30 bg-white/20 p-5 text-white backdrop-blur-md">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-white">Estrutura premium</p>
+                <h2 className="mt-3 font-display text-4xl leading-none">Clinica organizada, acolhedora e localmente forte.</h2>
+                <p className="mt-4 text-sm leading-7 text-white">
                   Consultorios claros, fluxo de triagem, area de observacao e comunicacao pensada para tutores que valorizam confianca e agilidade.
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
             ].map((item, index) => (
               <Reveal key={item.text} delay={index * 0.06} className="card-surface p-6">
                 <item.icon className="h-5 w-5 text-accent" />
-                <p className="mt-5 text-base leading-8 text-primary/70">{item.text}</p>
+                <p className="mt-5 text-base leading-relaxed text-primary/80">{item.text}</p>
               </Reveal>
             ))}
           </div>
@@ -93,11 +93,11 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 space-y-4">
               {clinic.certifications.map((item) => (
-                <div key={item} className="flex gap-3 rounded-[1.35rem] border border-primary/10 bg-background/80 p-4">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-primary">
+                <div key={item} className="flex gap-3 rounded-[1.35rem] border border-primary/20 bg-background/50 p-4">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/20 text-primary">
                     <Check className="h-4 w-4" />
                   </div>
-                  <p className="text-sm leading-7 text-primary/70">{item}</p>
+                  <p className="text-sm leading-relaxed text-primary/90">{item}</p>
                 </div>
               ))}
             </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
             <p className="mt-5 text-base leading-8 text-primary/70">
               O branding mistura azul confiavel, verde salvia e neutros quentes para criar um visual clinico, acolhedor e sofisticado. A tipografia editorial traz presenca, enquanto a navegacao e objetiva para ajudar conversao.
             </p>
-            <div className="mt-8 space-y-3 text-sm leading-7 text-primary/70">
+            <div className="mt-8 space-y-3 text-sm leading-7 text-primary/80">
               <p>Hero emocional com CTA forte e urgencia visivel.</p>
               <p>Arquitetura pronta para SEO local, blog e paginas de especialidade.</p>
               <p>Mobile pensado para quem busca contato rapido, mapa e WhatsApp.</p>

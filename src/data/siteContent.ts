@@ -34,6 +34,7 @@ export type Service = {
   whenToSeek: string;
   benefits: string[];
   steps: string[];
+  image: string;
 };
 
 export type TeamMember = {
@@ -51,6 +52,7 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   readTime: string;
+  image: string;
 };
 
 export type Testimonial = {
@@ -72,480 +74,428 @@ export type EmergencySignal = {
 export const clinic = {
   name: "Aura Vet",
   shortName: "Aura Vet",
-  badge: "Demo premium para clinica veterinaria, hospital e pet care brand · atualizado agora",
+  badge: "Excelência em Medicina Veterinária · Jardim Paulista",
   tagline:
-    "Cuidado veterinario com excelencia, acolhimento e confianca para cada fase da vida do seu pet.",
+    "Cuidado veterinário de alto padrão, unindo tecnologia de ponta e acolhimento humano para seu pet.",
   supportingLine:
-    "Clinica veterinaria premium com agenda organizada, equipe multidisciplinar, contato rapido e estrutura pensada para transmitir seguranca desde o primeiro minuto.",
-  location: "Jardim Paulista, Sao Paulo - SP",
+    "Somos uma clínica de especialidades focada no bem-estar integral, com equipe multidisciplinar pronta para oferecer diagnósticos precisos e tratamentos personalizados.",
+  location: "Jardim Paulista, São Paulo - SP",
   phone: "(11) 4007-2145",
   emergencyPhone: "(11) 98877-2145",
   whatsapp:
-    "https://wa.me/5511988772145?text=Ola%2C%20quero%20agendar%20um%20atendimento%20na%20Aura%20Vet.",
+    "https://wa.me/5511988772145?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Aura%20Vet.",
   instagram: "https://instagram.com/auravet",
   email: "contato@auravet.com.br",
-  address: "Rua Guarara, 312, Jardim Paulista, Sao Paulo - SP",
+  address: "Rua Guarará, 312, Jardim Paulista, São Paulo - SP",
   mapEmbed:
     "https://www.google.com/maps?q=Rua%20Guarara%20312%20Jardim%20Paulista%20Sao%20Paulo&z=15&output=embed",
   hours: [
-    "Consultas agendadas: segunda a sexta, das 08h as 20h",
-    "Sabado: das 09h as 15h",
-    "Canal de triagem rapida por WhatsApp todos os dias",
+    "Segunda a Sexta: 08h às 20h",
+    "Sábado: 09h às 15h",
+    "Plantão para triagem via WhatsApp: 24h",
   ],
-  emergencyHours: "Urgencias com orientacao imediata e encaixe clinico conforme gravidade.",
+  emergencyHours: "Atendimento imediato para casos de urgência conforme gravidade.",
   nav: [
-    { label: "Inicio", href: "/" },
+    { label: "Início", href: "/" },
     { label: "Sobre", href: "/sobre" },
-    { label: "Servicos", href: "/servicos" },
+    { label: "Serviços", href: "/servicos" },
     { label: "Equipe", href: "/equipe" },
-    { label: "Conteudo", href: "/conteudo" },
+    { label: "Conteúdo", href: "/conteudo" },
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
     hero:
-      "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=2670&auto=format&fit=crop", // Professional vet with dog in high-end clinic
+      "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop",
     consultation:
-      "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2574&auto=format&fit=crop", // Modern vet consultation
+      "https://images.unsplash.com/photo-1576091160550-217359f48f8c?q=80&w=2070&auto=format&fit=crop",
     emergency:
-      "https://images.unsplash.com/photo-1516733725897-1aa3138b3874?q=80&w=2671&auto=format&fit=crop", // Emergency care/Equip
+      "https://images.unsplash.com/photo-1588776814546-1ffce47267a5?q=80&w=2670&auto=format&fit=crop",
     specialist:
-      "https://images.unsplash.com/photo-1596229202577-4c070243be4c?q=80&w=2670&auto=format&fit=crop", // Specialized treatment
-    diagnostics:
-      "https://images.unsplash.com/photo-1579154236595-c99939e6a002?q=80&w=2670&auto=format&fit=crop", // Lab diagnostics
-    environment:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop", // Luxury reception area
-    editorial:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop", // Emotional vet-pet bond
-    species:
-      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop", // Premium cat portrait
-    team: [
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2574&auto=format&fit=crop",
+    diagnostics:
+      "/assets/services/diagnostics.png",
+    environment:
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop",
+    editorial:
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop",
+    species:
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop",
+    team: [
+      "/assets/team/helena.png",
+      "/assets/team/nicolas.png",
+      "/assets/team/camila.png",
+      "/assets/team/sofia.png",
     ],
   },
   stats: [
-    { value: "24h", label: "canal de urgencia e triagem agil para orientar o tutor com clareza" },
-    { value: "7 salas", label: "entre consultorios, vacinacao, exames rapidos e observacao assistida" },
-    { value: "360", label: "plano de cuidado que integra prevencao, diagnostico e retorno acompanhado" },
+    { value: "24h", label: "Triagem ágil para suporte imediato aos tutores" },
+    { value: "15+", label: "Especialistas focados em diagnósticos de precisão" },
+    { value: "100%", label: "Comprometimento com o bem-estar e a vida animal" },
   ] satisfies Stat[],
   highlights: [
-    "Contato rapido com WhatsApp, telefone e orientacao de urgencia sempre visiveis",
-    "Equipe que combina medicina veterinaria, acolhimento ao tutor e processos organizados",
-    "Estrutura clara para check-up, vacinas, exames, odontologia, cirurgia e internacao",
+    "Atendimento multidisciplinar com os melhores especialistas",
+    "Instalações modernas e equipamentos de última geração",
+    "Foco real na prevenção e longevidade dos seus pets",
   ],
   trustPillars: [
     {
-      title: "Medicina veterinaria com linguagem clara",
-      text: "O tutor entende o quadro, as opcoes de conduta e os proximos passos sem ruidao tecnico desnecessario.",
+      title: "Medicina baseada em evidências",
+      text: "Nossa conduta clínica é técnica e precisa, garantindo que você compreenda cada etapa do tratamento.",
     },
     {
-      title: "Experiencia premium sem frieza hospitalar",
-      text: "O visual transmite limpeza clinica e calma, com atendimento humano e bem orientado para pets e familias.",
+      title: "Conforto e Bem-estar",
+      text: "Ambientes projetados para reduzir o estresse de cães e gatos, proporcionando uma visita tranquila.",
     },
     {
-      title: "Fluxo pensado para conversao local",
-      text: "Hero forte, CTA de agendamento, emergencia destacada, mapa, endereco e estrutura pronta para SEO local.",
+      title: "Tecnologia de Ponta",
+      text: "Diagnósticos por imagem e laboratório avançado para resultados rápidos e seguros na própria clínica.",
     },
     {
-      title: "Primeira visita sem friccao",
-      text: "Triagem inicial, checklist de documentos, conduta preventiva e retorno programado para acompanhar a evolucao.",
+      title: "Cuidado Humanizado",
+      text: "Entendemos que seu pet é parte da sua família. Nosso foco é o acolhimento e a empatia.",
     },
   ] satisfies TrustPillar[],
   visitSteps: [
     {
-      title: "Triagem e acolhimento",
-      text: "Antes da consulta, a equipe orienta o tutor sobre documentos, exames recentes, rotina do pet e sinais clinicos relevantes.",
+      title: "Recepção e Acolhimento",
+      text: "Recebemos você e seu pet em um ambiente calmo, coletando informações essenciais sobre sua rotina.",
     },
     {
-      title: "Consulta com plano objetivo",
-      text: "O atendimento combina exame clinico, explicacao clara, definicao de prioridades e encaminhamento para vacinas, exames ou especialidades.",
+      title: "Avaliação Médica Detalhada",
+      text: "Uma análise clínica minuciosa para identificar necessidades preventivas ou curativas.",
     },
     {
-      title: "Retorno acompanhado",
-      text: "A jornada nao termina na sala. O tutor recebe orientacoes por escrito, previsao de reavaliacao e canal rapido para duvidas.",
+      title: "Plano de Cuidado Personalizado",
+      text: "Definição clara de tratamentos, medicamentos ou exames, com acompanhamento direto da nossa equipe.",
     },
   ] satisfies VisitStep[],
   species: [
     {
-      name: "Caes",
-      label: "Clinica de familia",
-      description: "Atendimento de rotina, check-up, vacinas, geriatria, odontologia e condutas rapidas para sinais de alerta.",
+      name: "Cães",
+      label: "Melhores Amigos",
+      description: "Cuidado completo desde vacinação até geriatria especializada para cães de todos os portes.",
     },
     {
       name: "Gatos",
-      label: "Baixo estresse",
-      description: "Fluxo mais silencioso, manejo gentil e foco em medicina felina com conforto para tutor e paciente.",
+      label: "Especialidade Felina",
+      description: "Manejo sensível e protocolos específicos para a saúde e o temperamento único dos felinos.",
     },
     {
       name: "Filhotes",
-      label: "Primeiros meses",
-      description: "Protocolos preventivos, orientacao de rotina, calendario vacinal e suporte para as primeiras fases de desenvolvimento.",
+      label: "Primeiros Passos",
+      description: "Orientação cuidadosa para os primeiros meses, garantindo um crescimento saudável e protegido.",
     },
     {
-      name: "Pets seniores",
-      label: "Cuidado continuo",
-      description: "Monitoramento de dor, check-up preventivo, nutricional e exames recorrentes para envelhecimento com qualidade.",
+      name: "Pets Seniores",
+      label: "Cuidados de Ouro",
+      description: "Monitoramento preventivo para garantir qualidade de vida e conforto na fase sênior.",
     },
   ] satisfies Species[],
   certifications: [
-    "Corpo clinico com atuacao em clinica medica, cirurgia, medicina preventiva e urgencia veterinaria.",
-    "Protocolos internos de acolhimento, analgesia, seguranca anestesica e acompanhamento pos-atendimento.",
-    "Estrutura demonstrativa pensada para SEO local, agendamento rapido e experiencia premium mobile-first.",
+    "Corpo clínico experiente em diversas especialidades veterinárias.",
+    "Central de urgência equipada para estabilização de casos críticos.",
+    "Ambientes com protocolos rigorosos de higiene e segurança.",
   ],
   testimonials: [
     {
-      name: "Carolina M.",
+      name: "Carolina Meirelles",
       role: "Tutora da Mel",
       quote:
-        "A diferenca esta na clareza. Eu entendi cada etapa da consulta, fui acolhida o tempo todo e sai com seguranca de que a Mel estava em boas maos.",
+        "Fui atendida com uma clareza que nunca vi em outras clínicas. Senti que a Mel estava realmente sendo tratada com o carinho que merece.",
     },
     {
-      name: "Bruno R.",
+      name: "Bruno Ramos",
       role: "Tutor do Thor",
       quote:
-        "O contato foi rapido, a equipe foi objetiva e o atendimento transmitiu confianca desde a chegada. Parece uma clinica premium de verdade.",
+        "Equipe extremamente profissional e atenciosa. O diagnóstico foi rápido e o suporte pós-consulta fez toda a diferença na recuperação.",
     },
     {
-      name: "Patricia L.",
+      name: "Patrícia Lima",
       role: "Tutora do Chico e da Frida",
       quote:
-        "Gostei muito do equilibrio entre ambiente acolhedor e postura medica. Nao parece pet shop, parece uma clinica organizada e confiavel.",
+        "O ambiente é impecável e a equipe transmite muita segurança. É a primeira vez que meus bichos ficam calmos em uma clínica.",
     },
     {
-      name: "Rafael S.",
+      name: "Rafael Souza",
       role: "Tutor da Luna",
       quote:
-        "Precisei de orientacao no mesmo dia e fui atendido com rapidez. O time passou calma e explicou quando realmente era uma urgencia.",
+        "Em um momento de emergência, foram rápidos e precisos. A calma que nos passaram foi fundamental para lidarmos com a situação.",
     },
   ] satisfies Testimonial[],
   faqs: [
     {
-      question: "Voces atendem emergencia?",
+      question: "Vocês atendem emergências 24 horas?",
       answer:
-        "Sim. O site destaca triagem rapida por telefone e WhatsApp para orientar gravidade, disponibilidade e qual o melhor encaminhamento para o pet.",
+        "Sim, nossa equipe está preparada para triagem imediata. Entre em contato para orientações sobre deslocamento e pronto atendimento.",
     },
     {
-      question: "Como funciona a primeira consulta?",
+      question: "É necessário agendar para vacinação?",
       answer:
-        "A primeira visita inclui anamnese, exame clinico, revisao do historico, definicao de prioridades e um plano claro com proximos passos.",
+        "Recomendamos o agendamento para garantir que seu pet seja atendido sem espera, minimizando o estresse e garantindo a exclusividade.",
     },
     {
-      question: "Preciso agendar com antecedencia?",
+      question: "Quais especialidades a clínica possui?",
       answer:
-        "Para rotina, sim. Isso ajuda a manter a experiencia calma e organizada. Em sinais de alerta, a equipe orienta encaixe e urgencia conforme o quadro.",
+        "Contamos com especialistas em Cardiologia, Dermatologia, Ortopedia, Odontologia e Medicina Felina, entre outras áreas.",
     },
     {
-      question: "Quais vacinas sao aplicadas?",
+      question: "Como funciona a primeira consulta do filhote?",
       answer:
-        "A demonstracao contempla protocolos para caes e gatos, sempre ajustados a idade, estilo de vida, historico vacinal e orientacao clinica.",
+        "É um momento de orientação total sobre vacinas, alimentação, desparasitação e cuidados básicos para o início de vida do pet.",
     },
     {
-      question: "Voces fazem exames na clinica?",
+      question: "Realizam exames diagnósticos na clínica?",
       answer:
-        "Sim. A estrutura contempla exames laboratoriais, diagnostico por imagem por parceria e apoio para casos que exigem investigacao mais rapida.",
+        "Sim, possuímos estrutura para exames de sangue laboratoriais e diagnóstico por imagem para maior agilidade clínica.",
     },
     {
-      question: "Atendem caes e gatos?",
+      question: "Aceitam planos de saúde veterinários?",
       answer:
-        "Sim. A demo foi posicionada para pets de familia, com linguagem que transmite seguranca tanto para atendimento de rotina quanto para urgencias.",
+        "Sim, trabalhamos com os principais planos. Entre em contato para confirmar a cobertura do convênio do seu pet.",
     },
   ] satisfies FAQ[],
   emergencySignals: [
     {
-      title: "Falta de ar ou respiracao muito acelerada",
-      text: "Sinal que exige triagem imediata. O tutor deve entrar em contato rapido para orientacao de deslocamento e prioridade.",
+      title: "Dificuldade Respiratória",
+      text: "Respiração acelerada, ofegante ou com a boca aberta são sinais críticos que exigem triagem imediata.",
     },
     {
-      title: "Vomitos repetidos, convulsao ou desmaio",
-      text: "O fluxo de urgencia da demo foi pensado para deixar esses sinais claros e reduzir o tempo ate o contato com a clinica.",
+      title: "Alterações Neurológicas",
+      text: "Convulsões, desmaios ou falta de equilíbrio pedem suporte veterinário sem demora para estabilização.",
     },
     {
-      title: "Trauma, queda, atropelamento ou dor aguda",
-      text: "A area de emergencia comunica acolhimento com objetividade: o tutor entende quando acionar o telefone e quando ir direto para avaliacao.",
+      title: "Traumas e Acidentes",
+      text: "Quedas, atropelamentos ou ferimentos profundos devem ser avaliados imediatamente por nossa equipe.",
     },
     {
-      title: "Apatia intensa, sangramento ou distensao abdominal",
-      text: "O site usa copy orientativa, CTA visivel e destaque para atendimento rapido sem perder a elegancia visual da marca.",
+      title: "Prostração e Dor Aguda",
+      text: "Apatia intensa, gemidos ou abdômen inchado são indícios de urgência que não devem ser ignorados.",
     },
   ] satisfies EmergencySignal[],
   emergencyFlow: [
-    "Entre em contato pelo telefone ou WhatsApp e descreva os sinais principais.",
-    "A equipe faz triagem rapida, indica urgencia e orienta deslocamento ou preparo para atendimento.",
-    "Ao chegar, o tutor ja encontra o fluxo organizado para consulta, exames iniciais e estabilizacao quando necessario.",
+    "Ligue imediatamente ou envie mensagem via WhatsApp detalhando os sintomas.",
+    "Nossa equipe realizará uma pré-triagem para orientar o socorro inicial.",
+    "Ao chegar, seu pet receberá prioridade total para estabilização e diagnóstico.",
   ],
 };
 
 export const services: Service[] = [
   {
     slug: "consulta-clinica",
-    name: "Consulta clinica",
-    category: "Clinica geral",
+    name: "Consulta Clínica",
+    category: "Clínica Geral",
     excerpt:
-      "Avaliacoes completas para sintomas agudos, acompanhamento de rotina e definicao de conduta com linguagem clara para o tutor.",
-    idealFor: "Pets que precisam de primeira avaliacao, retorno ou revisao de sintomas recentes.",
-    availability: "Agenda diaria com horarios reservados e encaixes orientados.",
-    whenToSeek: "Mudanca de apetite, desconforto, queda de energia, sinais respiratorios ou revisao de rotina.",
+      "Avaliação completa de saúde, diagnóstico de sintomas e planos de prevenção personalizados para seu pet.",
+    idealFor: "Check-ups de rotina, avaliação de mal-estar e acompanhamento preventivo.",
+    availability: "Disponível diariamente com horários flexíveis.",
+    whenToSeek: "Mudança no apetite, prostração, vômitos ou apenas para a rotina anual de saúde.",
     benefits: [
-      "Anamnese completa com foco no contexto do tutor e do pet",
-      "Explicacao objetiva sobre quadro clinico e proximos passos",
-      "Encaminhamento agil para vacinas, exames, imagem ou especialidades",
+      "Análise minuciosa de todos os sistemas fisiológicos",
+      "Orientação técnica clara para o tutor sobre a saúde do pet",
+      "Identificação precoce de possíveis patologias",
     ],
     steps: [
-      "Recepcao com orientacao inicial e revisao do historico do pet",
-      "Exame clinico, leitura dos sinais e definicao da conduta",
-      "Plano final com retorno, exames ou tratamento preventivo",
+      "Anamnese detalhada do histórico do pet",
+      "Exame físico completo e avaliação clínica",
+      "Indicação de plano terapêutico ou exames complementares",
     ],
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2070&auto=format&fit=crop",
   },
   {
     slug: "vacinacao-preventiva",
-    name: "Vacinacao preventiva",
-    category: "Prevencao",
+    name: "Vacinação Preventiva",
+    category: "Prevenção",
     excerpt:
-      "Protocolos vacinais organizados para filhotes, adultos e pets seniores, sempre contextualizados ao estilo de vida do paciente.",
-    idealFor: "Tutores que querem manter o calendario protegido e bem documentado.",
-    availability: "Atendimento em slots dedicados para reduzir espera e estresse.",
-    whenToSeek: "Inicio do protocolo, reforcos anuais, atualizacao de carteira ou preparacao para viagens e creche.",
+      "Protocolos vacinais modernos e seguros para proteger seu pet contra as principais doenças infecciosas.",
+    idealFor: "Filhotes iniciando imunização ou adultos em reforço anual.",
+    availability: "Atendimento ágil com foco em baixo estresse.",
+    whenToSeek: "Renovação anual do calendário vacinal ou início de protocolo em filhotes.",
     benefits: [
-      "Calendario vacinal ajustado a risco, idade e ambiente",
-      "Orientacoes simples sobre reacoes esperadas e observacao pos-vacina",
-      "Mais seguranca para pets de familia, apartamentos e rotina externa",
+      "Uso de vacinas de alto padrão e procedência garantida",
+      "Protocolo ajustado ao estilo de vida e riscos do pet",
+      "Reforço da imunidade contra doenças graves e fatais",
     ],
     steps: [
-      "Conferencia do historico vacinal e status clinico",
-      "Aplicacao com manejo gentil e ambiente controlado",
-      "Registro, lembrete de reforco e orientacao preventiva",
+      "Avaliação prévia para garantir que o pet está apto a vacinar",
+      "Aplicação cuidadosa com técnica de manejo amigável",
+      "Atualização da carteira e agendamento de reforços",
     ],
+    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2070&auto=format&fit=crop",
   },
   {
     slug: "exames-laboratoriais",
-    name: "Exames laboratoriais",
-    category: "Diagnostico",
+    name: "Laboratório Clínico",
+    category: "Diagnóstico",
     excerpt:
-      "Coleta e interpretacao inicial para apoiar investigacao rapida, check-up preventivo e acompanhamento de tratamentos.",
-    idealFor: "Casos clinicos que exigem dados objetivos ou rotina preventiva anual.",
-    availability: "Coletas programadas e apoio em demandas com prioridade.",
-    whenToSeek: "Alteracoes em exames antigos, check-up, sinais inespecificos ou monitoramento de tratamento.",
+      "Análises precisas de sangue, urina e outros fluidos para diagnósticos rápidos e monitoramento de saúde.",
+    idealFor: "Check-ups avançados e investigação de patologias complexas.",
+    availability: "Resultados ágeis e integração direta com o prontuário.",
+    whenToSeek: "Pré-operatórios, sintomas inespecíficos ou acompanhamento de patologias crônicas.",
     benefits: [
-      "Apoio ao diagnostico com mais previsibilidade",
-      "Check-up anual mais completo para pets adultos e seniores",
-      "Melhor definicao de conduta para casos clinicos recorrentes",
+      "Precisão diagnóstica para tratamentos assertivos",
+      "Tecnologia de ponta em análises clínicas",
+      "Acompanhamento rigoroso de parâmetros de saúde",
     ],
     steps: [
-      "Solicitacao orientada pelo quadro clinico",
-      "Coleta com conforto e suporte da equipe",
-      "Leitura do resultado com proximo passo definido",
+      "Coleta técnica com foco no bem-estar do pet",
+      "Processamento imediato das amostras",
+      "Interpretação detalhada conjunta com o clínico",
     ],
+    image: "https://images.unsplash.com/photo-1582719202047-76d3432ee323?q=80&w=2670&auto=format&fit=crop",
   },
   {
     slug: "diagnostico-por-imagem",
-    name: "Diagnostico por imagem",
-    category: "Imagem",
+    name: "Diagnóstico por Imagem",
+    category: "Especialidades",
     excerpt:
-      "Suporte por ultrassom e radiologia para ampliar a leitura clinica e agilizar decisoes com mais seguranca.",
-    idealFor: "Investigacoes abdominais, respiratorias, ortopedicas e controle de casos acompanhados.",
-    availability: "Encaminhamento coordenado e integracao com a consulta clinica.",
-    whenToSeek: "Dor, trauma, suspeita de corpo estranho, alteracoes urinarias ou reavaliacoes periodicas.",
+      "Suporte por ultrassonografia e radiologia para visualizar a saúde interna do seu pet com máxima clareza.",
+    idealFor: "Investigação de dores, traumas e condições gastrointestinais.",
+    availability: "Equipamentos modernos integrados ao hospital.",
+    whenToSeek: "Suspeita de ingestão de corpos estranhos, dores abdominais ou traumas físicos.",
     benefits: [
-      "Diagnostico mais preciso para condutas importantes",
-      "Integracao com exames laboratoriais e consulta clinica",
-      "Menos incerteza em quadros que precisam de aprofundamento",
+      "Visualização interna com alta definição",
+      "Auxílio fundamental em emergências",
+      "Diagnósticos não invasivos e seguros",
     ],
     steps: [
-      "Definicao da necessidade do exame e preparo do paciente",
-      "Execucao por parceiro ou equipe de apoio",
-      "Discussao do laudo com o tutor em linguagem acessivel",
+      "Preparo adequado do pet conforme o tipo de exame",
+      "Realização do exame com laudagem especializada",
+      "Discussão dos achados com o médico responsável",
     ],
+    image: "/assets/services/diagnostics.png",
   },
   {
-    slug: "cirurgia-e-anestesia",
-    name: "Cirurgia e anestesia",
-    category: "Centro cirurgico",
+    slug: "centro-cirurgico",
+    name: "Centro Cirúrgico",
+    category: "Cirurgia",
     excerpt:
-      "Procedimentos eletivos e terapeuticos com foco em seguranca anestesica, analgesia e organizacao pre e pos-operatoria.",
-    idealFor: "Casos indicados em consulta, desde esterilizacao ate procedimentos corretivos.",
-    availability: "Planejamento com triagem, exames e checklist pre-operatorio.",
-    whenToSeek: "Indicacao clinica, procedimentos eletivos ou necessidade de intervencao acompanhada.",
+      "Procedimentos cirúrgicos eletivos e complexos com monitorização anestésica rigorosa e segurança total.",
+    idealFor: "Castrações, remoção de tumores e cirurgias ortopédicas.",
+    availability: "Ambiente estéril e equipado para alta complexidade.",
+    whenToSeek: "Indicação cirúrgica curativa ou procedimentos preventivos.",
     benefits: [
-      "Fluxo cirurgico mais seguro e previsivel",
-      "Preparacao clara para tutor antes do procedimento",
-      "Recuperacao acompanhada com orientacoes e retorno",
+      "Equipe de cirurgiões e anestesiologistas experientes",
+      "Monitoramento vital constante durante todo o processo",
+      "Recuperação assistida com foco em analgesia",
     ],
     steps: [
-      "Consulta pre-anestesica e revisao de exames",
-      "Cirurgia com monitorizacao e analgesia protocolar",
-      "Alta orientada e reavaliacao programada",
+      "Avaliação pré-anestésica e cardiológica",
+      "Procedimento cirúrgico com técnica avançada",
+      "Pós-operatório imediato com monitorização",
     ],
+    image: "/assets/services/surgery.png",
   },
   {
-    slug: "internacao-observacao",
-    name: "Internacao e observacao",
-    category: "Suporte clinico",
+    slug: "internacao-assistida",
+    name: "Internação Assistida",
+    category: "Suporte",
     excerpt:
-      "Estabilizacao, fluidoterapia e acompanhamento monitorado para pets que exigem mais tempo de observacao clinica.",
-    idealFor: "Casos que nao podem voltar para casa imediatamente apos consulta ou procedimento.",
-    availability: "Leitos de observacao com comunicacao estruturada ao tutor.",
-    whenToSeek: "Desidratacao, pos-operatorio, necessidade de monitoramento ou resposta inicial ao tratamento.",
+      "Acompanhamento 24h para pets que necessitam de estabilização, fluidoterapia ou cuidados intensivos.",
+    idealFor: "Pós-operatórios complexos e quadros clínicos graves.",
+    availability: "Leitos monitorados com presença constante de profissionais.",
+    whenToSeek: "Necessidade de medicação injetável contínua ou monitoramento vital.",
     benefits: [
-      "Mais seguranca em quadros que exigem acompanhamento continuo",
-      "Equipe alinhada sobre medicacao, sinais e resposta clinica",
-      "Atualizacao organizada para reduzir ansiedade da familia",
+      "Suporte médico 24 horas por dia",
+      "Estabilização rápida de quadros críticos",
+      "Conforto e acolhimento em momentos sensíveis",
     ],
     steps: [
-      "Definicao de protocolo e justificativa de internacao",
-      "Monitoramento clinico com comunicacao ao tutor",
-      "Alta somente quando o quadro estiver estavel",
+      "Definição do protocolo de tratamento intensivo",
+      "Acompanhamento constante de sinais vitais e resposta à medicação",
+      "Visitas programadas para acompanhamento dos tutores",
     ],
-  },
-  {
-    slug: "check-up-preventivo",
-    name: "Check-up preventivo",
-    category: "Prevencao premium",
-    excerpt:
-      "Programas de rotina para detectar alteracoes precocemente e manter o pet acompanhado ao longo do ano.",
-    idealFor: "Tutores que valorizam prevencao, clareza e acompanhamento continuo.",
-    availability: "Planos demonstrativos por fase de vida e estilo de rotina.",
-    whenToSeek: "Anualmente, em pets seniores, antes de viagens ou ao iniciar uma nova fase de vida.",
-    benefits: [
-      "Rastreio mais cedo de alteracoes clinicas",
-      "Organizacao de vacinas, exames e retorno em um unico plano",
-      "Mais previsibilidade para o tutor e menos urgencias evitaveis",
-    ],
-    steps: [
-      "Consulta preventiva com revisao completa do historico",
-      "Selecao de exames conforme idade e estilo de vida",
-      "Plano de acompanhamento com metas para os proximos meses",
-    ],
-  },
-  {
-    slug: "odontologia-veterinaria",
-    name: "Odontologia veterinaria",
-    category: "Especialidade",
-    excerpt:
-      "Avaliacao oral, limpeza, controle de dor e conduta preventiva para pets com halitose, tataro e desconforto mastigatorio.",
-    idealFor: "Caes e gatos com sinais bucais ou necessidade de acompanhamento periodico.",
-    availability: "Triagem clinica, orientacao anestesica e fluxo integrado com cirurgia quando necessario.",
-    whenToSeek: "Mau halito, tataro visivel, sangramento gengival, dificuldade para mastigar ou reavaliacao preventiva.",
-    benefits: [
-      "Mais conforto, apetite e qualidade de vida para o pet",
-      "Prevencao de avancos dolorosos da doenca periodontal",
-      "Orientacao realista para higiene e manutencao em casa",
-    ],
-    steps: [
-      "Exame oral e classificacao da necessidade do caso",
-      "Planejamento do procedimento com analgesia e anestesia",
-      "Alta com rotina de manutencao e retorno definido",
-    ],
-  },
-  {
-    slug: "atendimento-emergencial",
-    name: "Atendimento emergencial",
-    category: "Urgencia",
-    excerpt:
-      "Fluxo visual e narrativo pensado para orientar rapidamente tutores que estao lidando com sinais de alerta e precisam agir sem confusao.",
-    idealFor: "Casos que exigem triagem imediata e orientacao objetiva sobre deslocamento e prioridade.",
-    availability: "Telefone e WhatsApp em destaque para triagem e encaixe clinico conforme gravidade.",
-    whenToSeek: "Respiracao alterada, convulsao, trauma, sangramento, dor intensa ou prostracao importante.",
-    benefits: [
-      "Contato rapido com menos friccao em momentos sensiveis",
-      "Clareza sobre sinais de alerta e conduta inicial",
-      "Integracao com exames, observacao e retorno acompanhado",
-    ],
-    steps: [
-      "Tutor aciona o canal rapido e informa os sinais principais",
-      "Equipe faz triagem e organiza prioridade ou deslocamento",
-      "Pet e recebido com fluxo clinico preparado para estabilizacao",
-    ],
+    image: "https://images.unsplash.com/photo-1591946614720-90a587da4a36?q=80&w=2670&auto=format&fit=crop",
   },
 ];
 
 export const team: TeamMember[] = [
   {
     name: "Dra. Helena Voss",
-    role: "Diretora clinica",
-    specialty: "Clinica medica, medicina preventiva e experiencia do tutor",
-    education: "MV pela USP, pos-graduacao em clinica de pequenos animais e gestao de operacoes em saude.",
-    bio: "Conduz a marca com foco em medicina organizada, escuta clara e protocolos que equilibram precisao tecnica com acolhimento real.",
-    image:
-      "https://images.pexels.com/photos/6568501/pexels-photo-6568501.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+    role: "Diretora Clínica",
+    specialty: "Clínica Médica e Medicina Preventiva",
+    education: "MV pela USP, Pós-graduada em Clínica de Pequenos Animais.",
+    bio: "Lidera os protocolos da Aura Vet garantindo excelência técnica e acolhimento em cada etapa do atendimento.",
+    image: "/assets/team/helena.png",
   },
   {
     name: "Dr. Nicolas Prado",
-    role: "Clinica e urgencia",
-    specialty: "Atendimento rapido, estabilizacao inicial e seguimento clinico",
-    education: "MV pela UNESP com atuacao em emergencia, analgesia e internacao assistida.",
-    bio: "Tem postura serena em casos sensiveis e ajuda a transformar urgencia em conduta objetiva para tutor e equipe.",
-    image:
-      "https://images.pexels.com/photos/7469213/pexels-photo-7469213.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+    role: "Médico de Emergências",
+    specialty: "Medicina Intensiva e Triagem Ágil",
+    education: "MV pela UNESP com especialização em Terapia Intensiva.",
+    bio: "Especialista em situações críticas, atua com precisão e serenidade em casos de alta complexidade.",
+    image: "/assets/team/nicolas.png",
   },
   {
     name: "Dra. Camila Leite",
-    role: "Odontologia e cirurgia",
-    specialty: "Saude oral, procedimentos eletivos e analgesia pos-operatoria",
-    education: "Formacao complementar em odontologia veterinaria, cirurgia de tecidos moles e anestesia.",
-    bio: "Traduz com clareza cada etapa do procedimento para reduzir ansiedade e aumentar confianca na jornada cirurgica.",
-    image:
-      "https://images.pexels.com/photos/6234626/pexels-photo-6234626.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+    role: "Cirurgiã Chefe",
+    specialty: "Cirurgia de Tecidos Moles e Odontologia",
+    education: "Pós-graduada em Cirurgia e Anestesiologia Veterinária.",
+    bio: "Responsável pelo centro cirúrgico, une técnica refinada a um rigoroso protocolo de segurança anestésica.",
+    image: "/assets/team/camila.png",
   },
   {
     name: "Dra. Sofia Amaral",
-    role: "Medicina felina e check-up senior",
-    specialty: "Manejo gentil, triagem de rotina e acompanhamento longitudinal",
-    education: "MV com foco em medicina felina, geriatria e protocolos de baixo estresse.",
-    bio: "Especialista em comunicar seguranca a tutores de gatos e pets seniores, com consulta calma e alta capacidade de acompanhamento.",
-    image:
-      "https://images.pexels.com/photos/6568958/pexels-photo-6568958.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+    role: "Especialista em Felinos",
+    specialty: "Medicina Felina e Geriatria",
+    education: "Especialista em Medicina Felina e Gerontologia Animal.",
+    bio: "Focada em manejo low-stress, garante o bem-estar de gatos e pets seniores com protocolos exclusivos.",
+    image: "/assets/team/sofia.png",
   },
 ];
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "quando-levar-ao-veterinario",
-    category: "Rotina preventiva",
-    title: "Quando levar seu pet ao veterinario mesmo sem sintomas evidentes",
+    category: "Rotina",
+    title: "Sinais sutis de que seu pet precisa de uma consulta veterinária",
     excerpt:
-      "Check-up preventivo, fases da vida e sinais discretos que costumam passar despercebidos pelos tutores.",
+      "Aprenda a identificar mudanças no comportamento e no corpo do seu amigo que podem indicar a necessidade de avaliação.",
     readTime: "4 min",
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=2070&auto=format&fit=crop",
   },
   {
     slug: "calendario-de-vacinacao",
-    category: "Vacinacao",
-    title: "Calendario de vacinacao: como manter a protecao em dia com mais clareza",
+    category: "Prevenção",
+    title: "A importância de manter o calendário de vacinação rigorosamente em dia",
     excerpt:
-      "Uma abordagem simples para explicar reforcos, protocolos e como adaptar as vacinas ao estilo de vida do pet.",
+      "Informações essenciais sobre os reforços anuais e como a imunização protege toda a sua família.",
     readTime: "5 min",
+    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "sinais-de-alerta-caes-gatos",
-    category: "Urgencia",
-    title: "Sinais de alerta em caes e gatos que pedem contato rapido com a clinica",
+    category: "Urgência",
+    title: "Sinais de Alerta: Quando correr para a emergência veterinária?",
     excerpt:
-      "Respiracao alterada, vomitos repetidos, apatia intensa e outros quadros que merecem triagem sem demora.",
+      "Um guia rápido para tutores identificarem situações críticas que exigem atendimento imediato.",
     readTime: "5 min",
+    image: "https://images.unsplash.com/photo-1584213160416-2fd1987541e2?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "primeira-consulta-do-filhote",
-    category: "Primeira visita",
-    title: "Primeira consulta do filhote: o que levar e o que esperar",
+    category: "Filhotes",
+    title: "O que esperar da primeira consulta do seu novo filhote?",
     excerpt:
-      "Documentos, rotina em casa, calendario vacinal e como preparar uma visita tranquila para a familia.",
+      "Prepare-se para o primeiro encontro com o veterinário e garanta um início de vida saudável para seu novo pet.",
     readTime: "4 min",
+    image: "https://images.unsplash.com/photo-1591769225440-811ad7d62ca2?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "check-up-pet-senior",
-    category: "Senior care",
-    title: "Check-up veterinario para pets seniores: por que acompanhar faz tanta diferenca",
+    category: "Sênior",
+    title: "Qualidade de vida para pets seniores: A importância do acompanhamento preventivo",
     excerpt:
-      "Como exames e retornos planejados ajudam a antecipar alteracoes e preservar qualidade de vida.",
+      "Como exames regulares podem antecipar patologias e garantir uma velhice confortável e ativa.",
     readTime: "6 min",
+    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "saude-bucal-pets",
-    category: "Odontologia",
-    title: "Saude bucal do pet: os primeiros sinais de que a boca precisa de atencao",
+    category: "Saúde Oral",
+    title: "Muito além do mau hálito: A importância da saúde bucal para a imunidade",
     excerpt:
-      "Halitose, tataro, dor ao mastigar e outros pontos que merecem avaliacao antes de virar um problema maior.",
+      "Entenda como problemas dentários podem afetar órgãos vitais e como prevenir doenças graves.",
     readTime: "4 min",
+    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2070&auto=format&fit=crop",
   },
 ];

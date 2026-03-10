@@ -25,27 +25,27 @@ export default function ContactPage() {
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-accent">
               Formulario de atendimento
             </p>
             <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">Nome do tutor</span>
+                  <span className="text-sm font-bold text-primary/80">Nome do tutor</span>
                   <input className="input-surface" type="text" placeholder="Seu nome" required />
                 </label>
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">Telefone</span>
+                  <span className="text-sm font-bold text-primary/80">Telefone</span>
                   <input className="input-surface" type="tel" placeholder="(11) 99999-9999" required />
                 </label>
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">Nome do pet</span>
+                  <span className="text-sm font-bold text-primary/80">Nome do pet</span>
                   <input className="input-surface" type="text" placeholder="Nome do pet" required />
                 </label>
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">Servico de interesse</span>
+                  <span className="text-sm font-bold text-primary/80">Servico de interesse</span>
                   <select className="input-surface" defaultValue="">
                     <option value="" disabled>
                       Selecionar
@@ -58,11 +58,11 @@ export default function ContactPage() {
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">E-mail</span>
+                  <span className="text-sm font-bold text-primary/80">E-mail</span>
                   <input className="input-surface" type="email" placeholder="voce@email.com" />
                 </label>
                 <label className="space-y-2">
-                  <span className="text-sm font-medium text-primary/70">Tipo de atendimento</span>
+                  <span className="text-sm font-bold text-primary/80">Tipo de atendimento</span>
                   <select className="input-surface" defaultValue="">
                     <option value="" disabled>
                       Selecionar
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 </label>
               </div>
               <label className="space-y-2">
-                <span className="text-sm font-medium text-primary/70">Conte rapidamente o que esta acontecendo</span>
+                <span className="text-sm font-bold text-primary/80">Conte rapidamente o que esta acontecendo</span>
                 <textarea
                   className="input-surface min-h-[148px] resize-none"
                   placeholder="Sintomas, rotina, tempo de evolucao, vacinas recentes ou qualquer detalhe que ajude na triagem."
@@ -90,15 +90,15 @@ export default function ContactPage() {
 
           <div className="grid gap-6">
             <Reveal delay={0.08} className="card-surface p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+              <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-accent">
                 Informacoes da clinica
               </p>
-              <div className="mt-6 space-y-4 text-sm text-primary/70">
-                <a href={clinic.whatsapp} className="flex items-center gap-3 hover:text-primary">
+              <div className="mt-6 space-y-5 text-sm font-medium text-primary/80">
+                <a href={clinic.whatsapp} className="flex items-center gap-3 hover:text-accent transition-colors">
                   <Phone className="h-4 w-4 text-accent" />
                   WhatsApp {clinic.emergencyPhone}
                 </a>
-                <a href={`tel:${clinic.phone.replace(/\D/g, "")}`} className="flex items-center gap-3 hover:text-primary">
+                <a href={`tel:${clinic.phone.replace(/\D/g, "")}`} className="flex items-center gap-3 hover:text-accent transition-colors">
                   <Phone className="h-4 w-4 text-accent" />
                   Telefone principal {clinic.phone}
                 </a>
@@ -110,24 +110,24 @@ export default function ContactPage() {
                   <Clock3 className="mt-1 h-4 w-4 text-accent" />
                   {clinic.hours.join(" . ")}
                 </p>
-                <a href={clinic.instagram} className="flex items-center gap-3 hover:text-primary">
+                <a href={clinic.instagram} className="flex items-center gap-3 hover:text-accent transition-colors">
                   <Instagram className="h-4 w-4 text-accent" />
                   @auravet
                 </a>
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} className="card-surface p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <Reveal delay={0.1} className="card-surface p-7 theme-adaptive-surface text-primary-foreground border-primary/20 bg-primary">
+              <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 Canal de urgencia
               </p>
-              <h2 className="mt-4 font-display text-4xl leading-none text-primary">
+              <h2 className="mt-4 font-display text-4xl leading-none">
                 Quando houver sinal de alerta, o tutor encontra um caminho claro.
               </h2>
-              <p className="mt-4 text-sm leading-7 text-primary/70">
+              <p className="mt-4 text-sm leading-relaxed opacity-80">
                 O site reforca o telefone, o WhatsApp e o fluxo de triagem para momentos em que a rapidez de resposta importa tanto quanto a confianca na equipe.
               </p>
-              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button mt-6 justify-center">
+              <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button light mt-6 justify-center">
                 <Siren className="h-4 w-4" />
                 Ligar para triagem
               </a>

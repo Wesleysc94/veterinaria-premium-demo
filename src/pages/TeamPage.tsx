@@ -36,13 +36,13 @@ export default function TeamPage() {
                     />
                   </div>
                   <div className="space-y-4 pr-2">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/50">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-accent">
                       {member.role}
                     </p>
                     <h2 className="font-display text-4xl leading-none text-primary">{member.name}</h2>
-                    <p className="text-sm font-medium leading-7 text-primary/70">{member.specialty}</p>
-                    <p className="text-sm leading-7 text-primary/70">{member.education}</p>
-                    <p className="text-sm leading-7 text-primary/60">{member.bio}</p>
+                    <p className="text-sm font-semibold leading-7 text-primary/90">{member.specialty}</p>
+                    <p className="text-sm leading-7 text-primary/80">{member.education}</p>
+                    <p className="text-sm leading-7 text-primary/70">{member.bio}</p>
                   </div>
                 </div>
               </Reveal>
@@ -94,24 +94,24 @@ export default function TeamPage() {
       </section>
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
+        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 theme-adaptive-surface text-primary-foreground shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-background/55">
+              <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 Prova de autoridade
               </p>
               <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl">
                 Equipe bem apresentada gera mais seguranca antes mesmo do primeiro contato.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
+              <p className="mt-5 max-w-2xl text-base leading-8 opacity-80">
                 A combinacao de fotos, especialidades e copy humana deixa o site pronto para clinicas que valorizam relacionamento, medicina de familia e posicionamento premium.
               </p>
             </div>
             <div className="space-y-4">
-              <p className="rounded-[1.5rem] border border-white/10 bg-white/10 px-5 py-4 text-sm leading-7 text-background/80">
+              <p className="rounded-[1.5rem] border border-white/10 bg-white/10 px-5 py-4 text-sm leading-7 opacity-90">
                 {clinic.certifications[0]}
               </p>
-              <p className="rounded-[1.5rem] border border-white/10 bg-white/10 px-5 py-4 text-sm leading-7 text-background/80">
+              <p className="rounded-[1.5rem] border border-white/10 bg-white/10 px-5 py-4 text-sm leading-7 opacity-90">
                 {clinic.certifications[1]}
               </p>
             </div>

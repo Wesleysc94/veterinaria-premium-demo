@@ -29,27 +29,36 @@ export default function TreatmentsPage() {
               <Reveal
                 key={service.slug}
                 delay={index * 0.04}
-                className="card-surface p-6"
+                className="card-surface group overflow-hidden p-0"
               >
-                <span className="rounded-full bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/60">
-                  {service.category}
-                </span>
-                <h2 className="mt-5 font-display text-3xl leading-none text-primary">
-                  {service.name}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-primary/70">{service.excerpt}</p>
-                <div className="mt-5 space-y-2 text-sm text-primary/60">
-                  <p>Ideal para: {service.idealFor}</p>
-                  <p>Disponibilidade: {service.availability}</p>
-                  <p>Quando procurar: {service.whenToSeek}</p>
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                 </div>
-                <Link
-                  to={`/servicos/${service.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-                >
-                  Ver servico
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                <div className="p-6">
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-primary">
+                    {service.category}
+                  </span>
+                  <h2 className="mt-5 font-display text-3xl leading-none text-primary">
+                    {service.name}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-primary/80">{service.excerpt}</p>
+                  <div className="mt-5 space-y-2 text-sm text-primary/70">
+                    <p><span className="font-bold">Ideal para:</span> {service.idealFor}</p>
+                    <p><span className="font-bold">Disponibilidade:</span> {service.availability}</p>
+                  </div>
+                  <Link
+                    to={`/servicos/${service.slug}`}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-accent transition-colors"
+                  >
+                    Ver detalhe do servico
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -95,24 +104,24 @@ export default function TreatmentsPage() {
       </section>
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
+        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 theme-adaptive-surface text-primary-foreground shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-background/55">
+              <p className="text-[11px] font-bold uppercase tracking-[0.32em] opacity-60">
                 CTA estrategico
               </p>
               <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl">
                 Estruture a rotina do pet com consultas, vacinas e check-up acompanhados.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
+              <p className="mt-5 max-w-2xl text-base leading-8 opacity-80">
                 O bloco final reforca conversao para clinicas que desejam vender cuidado continuo, nao apenas atendimento pontual.
               </p>
             </div>
             <div className="space-y-4">
-              <Link to="/contato" className="premium-button light justify-center">
+              <Link to="/contato" className="premium-button light justify-center shadow-none hover:shadow-xl">
                 Falar com a equipe
               </Link>
-              <Link to="/emergencia" className="premium-button-secondary dark justify-center">
+              <Link to="/emergencia" className="premium-button-secondary dark justify-center shadow-none border-white/20 text-white">
                 <HeartPulse className="h-4 w-4" />
                 Ver emergencia
               </Link>

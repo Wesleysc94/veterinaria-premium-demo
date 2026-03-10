@@ -2,6 +2,7 @@ import { blogPosts, clinic } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import { ArrowUpRight } from "lucide-react";
 
 export default function BlogPage() {
   const featuredPost = blogPosts[0];
@@ -17,32 +18,35 @@ export default function BlogPage() {
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
-          <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
-              Artigo em destaque
-            </p>
-            <h2 className="mt-5 font-display text-5xl leading-[0.95] text-primary">
-              {featuredPost.title}
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-primary/70">
-              {featuredPost.excerpt}
-            </p>
-            <div className="mt-6 inline-flex rounded-full bg-primary/5 px-4 py-2 text-xs uppercase tracking-[0.28em] text-primary/60">
-              {featuredPost.category} . {featuredPost.readTime}
+          <Reveal className="card-surface p-10 flex flex-col justify-center relative overflow-hidden group">
+            <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-accent/10 blur-[80px] group-hover:bg-accent/20 transition-colors" />
+            <div className="relative z-10">
+              <span className="inline-flex rounded-full bg-accent/20 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.4em] text-accent">
+                {featuredPost.category} . {featuredPost.readTime}
+              </span>
+              <h2 className="mt-8 font-display text-6xl leading-[1.1] text-primary tracking-tight">
+                {featuredPost.title}
+              </h2>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/70">
+                {featuredPost.excerpt}
+              </p>
+              <button className="mt-10 premium-button">
+                Ler Artigo Completo
+              </button>
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="card-surface overflow-hidden p-4">
-            <div className="relative overflow-hidden rounded-[2rem]">
+          <Reveal delay={0.1} className="card-surface overflow-hidden p-6">
+            <div className="relative overflow-hidden rounded-[3rem] aspect-square lg:aspect-auto lg:h-full">
               <img
                 src={clinic.media.editorial}
                 alt="Conteudo educativo para tutores"
-                className="h-[360px] w-full object-cover object-center"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,42,48,0.06),rgba(27,42,48,0.38))]" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/75">Editorial premium</p>
-                <p className="mt-3 font-display text-4xl leading-none">Conteudo que educa e ajuda a converter com seguranca.</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
+              <div className="absolute bottom-10 left-10 right-10 rounded-[2.5rem] border border-white/20 bg-white/10 p-8 text-white backdrop-blur-3xl">
+                <p className="text-[11px] font-bold uppercase tracking-[0.5em] text-white/60">CONTEÚDO EXCLUSIVO</p>
+                <p className="mt-4 font-display text-4xl leading-[1.1]">Educação e prevenção como pilares do cuidado.</p>
               </div>
             </div>
           </Reveal>
@@ -60,17 +64,32 @@ export default function BlogPage() {
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {remainingPosts.map((post, index) => (
-              <Reveal key={post.slug} delay={index * 0.05} className="card-surface p-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/80">
-                  {post.category}
-                </p>
-                <h3 className="mt-4 font-display text-3xl leading-none text-primary">
-                  {post.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-primary/90">{post.excerpt}</p>
-                <p className="mt-5 text-xs uppercase tracking-[0.24em] text-primary/40">
-                  {post.readTime}
-                </p>
+              <Reveal key={post.slug} delay={index * 0.1} className="card-surface group p-0 overflow-hidden hover:bg-primary/[0.02] transition-all">
+                <div className="h-56 w-full overflow-hidden relative">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-80" />
+                  <div className="absolute top-4 left-4">
+                    <span className="rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white border border-white/20">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h3 className="font-display text-2xl leading-tight text-primary group-hover:text-accent transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-primary/80 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-6 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60">{post.readTime} leitura</span>
+                    <ArrowUpRight className="h-5 w-5 text-accent opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
