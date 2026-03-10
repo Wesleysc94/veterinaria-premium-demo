@@ -72,7 +72,7 @@ export type EmergencySignal = {
 export const clinic = {
   name: "Atelier Aurora Vet",
   shortName: "Aurora Vet",
-  badge: "Demo premium para clinica veterinaria, hospital e pet care brand",
+  badge: "Demo premium para clinica veterinaria, hospital e pet care brand · atualizado agora",
   tagline:
     "Cuidado veterinario com excelencia, acolhimento e confianca para cada fase da vida do seu pet.",
   supportingLine:
