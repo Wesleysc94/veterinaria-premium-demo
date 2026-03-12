@@ -85,24 +85,24 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+              transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
               className="relative"
             >
-              <div className="card-surface overflow-hidden p-4 sm:p-5">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.8rem] lg:aspect-[4/4.85]">
+              <div className="card-surface editorial-frame p-4 sm:p-5">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.2rem] lg:aspect-[4/4.85]">
                   <motion.img
                     src={clinic.media.hero}
                     alt="Equipe veterinaria atendendo um pet em ambiente premium"
                     className="h-full w-full object-cover parallax-img"
-                    style={{ y: useScrollParallax(-20) }}
+                    style={{ y: useScrollParallax(-25) }}
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,33,29,0.05),rgba(18,33,29,0.58))]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,33,29,0.02),rgba(18,33,29,0.48))]" />
 
-                  <div className="absolute left-5 top-5 flex flex-wrap gap-3">
-                    <span className="luxury-chip border-white/15 bg-white/[0.12] text-white shadow-none">
-                      consulta, check-up e prevencao
+                  <div className="absolute left-6 top-6 flex flex-wrap gap-3">
+                    <span className="luxury-chip border-white/10 bg-white/[0.08] text-white backdrop-blur-md shadow-none">
+                      vanguardista, humano e preciso
                     </span>
                   </div>
 
@@ -208,38 +208,36 @@ export default function HomePage() {
             {featuredServices.map((service, index) => (
               <Reveal
                 key={service.slug}
-                delay={index * 0.06}
-                className="card-surface group overflow-hidden p-0"
+                delay={index * 0.08}
+                className="card-surface group editorial-frame p-0"
               >
                 <div className="relative aspect-[16/11] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/12 to-transparent" />
-                  <div className="absolute left-4 top-4 flex items-center gap-2">
-                    <span className="rounded-full bg-background/86 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-primary backdrop-blur-md">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute left-5 top-5 flex items-center gap-2">
+                    <span className="rounded-full bg-background/90 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.34em] text-primary backdrop-blur-md border border-primary/5">
                       {service.category}
-                    </span>
-                    <span className="rounded-full border border-white/25 bg-black/15 px-3 py-1 font-mono-data text-[10px] uppercase tracking-[0.26em] text-white">
-                      0{index + 1}
                     </span>
                   </div>
                 </div>
-                <div className="space-y-4 p-6">
+                <div className="soft-divider mx-auto w-[85%]" />
+                <div className="space-y-4 p-7">
                   <div>
-                    <h3 className="font-display text-[2rem] leading-tight text-primary">
+                    <h3 className="font-display text-[2.2rem] leading-none text-primary">
                       {service.name}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-[hsl(var(--primary)/0.64)]">{service.excerpt}</p>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">0{index + 1} — critério médico</p>
                   </div>
 
-                  <div className="rounded-[1.35rem] border border-primary/10 bg-primary/[0.02] px-4 py-4">
-                    <p className="font-mono-data text-[10px] uppercase tracking-[0.3em] text-[hsl(var(--primary)/0.45)]">
-                      quando procurar
+                  <div className="rounded-[1.4rem] border border-primary/5 bg-primary/[0.01] px-5 py-5">
+                    <p className="font-mono-data text-[9px] uppercase tracking-[0.3em] text-[hsl(var(--primary)/0.4)]">
+                      indicação clínica
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.68)]">{service.whenToSeek}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.66)]">{service.whenToSeek}</p>
                   </div>
 
                   <Link
