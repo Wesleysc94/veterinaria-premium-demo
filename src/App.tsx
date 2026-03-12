@@ -4,21 +4,24 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import HomePage from "./pages/HomePage";
-import NotFound from "./pages/NotFound";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 import { ThemeProvider } from "./components/ThemeProvider";
 import { SiteChrome } from "./components/site/SiteChrome";
-import AboutPage from "./pages/AboutPage";
-import TreatmentsPage from "./pages/TreatmentsPage";
-import TreatmentDetailPage from "./pages/TreatmentDetailPage";
-import BlogPage from "./pages/BlogPage";
-import ContactPage from "./pages/ContactPage";
-import TeamPage from "./pages/TeamPage";
-import EmergencyPage from "./pages/EmergencyPage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const TreatmentsPage = lazy(() => import("./pages/TreatmentsPage"));
+const TreatmentDetailPage = lazy(() => import("./pages/TreatmentDetailPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const TeamPage = lazy(() => import("./pages/TeamPage"));
+const EmergencyPage = lazy(() => import("./pages/EmergencyPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+const RouteFallback = () => <div className="min-h-screen bg-background" />;
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
@@ -56,12 +59,21 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <ThemeProvider defaultTheme="clinic">
+    {/* Noise overlay for analog texture */}
+    <svg className="noise-overlay" aria-hidden="true">
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.80" numOctaves="4" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noise)" />
+    </svg>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <AnimatedRoutes />
+          <Suspense fallback={<RouteFallback />}>
+            <AnimatedRoutes />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

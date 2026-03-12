@@ -17,6 +17,7 @@ export default {
       fontFamily: {
         display: ['"Cormorant Garamond"', 'serif'],
         sans: ['"Manrope"', 'sans-serif'],
+        'mono-data': ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -91,12 +92,21 @@ export default {
           "0%": { transform: "scale(1)" },
           "100%": { transform: "scale(1.05)" },
         },
+        "shimmer-premium": {
+          "0%": {
+            "background-position": "-700px 0",
+          },
+          "100%": {
+            "background-position": "700px 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s ease-out forwards",
         "breathe": "breathe 20s infinite alternate ease-in-out",
+        "shimmer-premium": "shimmer-premium 1s cubic-bezier(0.23, 1, 0.32, 1) infinite",
       },
     },
   },

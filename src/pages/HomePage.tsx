@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/accordion";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import { useScrollParallax } from "@/hooks/useScrollParallax";
 
 const featuredServices = services.slice(0, 4);
 const featuredTeam = team.slice(0, 3);
@@ -49,11 +50,11 @@ export default function HomePage() {
 
               <div className="space-y-5">
                 <h1 className="font-display text-5xl font-semibold leading-[0.88] tracking-tight text-primary sm:text-7xl lg:text-[5.8rem]">
-                  Medicina veterinaria
+                  <span className="split-text-reveal"><span>Medicina veterinaria</span></span>
                   <br />
-                  com precisao clinica
+                  <span className="split-text-reveal"><span>com precisao clinica</span></span>
                   <br />
-                  <span className="italic text-accent">e acolhimento real.</span>
+                  <span className="italic text-accent split-text-reveal"><span>e acolhimento real.</span></span>
                 </h1>
                 <p className="max-w-xl text-lg leading-relaxed text-primary/70 sm:text-xl">
                   Uma clinica desenhada para transformar consulta, check-up, vacinacao e urgencia
@@ -91,10 +92,11 @@ export default function HomePage() {
             >
               <div className="card-surface overflow-hidden p-4 sm:p-5">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2.8rem] lg:aspect-[4/4.85]">
-                  <img
+                  <motion.img
                     src={clinic.media.hero}
                     alt="Equipe veterinaria atendendo um pet em ambiente premium"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover parallax-img"
+                    style={{ y: useScrollParallax(-20) }}
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,33,29,0.05),rgba(18,33,29,0.58))]" />
 
