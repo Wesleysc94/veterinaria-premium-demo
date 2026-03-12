@@ -50,11 +50,11 @@ export default function HomePage() {
 
               <div className="space-y-5">
                 <h1 className="font-display text-5xl font-semibold leading-[0.88] tracking-tight text-primary sm:text-7xl lg:text-[5.8rem]">
-                  <span className="split-text-reveal"><span>Medicina veterinaria</span></span>
+                  <span className="split-text-reveal"><span>Cuidado veterinário</span></span>
                   <br />
-                  <span className="split-text-reveal"><span>com precisao clinica</span></span>
+                  <span className="split-text-reveal"><span>de alto padrão para</span></span>
                   <br />
-                  <span className="italic text-accent split-text-reveal"><span>e acolhimento real.</span></span>
+                  <span className="italic text-accent split-text-reveal"><span>quem você mais ama.</span></span>
                 </h1>
                 <p className="max-w-xl text-lg leading-relaxed text-primary/70 sm:text-xl">
                   Uma clinica desenhada para transformar consulta, check-up, vacinacao e urgencia

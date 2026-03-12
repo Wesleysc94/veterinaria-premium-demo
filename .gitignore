@@ -26,3 +26,4 @@ dist-ssr
 .playwright-cli
 .agent/
 build_*.txt
+.env*.local
