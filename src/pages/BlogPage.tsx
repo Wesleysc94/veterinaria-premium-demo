@@ -68,7 +68,7 @@ export default function BlogPage() {
       />
 
       {/* ═══ ARTIGO EM DESTAQUE ═══ */}
-      <section className="px-4 py-16 sm:px-8 sm:py-20">
+      <section className="section-shell">
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
           <Reveal className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
@@ -163,7 +163,7 @@ export default function BlogPage() {
       </section>
 
       {/* ═══ FILTROS ═══ */}
-      <section className="px-4 sm:px-8">
+      <section className="px-4 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-center gap-2">
             <Filter className="h-4 w-4 text-primary/40 mr-1" />
@@ -184,7 +184,7 @@ export default function BlogPage() {
       </section>
 
       {/* ═══ GRID DE ARTIGOS ═══ */}
-      <section className="px-4 py-12 sm:px-8 sm:py-16">
+      <section className="section-shell-tight">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {filteredPosts.map((post, index) => (
@@ -266,7 +266,7 @@ export default function BlogPage() {
       </section>
 
       {/* ═══ NEWSLETTER (CTA) ═══ */}
-      <section className="px-4 py-16 sm:px-8 sm:py-20">
+      <section className="section-shell">
         <Reveal className="mx-auto max-w-6xl">
           <div className="brand-panel rounded-[2.5rem] border border-white/15 px-8 py-12 sm:px-12 md:py-16 overflow-hidden relative">
             <div className="grid gap-8 lg:grid-cols-2 lg:items-center relative z-10">

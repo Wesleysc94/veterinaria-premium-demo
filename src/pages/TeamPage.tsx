@@ -14,7 +14,7 @@ export default function TeamPage() {
         description="Mostrar nomes, areas de atuacao e formacao reduz incerteza, aumenta confianca e faz a clinica parecer real para tutores e proprietarios avaliando a demo."
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -51,7 +51,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr,1fr]">
           <Reveal className="card-surface p-7">
             <div className="flex items-start gap-4">
@@ -93,7 +93,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>

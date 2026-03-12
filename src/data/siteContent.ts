@@ -74,7 +74,7 @@ export type EmergencySignal = {
 export const clinic = {
   name: "Aura Vet",
   shortName: "Aura Vet",
-  badge: "Excelência em Medicina Veterinária · Jardim Paulista",
+  badge: "Medicina veterinária premium · Jardim Paulista",
   tagline:
     "Cuidado veterinário de alto padrão, unindo tecnologia de ponta e acolhimento humano para seu pet.",
   supportingLine:
@@ -105,28 +105,28 @@ export const clinic = {
   ] satisfies NavItem[],
   media: {
     hero: "/assets/generated/hero.png",
-    consultation: "/assets/generated/services.png",
+    consultation: "/assets/generated/service-consultation.png",
     emergency: "/assets/generated/emergency.png",
     specialist: "/assets/generated/services.png",
-    diagnostics: "/assets/generated/services.png",
-    environment: "/assets/generated/hero.png",
-    editorial: "/assets/generated/services.png",
-    species: "/assets/generated/hero.png",
+    diagnostics: "/assets/services/diagnostics.png",
+    environment: "/assets/generated/about-clinic.png",
+    editorial: "/assets/generated/blog-senior.png",
+    species: "/assets/generated/blog-filhote.png",
     team: [
-      "/assets/generated/team-helena.png",
-      "/assets/generated/team-rafael.png",
-      "/assets/generated/team-camila.png",
+      "/assets/team/helena.png",
+      "/assets/team/nicolas.png",
+      "/assets/team/camila.png",
     ],
   },
   stats: [
-    { value: "24h", label: "Triagem ágil para suporte imediato aos tutores" },
-    { value: "15+", label: "Especialistas focados em diagnósticos de precisão" },
-    { value: "100%", label: "Comprometimento com o bem-estar e a vida animal" },
+    { value: "24h", label: "Triagem orientada para momentos que exigem resposta imediata" },
+    { value: "15+", label: "Especialistas apoiando rotina, diagnóstico e alta complexidade" },
+    { value: "1:1", label: "Comunicação clara para o tutor entender cada decisão clínica" },
   ] satisfies Stat[],
   highlights: [
-    "Atendimento multidisciplinar com os melhores especialistas",
-    "Instalações modernas e equipamentos de última geração",
-    "Foco real na prevenção e longevidade dos seus pets",
+    "Atendimento multidisciplinar com processo clínico bem coordenado.",
+    "Estrutura moderna com tecnologia diagnóstica dentro da própria clínica.",
+    "Prevenção, rotina e urgência apresentados com a mesma clareza.",
   ],
   trustPillars: [
     {
@@ -332,7 +332,7 @@ export const services: Service[] = [
       "Processamento imediato das amostras",
       "Interpretação detalhada conjunta com o clínico",
     ],
-    image: "/assets/stock/editorial.jpg",
+    image: "/assets/services/diagnostics.png",
   },
   {
     slug: "diagnostico-por-imagem",
@@ -353,7 +353,7 @@ export const services: Service[] = [
       "Realização do exame com laudagem especializada",
       "Discussão dos achados com o médico responsável",
     ],
-    image: "/assets/generated/services.png",
+    image: "/assets/services/diagnostics.png",
   },
   {
     slug: "centro-cirurgico",
@@ -374,7 +374,7 @@ export const services: Service[] = [
       "Procedimento cirúrgico com técnica avançada",
       "Pós-operatório imediato com monitorização",
     ],
-    image: "/assets/generated/emergency.png",
+    image: "/assets/services/surgery.png",
   },
   {
     slug: "internacao-assistida",
@@ -395,7 +395,7 @@ export const services: Service[] = [
       "Acompanhamento constante de sinais vitais e resposta à medicação",
       "Visitas programadas para acompanhamento dos tutores",
     ],
-    image: "/assets/generated/services.png",
+    image: "/assets/generated/emergency.png",
   },
 ];
 
@@ -406,7 +406,7 @@ export const team: TeamMember[] = [
     specialty: "Clínica Médica e Medicina Preventiva",
     education: "MV pela USP, Pós-graduada em Clínica de Pequenos Animais.",
     bio: "Lidera os protocolos da Aura Vet garantindo excelência técnica e acolhimento em cada etapa do atendimento.",
-    image: "/assets/generated/team-helena.png",
+    image: "/assets/team/helena.png",
   },
   {
     name: "Dr. Nicolas Prado",
@@ -414,7 +414,7 @@ export const team: TeamMember[] = [
     specialty: "Medicina Intensiva e Triagem Ágil",
     education: "MV pela UNESP com especialização em Terapia Intensiva.",
     bio: "Especialista em situações críticas, atua com precisão e serenidade em casos de alta complexidade.",
-    image: "/assets/generated/team-rafael.png",
+    image: "/assets/team/nicolas.png",
   },
   {
     name: "Dra. Camila Leite",
@@ -422,7 +422,7 @@ export const team: TeamMember[] = [
     specialty: "Cirurgia de Tecidos Moles e Odontologia",
     education: "Pós-graduada em Cirurgia e Anestesiologia Veterinária.",
     bio: "Responsável pelo centro cirúrgico, une técnica refinada a um rigoroso protocolo de segurança anestésica.",
-    image: "/assets/generated/team-camila.png",
+    image: "/assets/team/camila.png",
   },
   {
     name: "Dra. Sofia Amaral",
@@ -430,7 +430,7 @@ export const team: TeamMember[] = [
     specialty: "Medicina Felina e Geriatria",
     education: "Especialista em Medicina Felina e Gerontologia Animal.",
     bio: "Focada em manejo low-stress, garante o bem-estar de gatos e pets seniores com protocolos exclusivos.",
-    image: "/assets/generated/team-camila.png",
+    image: "/assets/team/sofia.png",
   },
 ];
 

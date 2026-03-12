@@ -23,27 +23,27 @@ export function SectionIntro({
   return (
     <div
       className={cn(
-        "space-y-4",
+        "space-y-5",
         centered ? "mx-auto max-w-3xl text-center" : "max-w-2xl",
         className,
       )}
     >
       <div
         className={cn(
-          "inline-flex items-center gap-3 rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] shadow-[0_20px_60px_-40px_rgba(90,70,58,0.55)] backdrop-blur",
+          "inline-flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.34em]",
           inverse
-            ? "border border-white/20 bg-white/10 text-white/80"
-            : "theme-adaptive-surface text-primary/70",
+            ? "text-white/75"
+            : "text-primary/60",
           centered && "mx-auto",
         )}
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-        {eyebrow}
+        <span className="h-px w-10 bg-current/35" />
+        <span className="font-mono-data tracking-[0.3em]">{eyebrow}</span>
       </div>
       <div className="space-y-4">
         <h2
           className={cn(
-            "font-display text-4xl leading-[0.95] sm:text-5xl lg:text-6xl",
+            "font-display text-4xl leading-[0.96] sm:text-5xl lg:text-6xl",
             inverse ? "text-white" : "text-primary",
           )}
         >
@@ -52,7 +52,7 @@ export function SectionIntro({
         <p
           className={cn(
             "max-w-2xl text-base leading-8 sm:text-lg",
-            inverse ? "text-white/70" : "text-primary/70",
+            inverse ? "text-[rgb(255_255_255_/_0.72)]" : "text-[hsl(var(--primary)/0.68)]",
           )}
         >
           {description}

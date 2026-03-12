@@ -17,7 +17,7 @@ export default function EmergencyPage() {
         ctaHref="/contato"
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr,1fr] lg:items-start">
           <Reveal className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2rem]">
@@ -61,7 +61,7 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr,1fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
@@ -99,11 +99,11 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.92)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/65">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[rgb(255_255_255_/_0.65)]">
                 Contato imediato
               </p>
               <h2 className="mt-4 font-display text-4xl leading-[0.95] text-white sm:text-5xl">

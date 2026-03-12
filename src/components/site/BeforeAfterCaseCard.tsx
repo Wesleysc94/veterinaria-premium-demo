@@ -133,14 +133,14 @@ export function BeforeAfterCaseCard({
       </div>
 
       <div className="px-1 pb-1 pt-6">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/45">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[hsl(var(--primary)/0.45)]">
           Caso ilustrativo
         </p>
         <h3 className="mt-3 font-display text-[1.9rem] leading-[0.95] text-primary sm:text-[2.05rem]">
           {item.title}
         </h3>
         <p className="mt-3 text-[15px] leading-7 text-primary/70">{item.focus}</p>
-        <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-primary/45">
+              <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-[hsl(var(--primary)/0.45)]">
           {item.note}
         </p>
       </div>

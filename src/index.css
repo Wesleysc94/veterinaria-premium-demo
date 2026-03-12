@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -126,12 +126,57 @@
     font-family: 'Cormorant Garamond', serif;
   }
 
+  .font-mono-data {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .section-shell {
+    @apply px-4 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24;
+  }
+
+  .section-shell-tight {
+    @apply px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20;
+  }
+
+  .luxury-chip {
+    @apply inline-flex items-center gap-3 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.34em];
+    color: hsl(var(--primary) / 0.72);
+    box-shadow: 0 16px 40px -32px rgba(39, 51, 46, 0.24);
+  }
+
+  .metric-card {
+    @apply rounded-[1.6rem] border border-primary/10 theme-adaptive-surface p-5;
+    box-shadow: 0 22px 56px -42px rgba(39, 51, 46, 0.22);
+  }
+
+  .site-shell-header {
+    @apply border border-primary/10 backdrop-blur-3xl;
+    background-color: hsl(var(--background) / 0.72);
+    box-shadow: 0 24px 70px -42px rgba(39, 51, 46, 0.18);
+  }
+
+  .site-nav-link {
+    @apply rounded-full px-4 py-2 text-sm font-semibold tracking-[0.02em] transition-all duration-300;
+    color: hsl(var(--primary) / 0.72);
+  }
+
+  .site-nav-link:hover {
+    @apply bg-primary/5 text-primary;
+  }
+
+  .site-nav-link-active {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: 0 14px 34px -18px hsl(var(--primary) / 0.35);
+  }
+
   .card-surface {
     position: relative;
     border-radius: 2rem;
     border: 1px solid hsl(var(--border));
     background-color: hsl(var(--card) / 0.85);
-    box-shadow: 0 36px 120px -58px rgba(39, 51, 46, 0.28);
+    box-shadow:
+      0 34px 120px -60px rgba(39, 51, 46, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.62);
     backdrop-filter: blur(24px);
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -179,12 +224,15 @@
     gap: 0.5rem;
     overflow: hidden;
     border-radius: 9999px;
-    background-color: hsl(var(--primary));
+    border: 1px solid rgba(47, 93, 115, 0.16);
+    background: linear-gradient(135deg, #2f5d73, #426f82);
     padding: 0.875rem 2rem;
     font-size: 0.9375rem;
     font-weight: 700;
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 20px 50px -15px hsl(var(--primary) / 0.5);
+    color: #f4f1eb;
+    box-shadow:
+      0 20px 50px -18px rgba(47, 93, 115, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
     white-space: nowrap;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -247,11 +295,13 @@
 
   .premium-button:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 25px 60px -12px hsl(var(--primary) / 0.5);
+    box-shadow:
+      0 26px 62px -18px rgba(47, 93, 115, 0.48),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .premium-button.light {
-    background-color: hsl(var(--background));
+    background: linear-gradient(135deg, #fafbf8, #f1f3ef);
     color: hsl(var(--primary));
   }
 
@@ -262,13 +312,15 @@
     gap: 0.5rem;
     overflow: hidden;
     border-radius: 9999px;
-    border: 1px solid hsl(var(--border) / 0.8);
-    background-color: hsl(var(--background) / 0.5);
+    border: 1px solid hsl(var(--border) / 0.88);
+    background-color: hsl(var(--background) / 0.75);
     padding: 0.875rem 2rem;
     font-size: 0.9375rem;
     font-weight: 700;
     color: hsl(var(--primary));
-    box-shadow: 0 10px 30px -15px hsl(var(--primary) / 0.1);
+    box-shadow:
+      0 16px 40px -24px rgba(39, 51, 46, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78);
     backdrop-filter: blur(12px);
     white-space: nowrap;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -277,8 +329,8 @@
   .premium-button-secondary:hover {
     transform: translateY(-3px);
     background-color: hsl(var(--background));
-    border-color: hsl(var(--primary));
-    box-shadow: 0 15px 40px -12px hsl(var(--primary) / 0.15);
+    border-color: hsl(var(--primary) / 0.28);
+    box-shadow: 0 18px 46px -18px rgba(39, 51, 46, 0.16);
   }
 
   .premium-button-secondary.dark {
@@ -356,7 +408,9 @@
 
   .card-surface:hover {
     transform: translateY(-8px);
-    box-shadow: 0 42px 140px -60px rgba(39, 51, 46, 0.4);
+    box-shadow:
+      0 42px 140px -64px rgba(39, 51, 46, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.64);
   }
 
   .interactive-card:hover {
@@ -375,7 +429,9 @@ body {
 
 [data-theme="luxury"] .card-surface {
   background-color: hsl(var(--card) / 0.95);
-  box-shadow: 0 40px 100px -50px rgba(0, 0, 0, 0.9);
+  box-shadow:
+    0 40px 100px -50px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="luxury"] .glass-panel {
@@ -395,7 +451,9 @@ body {
 }
 
 [data-theme="luxury"] .premium-button {
-  @apply bg-accent text-primary-foreground;
+  background: linear-gradient(135deg, #8ea897, #a7b9aa);
+  color: #16211d;
+  border-color: rgba(142, 168, 151, 0.22);
 }
 
 [data-theme="luxury"] .premium-button.light {
@@ -406,8 +464,34 @@ body {
   @apply border-white/10 bg-white/5 text-primary hover:bg-white/10;
 }
 
+[data-theme="luxury"] .luxury-chip {
+  @apply border-white/10 bg-white/[0.04] text-foreground;
+  box-shadow: 0 16px 40px -30px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme="luxury"] .metric-card,
+[data-theme="luxury"] .site-shell-header {
+  background: linear-gradient(145deg, rgba(22, 33, 29, 0.94), rgba(27, 42, 48, 0.92));
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 72px -44px rgba(0, 0, 0, 0.38);
+}
+
+[data-theme="luxury"] .site-nav-link {
+  color: hsl(var(--foreground) / 0.78);
+}
+
+[data-theme="luxury"] .site-nav-link:hover,
+[data-theme="luxury"] .site-nav-link-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: hsl(var(--foreground));
+}
+
 [data-theme="luxury"] .input-surface {
-  @apply border-white/10 bg-white/5 text-primary placeholder:text-primary/60;
+  @apply border-white/10 bg-white/5 text-primary;
+}
+
+[data-theme="luxury"] .input-surface::placeholder {
+  color: hsl(var(--primary) / 0.6);
 }
 
 .card-surface img,

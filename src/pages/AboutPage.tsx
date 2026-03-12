@@ -16,7 +16,7 @@ export default function AboutPage() {
       />
 
       {/* ═══ NOSSA HISTÓRIA ═══ */}
-      <section className="px-4 py-16 sm:px-8 sm:py-20">
+      <section className="section-shell">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal className="space-y-6">
             <SectionIntro
@@ -37,7 +37,7 @@ export default function AboutPage() {
           <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src="/assets/generated/about-clinic.png"
+                src={clinic.media.environment}
                 alt="Interior da Aura Vet"
                 className="h-[480px] w-full object-cover object-center"
               />
@@ -54,7 +54,7 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ VALORES ═══ */}
-      <section className="px-4 py-16 sm:px-8 sm:py-20 bg-primary/[0.02]">
+      <section className="section-shell bg-primary/[0.02]">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -94,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* ═══ DIFERENCIAIS ═══ */}
-      <section className="px-4 py-16 sm:px-8 sm:py-20">
+      <section className="section-shell">
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
           <Reveal className="card-surface p-6">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/50">

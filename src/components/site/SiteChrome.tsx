@@ -3,7 +3,6 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   CalendarClock,
-  ChevronRight,
   Clock3,
   Instagram,
   MapPin,
@@ -31,8 +30,8 @@ function HeaderLink({ href, label }: { href: string; label: string }) {
       to={href}
       className={({ isActive }) =>
         cn(
-          "rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/70 transition-all duration-300 hover:bg-primary/5 hover:text-primary",
-          isActive && "nav-active-item",
+          "site-nav-link",
+          isActive && "site-nav-link-active",
         )
       }
     >
@@ -43,15 +42,15 @@ function HeaderLink({ href, label }: { href: string; label: string }) {
 
 function Footer() {
   return (
-    <footer className="mt-20 border-t border-primary/10 px-6 pb-32 pt-12 sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr,0.7fr,0.95fr]">
+    <footer className="section-shell-tight mt-14 border-t border-primary/10 pb-32">
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.25fr,0.7fr,0.95fr]">
         <div className="space-y-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 theme-adaptive-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
+          <span className="luxury-chip">
             <ShieldPlus className="h-3.5 w-3.5 text-accent" />
             {clinic.badge}
           </span>
           <div>
-            <p className="font-display text-4xl text-primary">{clinic.name}</p>
+            <p className="font-display text-4xl text-primary sm:text-5xl">{clinic.name}</p>
             <p className="mt-4 max-w-xl text-base leading-8 text-primary/70">
               {clinic.tagline}
             </p>
@@ -174,30 +173,36 @@ export function SiteChrome() {
       <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.28),transparent_70%)]" />
       <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.18),transparent_72%)]" />
 
-      <header className="fixed inset-x-0 top-8 z-50 px-4 sm:px-8">
-        <div className="mx-auto flex max-w-4xl items-center justify-between rounded-full border border-primary/10 bg-background/60 px-6 py-2 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] backdrop-blur-3xl transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]">
+      <header className="fixed inset-x-0 top-4 z-50 px-4 sm:top-5 sm:px-8">
+        <div className="site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-4 py-3 transition-all duration-500 hover:shadow-[0_26px_74px_-38px_rgba(39,51,46,0.22)] sm:px-6">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_18px_40px_-18px_rgba(47,93,115,0.55)]">
               <Stethoscope className="h-4 w-4" />
             </div>
             <div className="hidden sm:block">
-              <p className="font-display text-2xl leading-none text-primary">{clinic.shortName}</p>
+              <p className="font-display text-[1.85rem] leading-none text-primary">{clinic.shortName}</p>
+              <p className="mt-1 font-mono-data text-[10px] uppercase tracking-[0.28em] text-[hsl(var(--primary)/0.52)]">
+                clinica veterinaria premium
+              </p>
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {clinic.nav.map((item) => (
               <HeaderLink key={item.href} href={item.href} label={item.label} />
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link to="/contato" className="premium-button !py-3 !px-6 text-[11px]">
-              <span>Agendar</span>
+            <Link to="/emergencia" className="hidden premium-button-secondary !px-5 !py-3 text-[11px] sm:inline-flex">
+              <span>Emergencia</span>
+            </Link>
+            <Link to="/contato" className="premium-button !px-5 !py-3 text-[11px] sm:!px-6">
+              <span>Agendar consulta</span>
             </Link>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/10 bg-primary/5 text-primary xl:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/10 bg-primary/5 text-primary lg:hidden"
               onClick={() => setMenuOpen((value) => !value)}
               aria-label="Abrir menu"
             >
@@ -207,7 +212,7 @@ export function SiteChrome() {
         </div>
 
         {menuOpen && (
-          <div className="mx-auto mt-3 max-w-6xl rounded-[1.75rem] border border-primary/10 theme-adaptive-surface p-4 shadow-[0_30px_100px_-50px_rgba(0,0,0,0.5)] backdrop-blur-2xl xl:hidden">
+          <div className="site-shell-header mx-auto mt-3 max-w-6xl rounded-[1.75rem] p-4 shadow-[0_30px_100px_-50px_rgba(0,0,0,0.24)] backdrop-blur-2xl lg:hidden">
             <div className="grid gap-2">
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />

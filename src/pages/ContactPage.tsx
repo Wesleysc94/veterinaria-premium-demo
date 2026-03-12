@@ -22,7 +22,7 @@ export default function ContactPage() {
         description="Formulario, WhatsApp, telefone, endereco, mapa e horario aparecem em uma unica experiencia pensada para reduzir friccao e aumentar conversao em mobile."
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-accent">
@@ -136,15 +136,44 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <Reveal delay={0.12} className="mx-auto mt-6 max-w-6xl card-surface overflow-hidden p-4">
-          <iframe
-            title="Mapa da clinica"
-            src={clinic.mapEmbed}
-            className="h-[360px] w-full rounded-[1.6rem] border-0 lg:h-[420px]"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </Reveal>
+        <div className="mx-auto mt-6 grid max-w-6xl gap-6 lg:grid-cols-[0.42fr,0.58fr]">
+          <Reveal delay={0.12} className="card-surface p-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-accent">
+              Visite a clinica
+            </p>
+            <h2 className="mt-5 font-display text-4xl leading-[0.96] text-primary">
+              Endereco forte, mapa visivel e canais prontos para conversao.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-[hsl(var(--primary)/0.64)]">
+              Esta secao reforca presenca local, facilita rotas e deixa mais claro que a Aura Vet
+              opera com estrutura fisica real e atendimento organizado.
+            </p>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[hsl(var(--primary)/0.72)]">
+              <p className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                {clinic.address}
+              </p>
+              <p className="flex items-start gap-3">
+                <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                {clinic.hours.join(" · ")}
+              </p>
+            </div>
+            <a href={clinic.whatsapp} className="premium-button mt-6 justify-center">
+              <Phone className="h-4 w-4" />
+              Falar com a equipe
+            </a>
+          </Reveal>
+
+          <Reveal delay={0.16} className="card-surface overflow-hidden p-4">
+            <iframe
+              title="Mapa da clinica"
+              src={clinic.mapEmbed}
+              className="h-[360px] w-full rounded-[1.6rem] border-0 lg:h-[420px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </Reveal>
+        </div>
       </section>
     </div>
   );

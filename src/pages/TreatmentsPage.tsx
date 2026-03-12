@@ -15,7 +15,7 @@ export default function TreatmentsPage() {
         description="A pagina de servicos foi desenhada para ajudar a clinica a parecer completa, organizada e segura. Cada bloco explica quando procurar, beneficios e disponibilidade de forma facil de escanear."
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -65,7 +65,7 @@ export default function TreatmentsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
@@ -103,7 +103,7 @@ export default function TreatmentsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.2rem] border border-white/15 px-8 py-10 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.4)]">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
