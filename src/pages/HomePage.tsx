@@ -30,160 +30,90 @@ const latestPosts = blogPosts.slice(0, 3);
 
 export default function HomePage() {
   return (
-    <div className="pb-8">
-      <section className="section-shell relative overflow-hidden pt-32 sm:pt-36">
-        <div className="ambient-orb left-[-10rem] top-[-4rem] h-[32rem] w-[32rem] bg-[radial-gradient(circle_at_center,rgba(174,191,168,0.24),transparent_70%)]" />
-        <div className="ambient-orb right-[-8rem] top-[16rem] h-[34rem] w-[34rem] bg-[radial-gradient(circle_at_center,rgba(94,130,145,0.2),transparent_72%)]" />
+    <div className="pb-8 relative overflow-hidden">
+      {/* ─── CINEMATIC OVERLAYS ─── */}
+      <div className="noise-texture" />
 
-        <div className="mx-auto max-w-7xl space-y-6">
-          <div className="grid gap-10 lg:grid-cols-[0.94fr,1.06fr] lg:items-center lg:gap-14">
+      {/* ═══════════════════════════════════════════════════════════════
+          A. HERO — "A Cena de Abertura" (fullscreen cinematográfico)
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+        {/* Background Video (Cinematic Standard) */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-background" />
+          <div className="video-hero-container absolute inset-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover grayscale-[0.1] brightness-[0.6] contrast-[1.05]"
+            >
+              <source src="/assets/hero-cinematic.mp4" type="video/mp4" />
+              {/* Fallback para imagem se o vídeo não carregar ou não existir */}
+              <img
+                src={clinic.media.hero}
+                alt="Fundo cinematográfico premium"
+                className="h-full w-full object-cover opacity-40"
+              />
+            </video>
+          </div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.7)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+        </div>
+
+        {/* Cinematic Content — Lumina Rhythm */}
+        <div className="relative z-10 w-full px-6 pt-32 pb-16 text-center lg:px-12">
+          <div className="mx-auto max-w-5xl">
             <motion.div
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
               className="space-y-8"
             >
-              <div className="inline-flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.34em] text-[hsl(var(--primary)/0.58)]">
-                <span className="h-px w-10 bg-primary/20" />
-                <span className="font-mono-data tracking-[0.3em]">{clinic.badge}</span>
+              <div className="flex flex-col items-center gap-4">
+                <span className="luxury-chip px-5 py-2 border-white/10 bg-white/[0.04] text-[10px] uppercase tracking-[0.45em] text-white/50 backdrop-blur-xl">
+                  {clinic.badge}
+                </span>
+                <span className="h-16 w-px bg-gradient-to-b from-white/20 to-transparent" />
               </div>
 
-              <div className="space-y-5">
-                <h1 className="font-display text-5xl font-semibold leading-[0.88] tracking-tight text-primary sm:text-7xl lg:text-[5.8rem]">
-                  <span className="split-text-reveal"><span>Cuidado veterinário</span></span>
-                  <br />
-                  <span className="split-text-reveal"><span>de alto padrão para</span></span>
-                  <br />
-                  <span className="italic text-accent split-text-reveal"><span>quem você mais ama.</span></span>
-                </h1>
-                <p className="max-w-xl text-lg leading-relaxed text-primary/70 sm:text-xl">
-                  Uma clinica desenhada para transformar consulta, check-up, vacinacao e urgencia
-                  em uma experiencia segura, organizada e premium para pets e tutores.
-                </p>
-              </div>
+              <h1 className="font-display text-[4rem] font-semibold leading-[0.85] tracking-tight text-white sm:text-[6rem] lg:text-[8rem]">
+                Cuidado e <br />
+                <span className="font-display italic text-white/90">Excelência.</span>
+              </h1>
 
-              <div className="flex flex-wrap gap-4">
-                <Link to="/contato" className="premium-button">
-                  <CalendarClock className="h-5 w-5" />
-                  Agendar avaliacao
-                </Link>
-                <Link to="/emergencia" className="premium-button-secondary">
-                  Ver central de urgencia
-                </Link>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3">
-                {clinic.highlights.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[1.45rem] border border-primary/10 bg-[hsl(var(--background)/0.65)] px-4 py-4 backdrop-blur-xl"
-                  >
-                    <p className="text-sm leading-relaxed text-[hsl(var(--primary)/0.66)]">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-              className="relative"
-            >
-              <div className="card-surface editorial-frame p-4 sm:p-5">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.2rem] lg:aspect-[4/4.85]">
-                  <motion.img
-                    src={clinic.media.hero}
-                    alt="Equipe veterinaria atendendo um pet em ambiente premium"
-                    className="h-full w-full object-cover parallax-img"
-                    style={{ y: useScrollParallax(-25) }}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,33,29,0.02),rgba(18,33,29,0.48))]" />
-
-                  <div className="absolute left-6 top-6 flex flex-wrap gap-3">
-                    <span className="luxury-chip border-white/10 bg-white/[0.08] text-white backdrop-blur-md shadow-none">
-                      vanguardista, humano e preciso
-                    </span>
-                  </div>
-
-                  <div className="absolute right-5 top-5 hidden w-48 rounded-[1.5rem] border border-white/18 bg-[rgba(12,27,31,0.34)] p-4 text-white backdrop-blur-xl sm:block">
-                    <p className="font-mono-data text-[10px] uppercase tracking-[0.3em] text-[rgb(255_255_255_/_0.65)]">
-                      triagem orientada
-                    </p>
-                    <p className="mt-3 font-display text-3xl leading-none">{clinic.stats[0].value}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-[rgb(255_255_255_/_0.74)]">{clinic.stats[0].label}</p>
-                  </div>
-
-                  <div className="absolute bottom-5 left-5 right-5 rounded-[2rem] border border-white/18 bg-[rgba(12,27,31,0.42)] p-6 text-white backdrop-blur-2xl">
-                    <div className="grid gap-5 sm:grid-cols-[1fr,auto] sm:items-end">
-                      <div>
-                        <p className="font-mono-data text-[11px] uppercase tracking-[0.3em] text-white/70">
-                          Jardim Paulista
-                        </p>
-                        <p className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
-                          Estrutura medica clara para rotina, especialidades e urgencia.
-                        </p>
-                      </div>
-                      <Link
-                        to="/sobre"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-white/86 transition hover:text-white"
-                      >
-                        Conhecer a clinica
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-[1.2fr,0.8fr]">
-            <Reveal className="brand-panel-muted rounded-[2.25rem] border border-white/12 px-6 py-6 shadow-[0_36px_120px_-60px_rgba(27,42,48,0.34)] sm:px-8">
-              <div className="grid gap-5 sm:grid-cols-3">
-                {clinic.stats.map((item) => (
-                  <div key={item.value} className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] px-5 py-5">
-                    <p className="font-display text-4xl leading-none text-white">{item.value}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-[rgb(255_255_255_/_0.74)]">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.08} className="card-surface p-6 sm:p-7">
-              <p className="font-mono-data text-[11px] uppercase tracking-[0.3em] text-[hsl(var(--primary)/0.55)]">
-                contato e localizacao
+              <p className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-white/60 tracking-wide sm:text-xl">
+                Medicina veterinária de precisão e hospitalidade premium. <br className="hidden sm:block" />
+                Desenhamos cada detalhe para o bem-estar absoluto do seu pet.
               </p>
-              <div className="mt-5 space-y-4 text-sm leading-relaxed text-[hsl(var(--primary)/0.72)]">
-                <p className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  {clinic.address}
-                </p>
-                <p className="flex items-start gap-3">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  {clinic.phone} · Urgencia {clinic.emergencyPhone}
-                </p>
-                <p className="flex items-start gap-3">
-                  <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  {clinic.hours[0]}
-                </p>
-              </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Link to="/contato" className="premium-button justify-center">
-                  <HeartHandshake className="h-4 w-4" />
-                  Falar com a clinica
+              <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row">
+                <Link to="/contato" className="premium-button min-w-[260px] justify-center">
+                  Agendar avaliação premium
                 </Link>
-                <a
-                  href={clinic.whatsapp}
-                  className="premium-button-secondary justify-center border-[#25D366]/20 text-[#1d7d4a] hover:bg-[#25D366]/6"
+                <a 
+                  href={clinic.whatsapp} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="premium-button-secondary min-w-[260px] justify-center border-white/10 bg-white/5 text-white hover:bg-white/10"
                 >
-                  WhatsApp direto
+                  Falar com especialista
                 </a>
               </div>
-            </Reveal>
+            </motion.div>
           </div>
         </div>
+
+        {/* Viewport Indicator */}
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-12 flex flex-col items-center gap-3 text-white/20"
+        >
+          <span className="text-[10px] uppercase tracking-[0.4em]">Explorar</span>
+          <div className="h-10 w-px bg-gradient-to-b from-white/30 to-transparent" />
+        </motion.div>
       </section>
 
       <section className="section-shell">
