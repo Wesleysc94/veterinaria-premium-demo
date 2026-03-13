@@ -120,27 +120,27 @@ function StickyActions() {
         rel="noreferrer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-32 left-1/2 -translate-x-1/2 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl lg:bottom-10 lg:left-auto lg:right-10 lg:translate-x-0 group"
+        className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_40px_-10px_rgba(37,211,102,0.5)] lg:bottom-10 lg:left-auto lg:right-10 lg:translate-x-0 group"
         aria-label="WhatsApp"
       >
         <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25 group-hover:hidden" />
         <WhatsAppIcon />
       </motion.a>
 
-      <div className="fixed bottom-6 left-4 right-4 z-[60] lg:bottom-8 lg:left-10 lg:right-auto lg:w-auto">
-        <div className="rounded-full border border-white/20 bg-primary/95 px-5 py-2 shadow-2xl backdrop-blur-xl transition-all hover:bg-primary">
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex border-r border-white/10 pr-4 mr-1 items-center gap-2">
+      <div className="fixed bottom-6 left-4 right-4 z-[90] lg:bottom-10 lg:left-10 lg:right-auto lg:w-auto">
+        <div className="rounded-full border border-white/20 bg-primary/95 px-6 py-2.5 shadow-2xl backdrop-blur-xl transition-all hover:bg-primary">
+          <div className="flex items-center gap-5">
+            <div className="hidden sm:flex border-r border-white/10 pr-5 mr-1 items-center gap-2">
               <Phone className="h-3 w-3 text-red-400" />
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{clinic.emergencyPhone}</p>
             </div>
-            <div className="flex items-center gap-2 sm:gap-4 w-full justify-center sm:justify-start">
-              <Link to="/emergencia" className="text-[10px] font-bold uppercase tracking-widest text-white/90 hover:text-white transition-colors">
+            <div className="flex items-center gap-6 w-full justify-center sm:justify-start">
+              <Link to="/emergencia" className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/90 hover:text-white transition-colors">
                 Urgência
               </Link>
               <div className="h-4 w-px bg-white/10" />
-              <Link to="/contato" className="text-[10px] font-bold uppercase tracking-widest text-white hover:text-white transition-colors">
-                Agendamento
+              <Link to="/contato" className="text-[10px] font-bold uppercase tracking-[0.25em] text-white hover:text-white transition-colors">
+                Agendar
               </Link>
             </div>
           </div>
@@ -162,7 +162,7 @@ export function SiteChrome() {
   return (
     <div className="relative min-h-screen bg-background text-primary selection:bg-accent/30">
       {/* ─── NAVBAR (LUMINA STYLE) ─── */}
-      <header className="fixed inset-x-0 top-6 z-[80] px-4 md:px-8">
+      <header className="fixed inset-x-0 top-6 z-[120] px-4 md:px-8">
         <div className="site-shell-header mx-auto flex max-w-7xl items-center justify-between rounded-full bg-white/80 px-4 py-2 shadow-xl backdrop-blur-2xl border border-white/40">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white shadow-md transition-transform group-hover:scale-105">
@@ -198,7 +198,7 @@ export function SiteChrome() {
               initial={{ opacity: 0, y: -15, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -15, scale: 0.98 }}
-              className="absolute left-4 right-4 top-[70px] overflow-hidden rounded-[2rem] bg-white/95 shadow-2xl border border-primary/5 p-8 backdrop-blur-2xl lg:hidden z-[90]"
+              className="absolute left-4 right-4 top-[70px] overflow-hidden rounded-[2rem] bg-white shadow-2xl border border-primary/5 p-8 backdrop-blur-3xl lg:hidden z-[130]"
             >
               <nav className="grid gap-6">
                 {clinic.nav.map((item, index) => (
@@ -218,8 +218,8 @@ export function SiteChrome() {
                 ))}
                 
                 <div className="mt-8 pt-6 border-t border-primary/5 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary/30">Trocar Tema</span>
-                  <div className="scale-110">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary/30">Inverter Tema</span>
+                  <div className="flex">
                     <ThemeToggle />
                   </div>
                 </div>
