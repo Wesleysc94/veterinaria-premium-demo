@@ -37,82 +37,83 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════════════
           A. HERO — "A Cena de Abertura" (fullscreen cinematográfico)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        {/* Background Video (Cinematic Standard) */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background" />
-          <div className="video-hero-container absolute inset-0">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="h-full w-full object-cover grayscale-[0.1] brightness-[0.6] contrast-[1.05]"
-            >
-              <source src="https://player.vimeo.com/external/459389137.hd.mp4?s=875d30a17079a1f07ea3834608b760a5e016f468&profile_id=175&oauth2_token_id=57447761" type="video/mp4" />
-              {/* Fallback para imagem se o vídeo não carregar ou não existir */}
-              <img
-                src={clinic.media.hero}
-                alt="Fundo cinematográfico premium"
-                className="h-full w-full object-cover opacity-40"
-              />
-            </video>
-          </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.7)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      <section className="group relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+        {/* Cinematic Video Background (WX DIGITAL STANDARD) */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute w-full h-full object-cover scale-105 transition-transform duration-[3s] group-hover:scale-110"
+            src="https://player.vimeo.com/external/459389137.hd.mp4?s=875d30a17079a1f07ea3834608b760a5e016f468&profile_id=175&oauth2_token_id=57447761"
+          />
+          {/* Multi-layer premium protection overlays */}
+          <div className="absolute inset-0 bg-[#0a0809]/60 backdrop-brightness-[0.8] transition-opacity duration-1000 group-hover:opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+          <div className="absolute inset-0 bg-noise-overlay opacity-20 mix-blend-overlay pointer-events-none" />
         </div>
 
         {/* Cinematic Content — Lumina Rhythm */}
         <div className="relative z-10 w-full px-6 pt-32 pb-16 text-center lg:px-12">
           <div className="mx-auto max-w-5xl">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-              className="space-y-8"
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-10"
             >
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-6">
                 <span className="luxury-chip px-5 py-2 border-white/10 bg-white/[0.04] text-[10px] uppercase tracking-[0.45em] text-white/50 backdrop-blur-xl">
                   {clinic.badge}
                 </span>
-                <span className="h-16 w-px bg-gradient-to-b from-white/20 to-transparent" />
+                <div className="h-20 w-[1px] bg-gradient-to-b from-white/20 to-transparent" />
               </div>
 
-              <h1 className="font-display text-[3.2rem] font-semibold leading-[0.95] tracking-tight text-white sm:text-[6rem] lg:text-[7.5rem]">
-                Cuidado e <br />
-                <span className="font-display italic text-white/90">Excelência.</span>
+              <h1 className="font-display text-[3.2rem] font-bold leading-[0.9] tracking-tighter text-white sm:text-[6.5rem] lg:text-[8.5rem] hero-title-shadow">
+                Cuidado & <br />
+                <span className="font-display italic font-light text-white/80">Excelência.</span>
               </h1>
 
-              <p className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-white/60 tracking-wide sm:text-xl">
-                Medicina veterinária de precisão e hospitalidade premium. <br className="hidden sm:block" />
+              <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/50 tracking-[0.05em] uppercase font-medium sm:text-base hero-text-shadow">
+                Medicina veterinária de precisão. <br className="hidden sm:block" />
                 Desenhamos cada detalhe para o bem-estar absoluto do seu pet.
               </p>
 
-              <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row w-full px-4 sm:px-0">
-                <Link to="/contato" className="premium-button w-full sm:w-auto px-6 justify-center !text-[11px] uppercase tracking-widest whitespace-nowrap">
+              <div className="mt-14 flex flex-row items-center justify-center gap-4 w-full flex-nowrap overflow-x-visible px-4 sm:px-0">
+                <Link to="/contato" className="premium-button flex-1 sm:flex-none justify-center py-4.5 px-8 !text-[11px] uppercase tracking-[0.2em]">
                   Agendar avaliação
                 </Link>
                 <a 
                   href={clinic.whatsapp} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="premium-button-secondary w-full sm:w-auto px-6 justify-center border-white/10 bg-white/5 text-white hover:bg-white/10 !text-[11px] uppercase tracking-widest whitespace-nowrap"
+                  className="premium-button-secondary dark flex-1 sm:flex-none justify-center py-4.5 px-8 !text-[11px] uppercase tracking-[0.2em]"
                 >
-                  Falar com especialista
+                  Falar no WhatsApp
                 </a>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Viewport Indicator */}
+        {/* Scroll indicator (WX Style) */}
         <motion.div 
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-12 flex flex-col items-center gap-3 text-white/20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10 pointer-events-none"
         >
-          <span className="text-[10px] uppercase tracking-[0.4em]">Explorar</span>
-          <div className="h-10 w-px bg-gradient-to-b from-white/30 to-transparent" />
+          <span className="text-[9px] tracking-[0.3em] text-white/30 uppercase rotate-90 mb-6 origin-top whitespace-nowrap">DESCUBRA</span>
+          <div className="w-[1px] h-20 bg-white/10 relative overflow-hidden">
+            <motion.div 
+              initial={{ y: '-100%' }}
+              animate={{ y: '100%' }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              className="absolute inset-0 w-full h-[30%] bg-accent"
+            />
+          </div>
         </motion.div>
       </section>
 

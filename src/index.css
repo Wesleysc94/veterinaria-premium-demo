@@ -10,7 +10,7 @@
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.015; /* Suavizado de 0.035 para 0.015 conforme pedido */
   mix-blend-mode: overlay;
 }
 
@@ -209,7 +209,7 @@
 
   /* ─── PREMIUM BUTTONS ─── */
   .premium-button {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/15 px-7 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/15 px-7 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 whitespace-nowrap min-w-max;
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.9));
     box-shadow: 0 10px 25px -10px hsl(var(--primary) / 0.3);
   }
@@ -234,7 +234,7 @@
   }
 
   .premium-button-secondary {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/60 bg-white/40 px-7 py-4 text-sm font-semibold text-primary backdrop-blur-md transition-all duration-300;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/60 bg-white/40 px-7 py-4 text-sm font-semibold text-primary backdrop-blur-md transition-all duration-300 whitespace-nowrap min-w-max;
   }
 
   .premium-button-secondary:hover {
@@ -250,7 +250,7 @@
     height: 100%;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.02; /* Reduzido de 0.05 para 0.02 para suavizar estética dark */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
