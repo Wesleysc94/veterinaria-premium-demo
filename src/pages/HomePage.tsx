@@ -49,7 +49,7 @@ export default function HomePage() {
               playsInline
               className="h-full w-full object-cover grayscale-[0.1] brightness-[0.6] contrast-[1.05]"
             >
-              <source src="/assets/hero-cinematic.mp4" type="video/mp4" />
+              <source src="https://player.vimeo.com/external/459389137.hd.mp4?s=875d30a17079a1f07ea3834608b760a5e016f468&profile_id=175&oauth2_token_id=57447761" type="video/mp4" />
               {/* Fallback para imagem se o vídeo não carregar ou não existir */}
               <img
                 src={clinic.media.hero}
@@ -78,7 +78,7 @@ export default function HomePage() {
                 <span className="h-16 w-px bg-gradient-to-b from-white/20 to-transparent" />
               </div>
 
-              <h1 className="font-display text-[4rem] font-semibold leading-[0.85] tracking-tight text-white sm:text-[6rem] lg:text-[8rem]">
+              <h1 className="font-display text-[3.2rem] font-semibold leading-[0.95] tracking-tight text-white sm:text-[6rem] lg:text-[7.5rem]">
                 Cuidado e <br />
                 <span className="font-display italic text-white/90">Excelência.</span>
               </h1>
@@ -88,15 +88,15 @@ export default function HomePage() {
                 Desenhamos cada detalhe para o bem-estar absoluto do seu pet.
               </p>
 
-              <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row">
-                <Link to="/contato" className="premium-button min-w-[260px] justify-center">
-                  Agendar avaliação premium
+              <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row w-full px-4 sm:px-0">
+                <Link to="/contato" className="premium-button w-full sm:w-auto px-6 justify-center !text-[11px] uppercase tracking-widest whitespace-nowrap">
+                  Agendar avaliação
                 </Link>
                 <a 
                   href={clinic.whatsapp} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="premium-button-secondary min-w-[260px] justify-center border-white/10 bg-white/5 text-white hover:bg-white/10"
+                  className="premium-button-secondary w-full sm:w-auto px-6 justify-center border-white/10 bg-white/5 text-white hover:bg-white/10 !text-[11px] uppercase tracking-widest whitespace-nowrap"
                 >
                   Falar com especialista
                 </a>

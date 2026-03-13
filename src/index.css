@@ -14,70 +14,51 @@
   mix-blend-mode: overlay;
 }
 
-@layer base {
-  :root {
-    --background: 90 12% 98%;
-    --foreground: 155 13% 15%;
-
-    --primary: 199 42% 28%;
-    --primary-foreground: 80 27% 99%;
-
-    --accent: 104 20% 65%;
-    --accent-foreground: 155 13% 15%;
-
-    --card: 80 27% 98%;
-    --card-foreground: 155 13% 18%;
-
-    --popover: 80 27% 98%;
-    --popover-foreground: 155 13% 18%;
-
-    --secondary: 40 19% 88%;
-    --secondary-foreground: 150 8% 24%;
-
-    --muted: 36 12% 75%;
-    --muted-foreground: 150 8% 24%;
-
-    --destructive: 3 69% 55%;
-    --destructive-foreground: 80 27% 98%;
-
-    --border: 36 12% 75%;
-    --input: 40 19% 88%;
-    --ring: 198 21% 47%;
-
-    --cream: 80 27% 98%;
-    --dark: 155 13% 18%;
+@la  :root {
+    --background: 28 36% 96%; /* #f4f1eb (Fundo Quente Lumina) */
+    --foreground: 334 23% 18%;
+    --primary: 333 28% 24%;
+    --primary-foreground: 28 44% 97%;
+    --accent: 336 33% 67%; /* #8d5b71 (Rose Lumina) */
+    --accent-foreground: 333 24% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 334 23% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 334 23% 18%;
+    --secondary: 25 30% 95%;
+    --secondary-foreground: 333 18% 24%;
+    --muted: 28 20% 93%;
+    --muted-foreground: 334 12% 42%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 337 15% 88%;
+    --input: 337 15% 88%;
+    --ring: 336 36% 56%;
+    --cream: 32 44% 96%;
+    --dark: 333 24% 12%;
     --radius: 1.75rem;
   }
 
-  [data-theme="luxury"] {
-    --background: 158 20% 5%;
-    --foreground: 40 29% 98%;
-
-    --primary: 40 29% 98%;
-    --primary-foreground: 158 20% 5%;
-
-    --accent: 141 22% 75%;
-    --accent-foreground: 158 15% 5%;
-
-    --cream: 30 27% 90%;
-    --dark: 197 28% 5%;
-
-    --card: 197 28% 7%;
-    --card-foreground: 40 29% 98%;
-
-    --popover: 197 28% 7%;
-    --popover-foreground: 40 29% 98%;
-
-    --secondary: 155 13% 15%;
-    --secondary-foreground: 40 29% 98%;
-
-    --muted: 155 13% 12%;
-    --muted-foreground: 40 20% 82%;
-    /* Contraste sênior: claro e nítido */
-
-    --border: 40 29% 98% / 0.12;
-    --input: 155 13% 12%;
-    --ring: 141 18% 70%;
+  [data-theme="dark"] {
+    --background: 333 24% 12%; /* #2b1c21 */
+    --foreground: 28 36% 96%;
+    --primary: 28 36% 96%;
+    --primary-foreground: 333 24% 12%;
+    --accent: 336 33% 67%;
+    --accent-foreground: 28 36% 96%;
+    --cream: 340 18% 84%;
+    --dark: 330 22% 7%;
+    --card: 333 24% 15%;
+    --card-foreground: 28 36% 96%;
+    --popover: 333 24% 15%;
+    --popover-foreground: 28 36% 96%;
+    --secondary: 330 14% 19%;
+    --secondary-foreground: 28 36% 96%;
+    --muted: 330 14% 19%;
+    --muted-foreground: 338 12% 75%;
+    --border: 337 15% 25%;
+    --input: 337 15% 25%;
+    --ring: 336 34% 71%;
   }
 }
 
@@ -88,14 +69,15 @@
 
   html,
   body {
-    @apply bg-background text-foreground antialiased selection:bg-accent/70 selection:text-primary;
+    @apply bg-background text-primary antialiased selection:bg-accent/30 selection:text-primary;
     font-family: 'Manrope', sans-serif;
-    background-image:
-      radial-gradient(circle at top left, rgba(174, 191, 168, 0.22), transparent 28%),
-      radial-gradient(circle at top right, rgba(94, 130, 145, 0.16), transparent 24%),
-      radial-gradient(circle at 50% 20%, rgba(250, 251, 248, 0.98), transparent 40%),
-      linear-gradient(180deg, rgba(250, 251, 248, 1), rgba(247, 248, 246, 0.98));
-    color-scheme: light;
+    background-image: 
+      radial-gradient(circle at 10% 10%, hsl(28 44% 92% / 0.45), transparent 30%),
+      radial-gradient(circle at 90% 12%, hsl(336 30% 92% / 0.35), transparent 30%),
+      linear-gradient(180deg, hsl(28 36% 96.5%), hsl(25 25% 95%));
+    color-scheme: light dark;
+  }
+ light;
   }
 
   [data-theme="luxury"] body,
