@@ -120,26 +120,27 @@ function StickyActions() {
         rel="noreferrer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-[96px] left-1/2 -translate-x-1/2 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl lg:bottom-5 lg:left-auto lg:right-8 lg:translate-x-0 group"
+        className="fixed bottom-32 left-1/2 -translate-x-1/2 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl lg:bottom-10 lg:left-auto lg:right-10 lg:translate-x-0 group"
         aria-label="WhatsApp"
       >
-        <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 group-hover:hidden" />
+        <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25 group-hover:hidden" />
         <WhatsAppIcon />
       </motion.a>
 
-      <div className="fixed bottom-4 left-4 right-4 z-50 lg:bottom-6 lg:left-8 lg:right-auto lg:w-auto">
-        <div className="rounded-[2rem] border border-white/15 bg-primary/95 px-6 py-3 shadow-2xl backdrop-blur-xl lg:bg-primary/90">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-            <div className="hidden lg:block border-r border-white/10 pr-6 mr-2">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">Urgência 24h</p>
-              <p className="text-xs text-white/80">{clinic.emergencyPhone}</p>
+      <div className="fixed bottom-6 left-4 right-4 z-[60] lg:bottom-8 lg:left-10 lg:right-auto lg:w-auto">
+        <div className="rounded-full border border-white/20 bg-primary/95 px-5 py-2 shadow-2xl backdrop-blur-xl transition-all hover:bg-primary">
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:flex border-r border-white/10 pr-4 mr-1 items-center gap-2">
+              <Phone className="h-3 w-3 text-red-400" />
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{clinic.emergencyPhone}</p>
             </div>
-            <div className="flex items-center gap-3">
-              <Link to="/emergencia" className="premium-button on-panel !py-3 !px-5 !text-[11px] whitespace-nowrap bg-red-500/10 border-red-500/20 hover:bg-red-500/20">
+            <div className="flex items-center gap-2 sm:gap-4 w-full justify-center sm:justify-start">
+              <Link to="/emergencia" className="text-[10px] font-bold uppercase tracking-widest text-white/90 hover:text-white transition-colors">
                 Urgência
               </Link>
-              <Link to="/contato" className="premium-button on-panel !py-3 !px-5 !text-[11px] whitespace-nowrap">
-                Agendar consulta
+              <div className="h-4 w-px bg-white/10" />
+              <Link to="/contato" className="text-[10px] font-bold uppercase tracking-widest text-white hover:text-white transition-colors">
+                Agendamento
               </Link>
             </div>
           </div>
@@ -161,13 +162,13 @@ export function SiteChrome() {
   return (
     <div className="relative min-h-screen bg-background text-primary selection:bg-accent/30">
       {/* ─── NAVBAR (LUMINA STYLE) ─── */}
-      <header className="fixed inset-x-0 top-6 z-[60] px-4 md:px-8">
-        <div className="site-shell-header mx-auto flex max-w-7xl items-center justify-between rounded-full bg-white/70 px-3 py-2 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.12)] backdrop-blur-2xl border border-white/40 sm:px-4 lg:px-6">
+      <header className="fixed inset-x-0 top-6 z-[80] px-4 md:px-8">
+        <div className="site-shell-header mx-auto flex max-w-7xl items-center justify-between rounded-full bg-white/80 px-4 py-2 shadow-xl backdrop-blur-2xl border border-white/40">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform group-hover:scale-105">
-              <Stethoscope className="h-4 w-4" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white shadow-md transition-transform group-hover:scale-105">
+              <Stethoscope className="h-3.5 w-3.5" />
             </div>
-            <p className="font-display text-2xl font-semibold tracking-tight text-primary sm:text-2xl">{clinic.shortName}</p>
+            <p className="font-display text-xl font-bold tracking-tight text-primary">{clinic.shortName}</p>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -176,13 +177,13 @@ export function SiteChrome() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <div className="hidden sm:block">
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block scale-90">
               <ThemeToggle />
             </div>
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors lg:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -194,10 +195,10 @@ export function SiteChrome() {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              initial={{ opacity: 0, y: -15, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className="absolute left-4 right-4 top-20 overflow-hidden rounded-[2.5rem] bg-white shadow-2xl border border-primary/5 p-8 lg:hidden"
+              exit={{ opacity: 0, y: -15, scale: 0.98 }}
+              className="absolute left-4 right-4 top-[70px] overflow-hidden rounded-[2rem] bg-white/95 shadow-2xl border border-primary/5 p-8 backdrop-blur-2xl lg:hidden z-[90]"
             >
               <nav className="grid gap-6">
                 {clinic.nav.map((item, index) => (
@@ -216,9 +217,11 @@ export function SiteChrome() {
                   </motion.div>
                 ))}
                 
-                <div className="mt-8 pt-8 border-t border-primary/5 flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-widest text-primary/30 text-center">Inverter Tema</span>
-                  <ThemeToggle />
+                <div className="mt-8 pt-6 border-t border-primary/5 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary/30">Trocar Tema</span>
+                  <div className="scale-110">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </nav>
             </motion.div>
