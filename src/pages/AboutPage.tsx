@@ -1,4 +1,4 @@
-import { Check, HeartHandshake, ShieldCheck, Sparkles, Stethoscope, Users, Clock } from "lucide-react";
+import { Check, HeartHandshake, ShieldCheck, Sparkles, Stethoscope, Users, Clock, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { clinic } from "@/data/siteContent";
@@ -10,9 +10,10 @@ export default function AboutPage() {
   return (
     <div className="pb-8">
       <PageHero
-        eyebrow="Sobre a Clínica"
-        title="Cuidado veterinário que une ciência, empatia e excelência."
-        description="Conheça a história, os valores e a filosofia que fazem da Aura Vet referência em medicina veterinária no Jardim Paulista."
+        eyebrow="Nossa historia"
+        title="Onde a ciencia encontra a hospitalidade."
+        description="A Aura Vet nasceu do desejo de elevar o padrao do cuidado veterinario em Sao Paulo, criando um ambiente onde a precisao medica e o acolhimento andam lado a lado."
+        backgroundImage="/hero-about.png"
       />
 
       {/* ═══ NOSSA HISTÓRIA ═══ */}
@@ -39,9 +40,9 @@ export default function AboutPage() {
               <img
                 src={clinic.media.environment}
                 alt="Interior da Aura Vet"
-                className="h-[480px] w-full object-cover object-center"
+                className="h-[480px] w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-xl">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70">Nosso Espaço</p>
                 <p className="mt-2 font-display text-2xl leading-tight">
@@ -127,16 +128,23 @@ export default function AboutPage() {
                 { icon: Stethoscope, label: "15+ Especialistas" },
                 { icon: Users, label: "Equipe Multidisciplinar" },
                 { icon: Clock, label: "Triagem 24h" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col items-center gap-2 rounded-2xl border border-primary/10 p-4 text-center">
-                  <stat.icon className="h-5 w-5 text-accent" />
-                  <p className="text-xs font-bold text-primary/70">{stat.label}</p>
-                </div>
+              ].map((stat, idx) => (
+                <Reveal key={stat.label} delay={idx * 0.1}>
+                  <div className="flex flex-col items-center gap-2 rounded-2xl border border-primary/10 p-4 text-center h-full">
+                    <stat.icon className="h-5 w-5 text-accent" />
+                    <p className="text-xs font-bold text-primary/70">{stat.label}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
-            <Link to="/contato" className="mt-6 premium-button w-full justify-center">
-              Agende uma visita
+            <Reveal delay={0.4} className="mt-8">
+              <Link to="/contato" className="premium-button-new group shadow-2xl shadow-accent/30">
+              <span className="btn-text">Falar com Especialistas</span>
+              <div className="btn-icon-circle">
+                <ArrowUpRight className="h-5 w-5 stroke-[2.5px]" />
+              </div>
             </Link>
+            </Reveal>
           </Reveal>
         </div>
       </section>

@@ -115,12 +115,16 @@ export default function EmergencyPage() {
             </div>
             <div className="space-y-4">
               <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button on-panel justify-center">
-                <Phone className="h-4 w-4" />
-                {clinic.emergencyPhone}
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <span className="btn-text">Ligar agora: {clinic.emergencyPhone}</span>
               </a>
-              <Link to="/contato" className="premium-button-secondary on-panel justify-center">
-                <Siren className="h-4 w-4" />
-                Falar com a clinica
+              <Link to="/contato" className="premium-button-new on-panel justify-center !bg-white !text-red-600 !border-none group">
+                <span className="btn-text !text-red-600">Falar com Especialistas</span>
+                <div className="btn-icon-circle !bg-red-600 !text-white">
+                  <Siren className="h-4 w-4" />
+                </div>
               </Link>
             </div>
           </div>

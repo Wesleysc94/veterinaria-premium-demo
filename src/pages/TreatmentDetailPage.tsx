@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import { clinic, services } from "@/data/siteContent";
 import { Reveal } from "@/components/site/Reveal";
@@ -135,17 +135,22 @@ export default function TreatmentDetailPage() {
               </p>
             </div>
             <div className="space-y-4">
-              <Link to="/contato" className="premium-button on-panel justify-center">
-                Quero agendar
+              <Link to="/contato" className="premium-button-new on-panel justify-center">
+                <span className="btn-text">Quero agendar</span>
+                <div className="btn-icon-circle">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
               </Link>
               <a
                 href={clinic.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="premium-button-secondary on-panel justify-center"
+                className="premium-button-new on-panel justify-center !bg-primary/5 dark:!bg-white/5 !border-primary/10 dark:!border-white/10"
               >
-                Falar pelo WhatsApp
-                <ArrowUpRight className="h-4 w-4" />
+                <span className="btn-text">Falar pelo WhatsApp</span>
+                <div className="btn-icon-circle !bg-primary/10 text-primary dark:text-white">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </a>
             </div>
           </div>

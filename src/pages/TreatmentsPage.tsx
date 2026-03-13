@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, HeartPulse } from "lucide-react";
+import { ArrowRight, ArrowUpRight, HeartPulse } from "lucide-react";
 
 import { clinic, services } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
@@ -10,9 +10,10 @@ export default function TreatmentsPage() {
   return (
     <div className="pb-10">
       <PageHero
-        eyebrow="Servicos e especialidades"
-        title="Consultas, prevencao, exames, cirurgia e urgencia apresentados com clareza premium."
-        description="A pagina de servicos foi desenhada para ajudar a clinica a parecer completa, organizada e segura. Cada bloco explica quando procurar, beneficios e disponibilidade de forma facil de escanear."
+        eyebrow="Nossos Servicos"
+        title="Medicina de precisao em cada especialidade."
+        description="Oferecemos uma estrutura completa para que o tutor encontre tudo o que o pet precisa em um unico ecossistema de saude."
+        backgroundImage="/hero-services.png"
       />
 
       <section className="section-shell-tight">
@@ -24,39 +25,53 @@ export default function TreatmentsPage() {
               description="Os cards abaixo equilibram leitura rapida com profundidade suficiente para gerar interesse, melhorar autoridade local e abrir espaco para campanhas por servico."
             />
           </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <Reveal
                 key={service.slug}
-                delay={index * 0.04}
-                className="card-surface group overflow-hidden p-0"
+                delay={index * 0.12}
+                className="card-surface group overflow-hidden p-0 transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_50px_120px_-40px_rgba(var(--accent-rgb),0.15)]"
               >
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute top-6 left-6">
+                    <span className="rounded-full bg-background/80 backdrop-blur-md px-4 py-1.5 text-[9px] font-bold uppercase tracking-[0.3em] text-primary border border-primary/10">
+                      {service.category}
+                    </span>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-primary">
-                    {service.category}
-                  </span>
-                  <h2 className="mt-5 font-display text-3xl leading-none text-primary">
+                <div className="p-8 space-y-5">
+                  <h2 className="font-display text-4xl leading-none text-primary transition-colors group-hover:text-accent">
                     {service.name}
                   </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-primary/80">{service.excerpt}</p>
-                  <div className="mt-5 space-y-2 text-sm text-primary/70">
-                    <p><span className="font-bold">Ideal para:</span> {service.idealFor}</p>
-                    <p><span className="font-bold">Disponibilidade:</span> {service.availability}</p>
+                  <p className="text-sm leading-relaxed text-primary/70 line-clamp-2 italic">
+                    "{service.excerpt}"
+                  </p>
+                  <div className="h-px w-full bg-primary/5" />
+                  <div className="space-y-3 text-[11px] uppercase tracking-[0.15em] font-bold text-primary/40">
+                    <p className="flex items-center gap-2">
+                       <span className="h-1 w-1 rounded-full bg-accent" />
+                       Ideal para: <span className="text-primary/70">{service.idealFor}</span>
+                    </p>
+                    <p className="flex items-center gap-2">
+                       <span className="h-1 w-1 rounded-full bg-accent" />
+                       Disponibilidade: <span className="text-primary/70">{service.availability}</span>
+                    </p>
                   </div>
+                  
                   <Link
                     to={`/servicos/${service.slug}`}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-accent transition-colors"
+                    className="premium-button-new !gap-3 !py-3 !px-6 !mt-6 group/btn"
                   >
-                    Ver detalhe do servico
-                    <ArrowUpRight className="h-4 w-4" />
+                    <span className="btn-text !text-[10px]">Detalhes clínicos</span>
+                    <div className="btn-icon-circle !h-7 !w-7">
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                    </div>
                   </Link>
                 </div>
               </Reveal>
@@ -118,12 +133,17 @@ export default function TreatmentsPage() {
               </p>
             </div>
             <div className="space-y-4">
-              <Link to="/contato" className="premium-button on-panel justify-center shadow-none hover:shadow-xl">
-                Falar com a equipe
+              <Link to="/servicos/check-up-premium" className="premium-button-new group shadow-2xl shadow-accent/20">
+                <span className="btn-text">Ver Detalhes Clínicos</span>
+                <div className="btn-icon-circle">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </Link>
-              <Link to="/emergencia" className="premium-button-secondary on-panel justify-center shadow-none">
-                <HeartPulse className="h-4 w-4" />
-                Ver emergencia
+              <Link to="/emergencia" className="premium-button-new on-panel justify-center shadow-none !bg-red-500/10 !border-red-500/20 !text-red-500">
+                <span className="btn-text">Ver emergência</span>
+                <div className="btn-icon-circle !bg-red-500 !text-white">
+                  <HeartPulse className="h-4 w-4" />
+                </div>
               </Link>
             </div>
           </div>

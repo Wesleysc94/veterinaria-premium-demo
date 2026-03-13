@@ -5,13 +5,17 @@ import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
 import {
   ArrowUpRight,
+  ArrowRight,
   BookOpen,
   CalendarClock,
   ChevronDown,
   Filter,
   Search,
   Tag,
+  X,
+  CalendarDays
 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 // Conteúdo expandido simulado para cada blog post
@@ -52,7 +56,7 @@ const categories = ["Todos", ...new Set(blogPosts.map((p) => p.category))];
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
+  const [activePost, setActivePost] = useState<typeof blogPosts[0] | null>(null);
 
   const filteredPosts =
     selectedCategory === "Todos"
@@ -62,203 +66,78 @@ export default function BlogPage() {
   return (
     <div className="pb-8">
       <PageHero
-        eyebrow="Conteúdo Educativo"
-        title="Informação confiável para tutores conscientes."
-        description="Artigos escritos pela nossa equipe veterinária para ajudar você a cuidar melhor do seu pet em todas as fases da vida."
+        eyebrow="Hub de Conteúdo"
+        title="Informação técnica para tutores conscientes."
+        description="Artigos fundamentados para que você tome as melhores decisões sobre a saúde e o bem-estar do seu pet."
+        backgroundImage="/hero-blog.png"
       />
 
-      {/* ═══ ARTIGO EM DESTAQUE ═══ */}
-      <section className="section-shell">
-        <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
-          <Reveal className="card-surface overflow-hidden p-4">
-            <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-              <img
-                src={blogPosts[0].image}
-                alt={blogPosts[0].title}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-xl">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70">
-                  Conteúdo em Destaque
-                </p>
-                <p className="mt-2 font-display text-xl leading-tight">
-                  Conhecimento que transforma o cuidado com seu pet.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal
-            delay={0.1}
-            className="card-surface p-8 flex flex-col justify-center relative overflow-hidden group"
-          >
-            <div className="absolute -left-10 -top-10 h-36 w-36 rounded-full bg-accent/10 blur-[60px] group-hover:bg-accent/20 transition-colors" />
-            <div className="relative z-10">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
-                <Tag className="h-3 w-3" />
-                {blogPosts[0].category} · {blogPosts[0].readTime}
-              </span>
-              <h2 className="mt-5 font-display text-3xl leading-tight text-primary sm:text-4xl">
-                {blogPosts[0].title}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-primary/60">
-                {blogPosts[0].excerpt}
-              </p>
-
-              {/* Preview do conteúdo */}
-              <div className="mt-5 space-y-3 border-l-2 border-accent/30 pl-4">
-                {articleContent[blogPosts[0].slug]?.slice(0, 1).map((p, i) => (
-                  <p key={i} className="text-sm leading-relaxed text-primary/50 line-clamp-3">
-                    {p}
-                  </p>
-                ))}
-              </div>
-
-              <button
-                onClick={() =>
-                  setExpandedSlug(expandedSlug === blogPosts[0].slug ? null : blogPosts[0].slug)
-                }
-                className="mt-6 premium-button"
-              >
-                <BookOpen className="h-4 w-4" />
-                {expandedSlug === blogPosts[0].slug ? "Fechar artigo" : "Ler artigo completo"}
-              </button>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Conteúdo expandido do artigo em destaque */}
-        {expandedSlug === blogPosts[0].slug && (
-          <Reveal className="mx-auto max-w-6xl mt-5">
-            <div className="card-surface p-8 sm:p-10 space-y-5">
-              <h3 className="font-display text-2xl text-primary">{blogPosts[0].title}</h3>
-              <div className="flex items-center gap-3 text-xs text-primary/50">
-                <CalendarClock className="h-4 w-4" />
-                <span>Publicado pela equipe Aura Vet</span>
-                <span>·</span>
-                <span>{blogPosts[0].readTime} de leitura</span>
-              </div>
-              <div className="h-[1px] bg-primary/10" />
-              {articleContent[blogPosts[0].slug]?.map((paragraph, i) => (
-                <p key={i} className="text-base leading-8 text-primary/70">
-                  {paragraph}
-                </p>
-              ))}
-              <div className="mt-6 rounded-2xl border border-accent/20 bg-accent/5 p-6">
-                <p className="text-sm font-bold text-primary">
-                  💡 Precisa de orientação personalizada?
-                </p>
-                <p className="mt-2 text-sm text-primary/60">
-                  Cada pet é único. Agende uma consulta para que nossos especialistas avaliem as
-                  necessidades específicas do seu companheiro.
-                </p>
-                <Link to="/contato" className="mt-4 premium-button inline-flex">
-                  Agendar consulta
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        )}
-      </section>
-
       {/* ═══ FILTROS ═══ */}
-      <section className="px-4 sm:px-8 lg:px-12">
+      <section className="section-shell-tight">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap items-center gap-2">
+          <Reveal className="flex flex-wrap items-center gap-2">
             <Filter className="h-4 w-4 text-primary/40 mr-1" />
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all ${selectedCategory === cat
-                  ? "bg-accent text-white"
-                  : "bg-primary/5 text-primary/60 hover:bg-primary/10"
-                  }`}
+                className={`rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all ${
+                  selectedCategory === cat
+                    ? "bg-accent text-white"
+                    : "bg-primary/5 text-primary/60 hover:bg-primary/10"
+                }`}
               >
                 {cat}
               </button>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ═══ GRID DE ARTIGOS ═══ */}
-      <section className="section-shell-tight">
+      <section className="section-shell-tight pt-0">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {filteredPosts.map((post, index) => (
               <Reveal
                 key={post.slug}
-                delay={index * 0.06}
-                className="card-surface group overflow-hidden p-0"
+                delay={index * 0.08}
+                className="card-surface group overflow-hidden p-0 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_45px_100px_-40px_rgba(var(--primary-rgb),0.1)]"
               >
-                {/* Imagem do post */}
-                <div className="h-48 w-full overflow-hidden relative">
+                <div className="h-52 w-full overflow-hidden relative">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3">
-                    <span className="rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[9px] font-bold uppercase tracking-widest text-white border border-white/20">
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[9px] font-bold uppercase tracking-[0.2em] text-white border border-white/20">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Card body */}
-                <div className="p-6">
-                  <h3 className="font-display text-xl leading-tight text-primary group-hover:text-accent transition-colors">
+                <div className="p-8 space-y-4">
+                  <h3 className="font-display text-2xl leading-[1.1] text-primary group-hover:text-accent transition-colors">
                     {post.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-primary/60 line-clamp-2">
+                  <p className="text-sm leading-relaxed text-primary/70 line-clamp-2">
                     {post.excerpt}
                   </p>
-
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/40">
+                  <div className="h-px w-full bg-primary/5" />
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/40">
                       {post.readTime} leitura
                     </span>
                     <button
-                      onClick={() =>
-                        setExpandedSlug(expandedSlug === post.slug ? null : post.slug)
-                      }
-                      className="flex items-center gap-1 text-xs font-bold text-accent hover:underline"
+                      onClick={() => setActivePost(post)}
+                      className="group/btn flex items-center justify-center h-10 w-10 rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                     >
-                      {expandedSlug === post.slug ? "Fechar" : "Ler"}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${expandedSlug === post.slug ? "rotate-180" : ""
-                          }`}
-                      />
+                      <ArrowRight className="h-5 w-5" />
                     </button>
                   </div>
                 </div>
-
-                {/* Conteúdo expandido */}
-                {expandedSlug === post.slug && articleContent[post.slug] && (
-                  <div className="border-t border-primary/10 p-6 bg-primary/[0.02] space-y-4">
-                    {articleContent[post.slug].map((para, i) => (
-                      <p key={i} className="text-sm leading-7 text-primary/60">
-                        {para}
-                      </p>
-                    ))}
-                    <div className="rounded-xl border border-accent/20 bg-accent/5 p-4">
-                      <p className="text-xs text-primary/60">
-                        <strong className="text-primary">Precisa de ajuda?</strong> Agende uma
-                        consulta com nossos especialistas.
-                      </p>
-                      <Link
-                        to="/contato"
-                        className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-accent"
-                      >
-                        Agendar agora
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                )}
               </Reveal>
             ))}
           </div>
@@ -272,7 +151,7 @@ export default function BlogPage() {
             <div className="grid gap-8 lg:grid-cols-2 lg:items-center relative z-10">
               <div className="space-y-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-60">
-                  Fique por dentro
+                   Fique por dentro
                 </p>
                 <h2 className="font-display text-3xl leading-tight sm:text-4xl">
                   Receba conteúdos exclusivos sobre a saúde do seu pet.
@@ -282,8 +161,11 @@ export default function BlogPage() {
                 </p>
               </div>
               <div className="space-y-4">
-                <Link to="/contato" className="premium-button on-panel justify-center w-full">
-                  Entrar em contato
+                <Link to="/contato" className="premium-button-new on-panel justify-center w-full !py-6">
+                  <span className="btn-text">Entrar em contato</span>
+                  <div className="btn-icon-circle">
+                    <ArrowRight className="h-5 w-5" />
+                  </div>
                 </Link>
                 <p className="text-center text-[10px] opacity-50 tracking-wider">
                   Sem spam. Conteúdo relevante para tutores conscientes.
@@ -293,6 +175,97 @@ export default function BlogPage() {
           </div>
         </Reveal>
       </section>
+
+      {/* ═══ READER OVERLAY ═══ */}
+      <AnimatePresence>
+        {activePost && (
+          <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 sm:p-6 md:p-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActivePost(null)}
+              className="absolute inset-0 bg-background/90 backdrop-blur-2xl"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-5xl h-full max-h-[85vh] card-surface-glass rounded-[2.5rem] border-white/10 shadow-[0_100px_200px_-50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col"
+            >
+              {/* Header Overlay */}
+              <div className="relative h-64 sm:h-80 shrink-0">
+                <img 
+                  src={activePost.image} 
+                  alt={activePost.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                
+                <button
+                  onClick={() => setActivePost(null)}
+                  className="absolute top-6 right-6 h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+
+                <div className="absolute bottom-8 left-8 right-8">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-accent border border-accent/10 backdrop-blur-md">
+                    <Tag className="h-3 w-3" />
+                    {activePost.category} · {activePost.readTime}
+                  </span>
+                  <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-primary">
+                    {activePost.title}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Content Area */}
+              <div className="flex-1 overflow-y-auto p-8 sm:p-12 custom-scrollbar">
+                <div className="max-w-3xl mx-auto space-y-8">
+                  <div className="flex items-center gap-6 text-[10px] font-bold uppercase tracking-[0.3em] text-primary/40 pb-8 border-b border-primary/5">
+                    <div className="flex items-center gap-2">
+                       <CalendarDays className="h-4 w-4" />
+                       Aura Vet Team
+                    </div>
+                    <div>{activePost.readTime} de leitura</div>
+                  </div>
+
+                  <div className="space-y-6 text-lg leading-relaxed text-primary/80">
+                    {articleContent[activePost.slug]?.map((text, i) => (
+                      <p key={i}>{text}</p>
+                    ))}
+                  </div>
+
+                  {/* CTA Box */}
+                  <div className="mt-12 p-8 rounded-[2rem] border border-accent/20 bg-accent/5 relative overflow-hidden group">
+                    <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/10 blur-[80px]" />
+                    <div className="relative z-10">
+                      <p className="text-xl font-display text-primary leading-tight">
+                        Este conteúdo foi útil para você?
+                      </p>
+                      <p className="mt-3 text-sm text-primary/60 leading-relaxed max-w-xl">
+                        A saúde do seu pet é nossa prioridade absoluta. Se você notou algum sinal ou tem dúvidas sobre o protocolo de cuidados, nossa equipe de especialistas está pronta para orientar você.
+                      </p>
+                      <Link 
+                        to="/contato" 
+                        onClick={() => setActivePost(null)}
+                        className="premium-button-new !bg-accent !text-white !border-none !py-6 group shadow-xl shadow-accent/20 mt-8"
+                      >
+                        <span className="btn-text">Agendar Avaliação agora</span>
+                        <div className="btn-icon-circle !bg-white !text-accent">
+                          <ArrowUpRight className="h-5 w-5" />
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

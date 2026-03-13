@@ -1,4 +1,5 @@
-import { HeartHandshake, ShieldCheck } from "lucide-react";
+import { HeartHandshake, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { clinic, team } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
@@ -9,9 +10,10 @@ export default function TeamPage() {
   return (
     <div className="pb-10">
       <PageHero
-        eyebrow="Equipe veterinaria"
-        title="Um corpo clinico apresentado com autoridade, proximidade e especialidades bem posicionadas."
-        description="Mostrar nomes, areas de atuacao e formacao reduz incerteza, aumenta confianca e faz a clinica parecer real para tutores e proprietarios avaliando a demo."
+        eyebrow="Corpo Clinico"
+        title="Autoridade medica focada em cada detalhe."
+        description="Nossos especialistas sao selecionados pelo rigor tecnico e pela capacidade de acolher tutor e pet com clareza e empatia."
+        backgroundImage="/hero-team.png"
       />
 
       <section className="section-shell-tight">
@@ -24,25 +26,36 @@ export default function TeamPage() {
             />
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
             {team.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.05} className="card-surface overflow-hidden p-4">
-                <div className="grid gap-6 lg:grid-cols-[0.45fr,0.55fr] lg:items-center">
-                  <div className="overflow-hidden rounded-[1.7rem]">
+              <Reveal key={member.name} delay={index * 0.1} className="card-surface group overflow-hidden p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_45px_100px_-40px_rgba(var(--primary-rgb),0.1)]">
+                <div className="grid gap-8 lg:grid-cols-[0.45fr,0.55fr] lg:items-center">
+                  <div className="overflow-hidden rounded-[2.2rem]">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="h-[360px] w-full object-cover object-center"
+                      className="h-[400px] w-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
                     />
                   </div>
                   <div className="space-y-4 pr-2">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-accent">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-accent">
                       {member.role}
                     </p>
-                    <h2 className="font-display text-4xl leading-none text-primary">{member.name}</h2>
-                    <p className="text-sm font-semibold leading-7 text-primary/90">{member.specialty}</p>
-                    <p className="text-sm leading-7 text-primary/80">{member.education}</p>
-                    <p className="text-sm leading-7 text-primary/70">{member.bio}</p>
+                    <h2 className="font-display text-4xl leading-[0.9] text-primary transition-colors group-hover:text-accent">
+                      {member.name}
+                    </h2>
+                    <div className="h-px w-12 bg-accent/20 transition-all group-hover:w-full" />
+                    <p className="text-sm font-bold leading-relaxed text-primary/90">{member.specialty}</p>
+                    <p className="text-sm leading-relaxed text-primary/70">{member.education}</p>
+                    <p className="text-sm italic leading-relaxed text-primary/60">"{member.bio}"</p>
+                    <div className="pt-4">
+                      <Link to="/contato" className="premium-button-new !py-2.5 !px-5 !text-[10px] group/btn">
+                        <span className="btn-text">Agendar com {member.name.split(' ')[0]}</span>
+                        <div className="btn-icon-circle !h-7 !w-7">
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </Reveal>

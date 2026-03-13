@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
+  ArrowRight,
   CalendarClock,
   CheckCircle2,
   Clock3,
@@ -11,6 +12,7 @@ import {
   ShieldCheck,
   Siren,
   Star,
+  Hexagon,
 } from "lucide-react";
 
 import { blogPosts, clinic, services, team } from "@/data/siteContent";
@@ -31,32 +33,45 @@ const latestPosts = blogPosts.slice(0, 3);
 export default function HomePage() {
   return (
     <div className="pb-8 relative overflow-hidden">
-      {/* ─── CINEMATIC OVERLAYS ─── */}
+      {/* ─── DNA LUMINA: BACKGROUND BLOBS ─── */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="bg-blob left-[-10%] top-[10%] bg-accent/20" />
+        <div className="bg-blob right-[-5%] top-[40%] bg-primary/10" style={{ animationDelay: '-5s' }} />
+        <div className="bg-blob left-[20%] bottom-[-10%] bg-accent/10" style={{ animationDelay: '-10s' }} />
+      </div>
+
       <div className="noise-texture" />
 
       {/* ═══════════════════════════════════════════════════════════════
           A. HERO — "A Cena de Abertura" (fullscreen cinematográfico)
           ═══════════════════════════════════════════════════════════════ */}
       <section className="group relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        {/* Cinematic Video Background (WX DIGITAL STANDARD) */}
+        {/* Cinematic Background (Video with Image Fallback) */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <img 
+            src="/hero-fallback.png" 
+            alt="Interior de clínica veterinária de luxo"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          
           <video
             autoPlay
-            muted
             loop
+            muted
             playsInline
-            className="absolute w-full h-full object-cover scale-105 transition-transform duration-[3s] group-hover:scale-110"
+            className="absolute inset-0 h-full w-full object-cover scale-105 transition-transform duration-[3s] group-hover:scale-110 opacity-0 animate-fade-in"
+            onCanPlay={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            <source src="https://player.vimeo.com/progressive_redirect/playback/1004111306/rendition/1080p/file.mp4?loc=external&signature=5f9a6f44ecaf94553535934571060699039ea87311746200678d462193bacc4e" type="video/mp4" />
+            <source src="https://player.vimeo.com/external/6235735.hd.mp4?s=d0b6777c7f717804961502f3a693c067d5e4b6c6&profile_id=175" type="video/mp4" />
           </video>
-          {/* Multi-layer premium protection overlays */}
-          <div className="absolute inset-0 bg-[#0a0809]/60 backdrop-brightness-[0.8] transition-opacity duration-1000 group-hover:opacity-70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 opacity-90" />
+
+          <div className="absolute inset-0 bg-black/10 backdrop-brightness-[1.05] transition-opacity duration-1000 group-hover:opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-white/10 opacity-90" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
-          <div className="absolute inset-0 bg-noise-overlay opacity-20 mix-blend-overlay pointer-events-none" />
+          <div className="absolute inset-0 bg-noise-overlay opacity-10 mix-blend-overlay pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-[5]" />
         </div>
 
-        {/* Cinematic Content — Lumina Rhythm */}
         <div className="relative z-10 w-full px-6 pt-32 pb-16 text-center lg:px-12">
           <div className="mx-auto max-w-5xl">
             <motion.div
@@ -66,7 +81,7 @@ export default function HomePage() {
               className="space-y-10"
             >
               <div className="flex flex-col items-center gap-6">
-                <span className="luxury-chip px-5 py-2 border-white/10 bg-white/[0.04] text-[10px] uppercase tracking-[0.45em] text-white/50 backdrop-blur-xl">
+                <span className="luxury-chip px-5 py-2 border-white/20 bg-black/40 text-[10px] uppercase tracking-[0.45em] text-white backdrop-blur-xl shadow-2xl">
                   {clinic.badge}
                 </span>
                 <div className="h-20 w-[1px] bg-gradient-to-b from-white/20 to-transparent" />
@@ -74,32 +89,39 @@ export default function HomePage() {
 
               <h1 className="font-display text-[3.2rem] font-bold leading-[0.9] tracking-tighter text-white sm:text-[6.5rem] lg:text-[8.5rem] hero-title-shadow">
                 Cuidado & <br />
-                <span className="font-display italic font-light text-white/80">Excelência.</span>
+                <span className="font-display italic font-light text-accent">Excelência.</span>
               </h1>
 
-              <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/50 tracking-[0.05em] uppercase font-medium sm:text-base hero-text-shadow">
+              <p className="mx-auto max-w-2xl text-[16px] leading-[1.6] text-white tracking-[0.05em] font-bold sm:text-lg hero-text-shadow-strong px-4">
                 Medicina veterinária de precisão. <br className="hidden sm:block" />
                 Desenhamos cada detalhe para o bem-estar absoluto do seu pet.
               </p>
 
-              <div className="mt-14 flex flex-row items-center justify-center gap-4 w-full flex-nowrap overflow-x-visible px-4 sm:px-0">
-                <Link to="/contato" className="premium-button flex-1 sm:flex-none justify-center py-4.5 px-8 !text-[11px] uppercase tracking-[0.2em]">
-                  Agendar avaliação
+              <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-2xl mx-auto px-4">
+                <Link to="/contato" className="premium-button-new size-equal shadow-2xl shadow-accent/20 !border-accent/40 bg-accent/20 dark:bg-accent/10">
+                  <span className="btn-text !text-primary dark:!text-white !font-black !text-[12px]">Agendar agora</span>
+                  <div className="btn-icon-circle !bg-primary dark:!bg-white">
+                    <ArrowRight className="h-4 w-4 text-white dark:text-accent" />
+                  </div>
                 </Link>
                 <a 
                   href={clinic.whatsapp} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="premium-button-secondary dark flex-1 sm:flex-none justify-center py-4.5 px-8 !text-[11px] uppercase tracking-[0.2em]"
+                  className="premium-button-new size-equal border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5"
                 >
-                  Falar no WhatsApp
+                   <span className="flex items-center gap-3">
+                     <span className="h-3 w-3 rounded-full bg-[#25D366] shadow-[0_0_10px_#25D366]" />
+                     <span className="btn-text !text-primary dark:!text-white">Chamar no WhatsApp</span>
+                   </span>
                 </a>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Scroll indicator (WX Style) */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" />
+        
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -118,75 +140,56 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <section className="section-shell">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr,0.18fr] lg:items-end">
-            <Reveal>
-              <SectionIntro
-                eyebrow="Especialidades em foco"
-                title="Servicos apresentados com mais criterio, ritmo e valor percebido."
-                description="A home prioriza os atendimentos que melhor posicionam a clinica como referencia local em medicina de familia, prevencao e suporte de maior complexidade."
-              />
+      {/* ═══ DESTAQUES — Pilares de Autoridade ═══ */}
+      <section className="section-shell relative z-10 pt-32 lg:pt-40">
+        <div className="mx-auto max-w-7xl">
+          {/* Section ID (Lumina Style) */}
+          <div className="section-id-deco">
+            <span>01</span>
+            <div />
+            <span>Nossa Especialidade</span>
+          </div>
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <Reveal className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif leading-tight">
+                Cuidado que combina <br />
+                <span className="text-accent italic">ciência e afeto.</span>
+              </h2>
             </Reveal>
-
-            <Reveal delay={0.08} className="flex justify-start lg:justify-end">
-              <Link to="/servicos" className="premium-button-secondary">
-                Ver todos os servicos
-              </Link>
+            <Reveal delay={0.1} className="max-w-xs text-primary/60">
+              <p>Utilizamos medicina diagnóstica de ponta para garantir o bem-estar absoluto do seu pet.</p>
             </Reveal>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredServices.map((service, index) => (
-              <Reveal
-                key={service.slug}
-                delay={index * 0.08}
-                className="card-surface group editorial-frame p-0"
-              >
-                <div className="relative aspect-[16/11] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute left-5 top-5 flex items-center gap-2">
-                    <span className="rounded-full bg-background/90 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.34em] text-primary backdrop-blur-md border border-primary/5">
-                      {service.category}
-                    </span>
+              <Reveal key={service.slug} delay={index * 0.1}>
+                <Link
+                  to={`/servicos/${service.slug}`}
+                  className="glass-hover group flex flex-col h-full rounded-[2.8rem] p-10 transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_45px_100px_-40px_rgba(var(--accent-rgb),0.15)] border border-primary/5"
+                >
+                  <div className="mini-logo-wrapper mb-8 group-hover:rotate-6 group-hover:scale-110">
+                    <Hexagon className="h-6 w-6" />
                   </div>
-                </div>
-                <div className="soft-divider mx-auto w-[85%]" />
-                <div className="space-y-4 p-7">
-                  <div>
-                    <h3 className="font-display text-[2.2rem] leading-none text-primary">
-                      {service.name}
-                    </h3>
-                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">0{index + 1} — critério médico</p>
+                  <h3 className="mb-4 text-3xl font-extrabold text-foreground" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                    {service.name}
+                  </h3>
+                  <p className="flex-1 text-sm leading-relaxed text-foreground/60 italic">
+                    {service.excerpt}
+                  </p>
+                  <div className="mt-8 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-accent opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-2">
+                    VER ESPECIALIDADE <ArrowUpRight className="h-4 w-4 stroke-[3px]" />
                   </div>
-
-                  <div className="rounded-[1.4rem] border border-primary/5 bg-primary/[0.01] px-5 py-5">
-                    <p className="font-mono-data text-[9px] uppercase tracking-[0.3em] text-[hsl(var(--primary)/0.4)]">
-                      indicação clínica
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.66)]">{service.whenToSeek}</p>
-                  </div>
-
-                  <Link
-                    to={`/servicos/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary transition group-hover:text-accent"
-                  >
-                    Ver detalhe do servico
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-primary/[0.02]">
+      {/* ═══ AMBIENTE ═══ */}
+      <section className="section-shell relative z-10">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.84fr,1.16fr] lg:items-center">
           <Reveal className="card-surface overflow-hidden p-4">
             <div className="relative overflow-hidden rounded-[2.3rem]">
@@ -208,6 +211,11 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.12} className="space-y-8">
+            <div className="section-id-deco">
+              <span>02</span>
+              <div />
+              <span>Diferenciais</span>
+            </div>
             <SectionIntro
               eyebrow="Por que Aura Vet"
               title="A uniao entre ciencia, hospitalidade e clareza de processo."
@@ -216,138 +224,92 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {clinic.trustPillars.map((item) => (
-                <div key={item.title} className="metric-card">
+                <div key={item.title} className="glass p-6 rounded-[2rem]">
                   <div className="flex gap-3">
                     <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                     <div>
                       <p className="text-lg font-bold leading-tight text-primary">{item.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.64)]">{item.text}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-primary/60">{item.text}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Link to="/sobre" className="premium-button">
-              Conhecer nossa historia
+            <Link to="/sobre" className="premium-button-new">
+              <span className="btn-text">Conhecer nossa história</span>
+              <div className="btn-icon-circle">
+                 <ArrowRight className="h-4 w-4" />
+              </div>
             </Link>
           </Reveal>
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.02fr,0.98fr] lg:items-start">
-          <Reveal className="space-y-8">
-            <SectionIntro
-              eyebrow="Primeira visita"
-              title="A experiencia premium comeca antes da consulta entrar na sala."
-              description="A jornada do paciente foi organizada para que o tutor entenda o proximo passo, o pet seja recebido com menos estresse e a equipe tenha contexto para conduzir o atendimento com mais precisao."
-            />
-
-            <div className="space-y-4">
-              {clinic.visitSteps.map((item, index) => (
-                <div key={item.title} className="metric-card">
-                  <div className="flex gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white">
-                      {index + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-bold text-primary">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.64)]">{item.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
-            <div className="overflow-hidden rounded-[2.3rem]">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={clinic.media.species}
-                  alt="Paciente filhote em ambiente veterinario acolhedor"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/45 to-transparent" />
-              </div>
-
-              <div className="grid gap-4 p-5 sm:grid-cols-2">
-                {clinic.species.map((item) => (
-                  <div
-                    key={item.name}
-                    className="rounded-[1.45rem] border border-primary/10 bg-[hsl(var(--background)/0.78)] px-4 py-4 backdrop-blur-md"
-                  >
-                    <p className="font-mono-data text-[10px] uppercase tracking-[0.28em] text-[hsl(var(--primary)/0.44)]">
-                      {item.label}
-                    </p>
-                    <h3 className="mt-3 font-display text-[1.9rem] leading-tight text-primary">
-                      {item.name}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.62)]">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-shell bg-primary/[0.02]">
+      {/* ═══ CORPO CLÍNICO ═══ */}
+      <section className="section-shell relative z-10">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 lg:grid-cols-[0.86fr,1.14fr] lg:items-end">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between mb-16">
             <Reveal>
-              <SectionIntro
-                eyebrow="Equipe veterinaria"
-                title="Rostos, especialidades e autoridade apresentados com mais presenca."
-                description="A equipe e tratada como parte central da marca. Isso aumenta confianca, reduz incerteza e faz a clinica parecer pronta para um publico mais exigente."
-              />
+              <div className="section-id-deco">
+                <span>03</span>
+                <div />
+                <span>Nossa Autoridade</span>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-serif max-w-xl">
+                 Equipe técnica focada em <span className="text-accent">diagnóstico de vida.</span>
+              </h2>
             </Reveal>
-
-            <Reveal delay={0.08} className="grid gap-3 sm:grid-cols-2">
-              {clinic.certifications.slice(0, 2).map((item) => (
-                <div key={item} className="metric-card">
-                  <p className="text-sm leading-relaxed text-[hsl(var(--primary)/0.68)]">{item}</p>
+            <Reveal delay={0.2}>
+              <Link to="/equipe" className="premium-button-new">
+                <span className="btn-text">Corpo Clínico</span>
+                <div className="btn-icon-circle">
+                  <ArrowUpRight className="h-4 w-4" />
                 </div>
-              ))}
+              </Link>
             </Reveal>
           </div>
 
-          <div className="mt-12 grid gap-5 xl:grid-cols-3">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {featuredTeam.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.06} className="card-surface overflow-hidden p-4">
-                <div className="overflow-hidden rounded-[1.9rem]">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-[370px] w-full object-cover object-center"
-                  />
-                </div>
-                <div className="space-y-3 px-2 pb-2 pt-5">
-                  <p className="font-mono-data text-[10px] uppercase tracking-[0.3em] text-accent">
-                    {member.role}
-                  </p>
-                  <h3 className="font-display text-[2rem] leading-tight text-primary">{member.name}</h3>
-                  <p className="text-sm font-semibold leading-relaxed text-primary/80">
-                    {member.specialty}
-                  </p>
-                  <p className="text-sm leading-relaxed text-[hsl(var(--primary)/0.62)]">{member.bio}</p>
+              <Reveal key={member.name} delay={index * 0.15}>
+                <div className="group relative overflow-hidden rounded-[2.5rem] transition-all duration-700 hover:-translate-y-3">
+                  <div className="aspect-[4/5] overflow-hidden rounded-[2.5rem]">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-10 text-white">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent/90 mb-2">
+                      {member.role}
+                    </p>
+                    <h3 className="font-display text-3xl font-bold leading-tight">
+                      {member.name}
+                    </h3>
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
-
-          <Reveal className="mt-8 flex justify-center">
-            <Link to="/equipe" className="premium-button-secondary">
-              Ver corpo clinico completo
-            </Link>
-          </Reveal>
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="brand-panel-muted mx-auto max-w-6xl rounded-[2.8rem] border border-white/12 px-6 py-6 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.45)] sm:px-8 lg:px-10 lg:py-10">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr,1.18fr] lg:items-center">
+      {/* ═══ URGÊNCIA ═══ */}
+      <section className="section-shell relative z-10 overflow-hidden bg-primary/5 dark:bg-primary/5 py-24 lg:py-32">
+        {/* Urgent Blobs */}
+        <div className="bg-blob left-[-5%] top-0 bg-primary/5 opacity-20" />
+        
+        <div className="mx-auto max-w-6xl">
+          <div className="section-id-deco !mb-12">
+            <span className="!text-primary/40">04</span>
+            <div className="!bg-primary/10" />
+            <span className="!text-primary/30">Protocolos de Segurança</span>
+          </div>
+          
+          <div className="grid gap-16 lg:grid-cols-[1fr,1.2fr] lg:items-center">
             <Reveal className="card-surface overflow-hidden border-white/10 bg-white/[0.06] p-4">
               <div className="relative overflow-hidden rounded-[2rem]">
                 <img
@@ -368,36 +330,40 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.12} className="space-y-8">
-              <SectionIntro
-                eyebrow="Central de urgencia"
-                title="Agilidade e criterio para momentos em que o tutor nao pode hesitar."
-                description="Sinais de alerta, contato rapido e linguagem objetiva deixam a percepcao da clinica mais forte e ajudam o tutor a agir com confianca."
-                tone="inverse"
-              />
+              <div className="space-y-4">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.4em] text-primary/40">Central de Urgência</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-tight text-primary">
+                  Agilidade médica e <br />
+                  <span className="italic text-accent">critério humanizado.</span>
+                </h2>
+                <p className="max-w-xl text-lg text-primary/60 font-medium">
+                  Protocolos internacionais de triagem para momentos em que a vida não pode esperar.
+                </p>
+              </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {clinic.emergencySignals.map((item) => (
-                  <div key={item.title} className="rounded-[1.7rem] border border-white/10 bg-white/[0.08] p-5">
-                    <div className="flex gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.16] text-white">
+                  <div key={item.title} className="glass p-6 rounded-[1.7rem] border-black/5 dark:border-white/10 dark:bg-white/5">
+                    <div className="flex gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-xl">
                         <Siren className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold leading-tight text-white">{item.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[rgb(255_255_255_/_0.72)]">{item.text}</p>
+                        <h3 className="text-lg font-bold leading-tight text-primary mb-1">{item.title}</h3>
+                        <p className="text-sm leading-relaxed text-primary/50">{item.text}</p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button on-panel">
-                  <Phone className="h-5 w-5" />
-                  Ligar para triagem
+              <div className="flex flex-col gap-4 sm:flex-row pt-4">
+                <a href={`tel:${clinic.emergencyPhone.replace(/\D/g, "")}`} className="premium-button-new !bg-accent !text-white !border-none !py-5 pulse-danger shadow-2xl shadow-accent/40 flex-1">
+                  <Phone className="h-5 w-5 fill-current" />
+                  <span className="btn-text !text-white !text-sm !tracking-widest">LIGAR IMEDIATAMENTE</span>
                 </a>
-                <Link to="/emergencia" className="premium-button-secondary on-panel">
-                  Ver fluxo de socorro
+                <Link to="/emergencia" className="premium-button-new !bg-primary/5 !border-primary/10 !py-5 hover:!bg-primary/10 flex-1">
+                  <span className="btn-text !text-primary/80 !text-sm !tracking-widest">Protocolos de Socorro</span>
                 </Link>
               </div>
             </Reveal>
@@ -405,178 +371,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-shell">
+      {/* ═══ DEPOIMENTOS ═══ */}
+      <section className="section-shell relative z-10">
         <div className="mx-auto max-w-6xl">
           <Reveal>
+            <div className="section-id-deco">
+              <span>05</span>
+              <div />
+              <span>Experiência</span>
+            </div>
             <SectionIntro
               eyebrow="Depoimentos"
-              title="Confiança real reforçada por experiências que fazem sentido para o nicho."
+              title="Confiança real reforçada por experiências que fazem sentido."
               description="O objetivo aqui é mostrar acolhimento, clareza de conduta e segurança médica sem cair em uma narrativa genérica."
             />
           </Reveal>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {clinic.testimonials.map((testimonial, index) => (
-              <Reveal key={testimonial.name} delay={index * 0.06} className="card-surface p-6">
+              <Reveal key={testimonial.name} delay={index * 0.06} className="glass p-8 rounded-[2rem] border-black/5 dark:border-white/10 dark:bg-white/5">
                 <div className="flex items-center gap-1 text-accent">
                   {[0, 1, 2, 3, 4].map((star) => (
                     <Star key={star} className="h-3.5 w-3.5 fill-current" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-primary/70">
+                <p className="mt-4 text-sm leading-relaxed text-primary/80 dark:text-white/70">
                   "{testimonial.quote}"
                 </p>
                 <div className="mt-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 dark:bg-white/10 text-sm font-bold text-primary dark:text-white">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-primary">{testimonial.name}</p>
-                    <p className="text-xs text-accent">{testimonial.role}</p>
+                    <p className="text-sm font-bold text-primary dark:text-white">{testimonial.name}</p>
+                    <p className="text-xs text-accent font-medium tracking-wide">{testimonial.role}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section-shell bg-primary/[0.02]">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr,0.18fr] lg:items-end">
-            <Reveal>
-              <SectionIntro
-                eyebrow="Conteudo e SEO local"
-                title="Artigos que ajudam a clinica a parecer mais util, atual e preparada."
-                description="A secao de conteudo reforca autoridade, amplia oportunidades de busca local e ajuda a demo a parecer pronta para marketing organico."
-              />
-            </Reveal>
-
-            <Reveal delay={0.08} className="flex justify-start lg:justify-end">
-              <Link to="/conteudo" className="premium-button-secondary">
-                Ver blog completo
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {latestPosts.map((post, index) => (
-              <Reveal
-                key={post.slug}
-                delay={index * 0.06}
-                className="card-surface group overflow-hidden p-0"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/12 to-transparent" />
-                  <div className="absolute left-4 top-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
-                    <span className="rounded-full border border-white/20 bg-black/20 px-3 py-1 backdrop-blur-md">
-                      {post.category}
-                    </span>
-                    <span className="rounded-full border border-white/20 bg-black/20 px-3 py-1 font-mono-data backdrop-blur-md">
-                      {post.readTime}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-4 p-6">
-                  <h3 className="font-display text-[2rem] leading-tight text-primary transition-colors group-hover:text-accent">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[hsl(var(--primary)/0.64)]">{post.excerpt}</p>
-                  <Link
-                    to="/conteudo"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary transition group-hover:text-accent"
-                  >
-                    Ler artigo
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr,1.1fr] lg:items-start">
-          <Reveal className="space-y-6">
-            <SectionIntro
-              eyebrow="Perguntas frequentes"
-              title="Transparencia suficiente para o tutor se sentir amparado antes do agendamento."
-              description="Em um nicho sensivel como o veterinario, clareza vale muito. Este bloco antecipa duvidas importantes e reforca organizacao."
-            />
-            <div className="space-y-3">
-              {clinic.highlights.map((item) => (
-                <div key={item} className="metric-card">
-                  <div className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                    <p className="text-sm leading-relaxed text-primary/70">{item}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.12} className="card-surface p-6">
-            <Accordion type="single" collapsible className="space-y-3">
-              {clinic.faqs.map((item, index) => (
-                <AccordionItem
-                  key={item.question}
-                  value={`faq-${index}`}
-                  className="rounded-[1.5rem] border border-primary/10 px-5 py-1"
-                >
-                  <AccordionTrigger className="text-left text-base font-bold text-primary hover:no-underline">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-4 pt-2 text-sm leading-relaxed text-[hsl(var(--primary)/0.62)]">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-shell-tight">
-        <Reveal className="brand-panel mx-auto max-w-6xl rounded-[2.7rem] border border-white/15 px-8 py-12 shadow-[0_40px_120px_-60px_rgba(27,42,48,0.5)] sm:px-10 lg:px-12 lg:py-14">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
-            <div className="space-y-5">
-              <p className="font-mono-data text-[11px] uppercase tracking-[0.34em] text-[rgb(255_255_255_/_0.62)]">
-                contato imediato
-              </p>
-              <h2 className="font-display text-4xl leading-[0.94] text-white sm:text-5xl lg:text-6xl">
-                Uma presenca premium que convida ao agendamento e transmite calma.
-              </h2>
-              <p className="max-w-2xl text-base leading-8 text-[rgb(255_255_255_/_0.76)]">
-                O fechamento da home reforca localizacao, contato e proximidade humana para que a
-                decisao de marcar a consulta pareca natural e segura.
-              </p>
-              <div className="grid gap-3 text-sm text-[rgb(255_255_255_/_0.76)] sm:grid-cols-2">
-                <p className="rounded-[1.4rem] border border-white/10 bg-white/[0.08] px-4 py-4">
-                  {clinic.address}
-                </p>
-                <p className="rounded-[1.4rem] border border-white/10 bg-white/[0.08] px-4 py-4">
-                  {clinic.phone} · {clinic.hours[0]}
-                </p>
+          {/* CTA FINAL DEPOIMENTOS (Para Falar/Agendar redundância) */}
+          <Reveal delay={0.3} className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-8">
+            <Link to="/contato" className="premium-button-new !bg-accent !text-white !border-none !px-10 !py-6 shadow-2xl shadow-accent/30 group">
+              <span className="btn-text !text-white !text-sm !tracking-widest">Agendar Atendimento</span>
+              <div className="btn-icon-circle !bg-white !text-accent shadow-none">
+                <ArrowRight className="h-5 w-5 stroke-[2.5px]" />
               </div>
-            </div>
-
-            <div className="space-y-4">
-              <Link to="/contato" className="premium-button on-panel justify-center">
-                Agendar consulta
-              </Link>
-              <Link to="/emergencia" className="premium-button-secondary on-panel justify-center">
-                Ver central de urgencia
-              </Link>
-            </div>
-          </div>
-        </Reveal>
+            </Link>
+            <a href={clinic.whatsapp} target="_blank" rel="noreferrer" className="premium-button-new !px-10 !py-6 shadow-2xl group">
+              <span className="btn-text !text-sm !tracking-widest">Falar com a Clínica</span>
+              <div className="btn-icon-circle !bg-accent !text-white">
+                <ArrowUpRight className="h-5 w-5 stroke-[2.5px]" />
+              </div>
+            </a>
+          </Reveal>
+        </div>
       </section>
     </div>
   );
