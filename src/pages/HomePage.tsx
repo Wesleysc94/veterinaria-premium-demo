@@ -46,8 +46,9 @@ export default function HomePage() {
             loop
             playsInline
             className="absolute w-full h-full object-cover scale-105 transition-transform duration-[3s] group-hover:scale-110"
-            src="https://player.vimeo.com/external/459389137.hd.mp4?s=875d30a17079a1f07ea3834608b760a5e016f468&profile_id=175&oauth2_token_id=57447761"
-          />
+          >
+            <source src="https://player.vimeo.com/progressive_redirect/playback/1004111306/rendition/1080p/file.mp4?loc=external&signature=5f9a6f44ecaf94553535934571060699039ea87311746200678d462193bacc4e" type="video/mp4" />
+          </video>
           {/* Multi-layer premium protection overlays */}
           <div className="absolute inset-0 bg-[#0a0809]/60 backdrop-brightness-[0.8] transition-opacity duration-1000 group-hover:opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 opacity-90" />
